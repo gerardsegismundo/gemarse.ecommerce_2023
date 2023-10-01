@@ -1,0 +1,56 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+button,
+a {
+  color: inherit;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+html {
+  background-color: black;
+  overflow-x: hidden;
+  font-size: 92%;
+  font-weight: 600;
+  word-spacing: 0.15rem;
+  color: #222222;
+
+  @include media('>phone') {
+    font-size: 94%;
+  }
+
+  @include media('>tablet') {
+    font-size: 96%;
+  }
+
+  @include media('>desktop') {
+    font-size: 98%;
+  }
+
+  @include media('>LGdesktop') {
+    font-size: 100%;
+  }
+}
+
+body {
+  overflow: hidden;
+  min-height: 100%;
+  box-sizing: border-box;
+  font-size: 1.15rem;
+  font-family: 'Poppins', sans-serif;
+}

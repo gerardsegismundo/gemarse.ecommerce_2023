@@ -49,10 +49,11 @@
           display: flex;
           flex-direction: column;
         }
+
         .label-wrapper {
           overflow: hidden;
           grid-column: 1 / span 2;
-          height: 4rem;
+          height: fit-content;
 
           .label {
             font-size: 3rem;

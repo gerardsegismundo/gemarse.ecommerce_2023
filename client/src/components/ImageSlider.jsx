@@ -12,7 +12,7 @@ const ImageSlider = () => {
   const imageTransitions = useTransition(currentSlide, {
     from: { opacity: 0 },
     enter: { opacity: 1 },
-    leave: { opacity: 0 }
+    config: { duration: 750 }
   })
 
   const labelTransitions = useTransition(currentSlide, {

@@ -38,22 +38,33 @@
         grid-template: 1fr 1fr / 1fr 1fr;
         justify-items: center;
         align-items: center;
+        gap: 1rem;
         position: absolute;
         left: 50%;
         top: 90vh;
         transform: translate(-50%, -50vh);
 
+        @include media('<tablet') {
+          display: flex;
+          flex-direction: column;
+        }
+
         .label {
           color: white;
           grid-column: 1 / span 2;
-          margin-bottom: 1rem;
+          // margin-bottom: 1rem;
           text-align: center;
           text-transform: uppercase;
           font-size: 3rem;
         }
 
-        .left-btn {
+        .mens-btn {
           grid-column-start: 1;
+          justify-self: end;
+        }
+
+        .womens-btn {
+          justify-self: baseline;
         }
       }
     }

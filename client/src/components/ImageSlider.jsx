@@ -31,8 +31,8 @@ const ImageSlider = () => {
           <div className='overlay'>
             <div className='banner-content'>
               <h2 className='label'>{sliderData[currentIndex].label}</h2>
-              <button className='left-btn btn-light'>Shop Mens</button>
-              <button className='right-btn btn-transparent'>Shop Women</button>
+              <button className='mens-btn btn-light'>Shop Mens</button>
+              <button className='womens-btn btn-transparent'>Shop Womens</button>
             </div>
           </div>
         </animated.div>

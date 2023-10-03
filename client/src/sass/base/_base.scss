@@ -83,8 +83,8 @@ body {
     text-align: center;
     text-decoration: none;
     border: none;
-    border-radius: 50;
-    clip-path: $squircles;
+    border-radius: 50px;
+    // clip-path: $squircles;
     cursor: pointer;
     transition: all 0.35s ease;
   }

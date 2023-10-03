@@ -3,7 +3,10 @@
   src: url('../../assets/fonts/brand-font.otf');
 }
 
-$font-primary: 'BrandFont';
+$font-primary: 'BrandFont', sans-serif;
+
+$white: #ffffff;
+$light-gray: #e5e5e5;
 $dark-gray: #171717;
 
 $squircles: polygon(

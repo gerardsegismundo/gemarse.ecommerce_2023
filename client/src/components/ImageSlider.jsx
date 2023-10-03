@@ -9,15 +9,21 @@ const ImageSlider = () => {
     setCurrentSlide(index)
   }
 
-  const transitions = useTransition(currentSlide, {
+  const imageTransitions = useTransition(currentSlide, {
     from: { opacity: 0 },
     enter: { opacity: 1 },
     leave: { opacity: 0 }
   })
 
+  const labelTransitions = useTransition(currentSlide, {
+    from: { opacity: 0, transform: 'translateY(-50px)' },
+    enter: { opacity: 1, transform: 'translateY(0px)' },
+    config: { duration: 500, delay: 500 }
+  })
+
   return (
     <div className='image-slider'>
-      {transitions((styles, currentIndex) => (
+      {imageTransitions((styles, currentIndex) => (
         <animated.div
           style={{
             ...styles
@@ -30,7 +36,19 @@ const ImageSlider = () => {
           </div>
           <div className='overlay'>
             <div className='banner-content'>
-              <h2 className='label'>{sliderData[currentIndex].label}</h2>
+              <div className='label-wrapper'>
+                {labelTransitions(labelStyles => (
+                  <animated.h2
+                    className='label'
+                    style={{
+                      opacity: labelStyles.opacity,
+                      transform: labelStyles.transform
+                    }}
+                  >
+                    {sliderData[currentIndex].label}
+                  </animated.h2>
+                ))}
+              </div>
               <button className='mens-btn btn-light'>Shop Mens</button>
               <button className='womens-btn btn-transparent'>Shop Womens</button>
             </div>

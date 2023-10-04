@@ -1,0 +1,18 @@
+.image-carousel {
+  // display: flex;
+  position: relative;
+  height: 50rem;
+  overflow: hidden;
+
+  img {
+    width: 1600px;
+    cursor: grabbing;
+    margin-right: 30px;
+  }
+
+  .prev-btn {
+  }
+}
+
+.next-btn {
+}

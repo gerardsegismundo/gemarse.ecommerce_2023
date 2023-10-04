@@ -32,7 +32,7 @@ const ImageSlider = () => {
           key={currentIndex}
         >
           <div className='image-wrapper'>
-            <img src={sliderData[currentIndex].imgSrc} alt='slider-image' loading='lazy' />
+            <img src={sliderData[currentIndex].imgSrc} alt={sliderData[currentIndex].imgSrc} loading='lazy' />
           </div>
           <div className='overlay'>
             <div className='banner-content'>

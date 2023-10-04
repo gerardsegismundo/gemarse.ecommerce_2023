@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import MobileMenu from './MobileMenu'
-import { ReactComponent as CartIcon } from '../assets/icons/cart.svg'
-import { ReactComponent as UserIcon } from '../assets/icons/user.svg'
+import { ReactComponent as CartIcon } from '../assets/svg/cart.svg'
+import { ReactComponent as UserIcon } from '../assets/svg/user.svg'
 
 const Header = () => {
   return (

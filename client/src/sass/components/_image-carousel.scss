@@ -1,4 +1,6 @@
 .image-carousel {
+  position: relative;
+  transform: translateY(-3rem);
   background-color: $dark-gray;
   width: 100%;
 
@@ -24,6 +26,8 @@
   }
 
   button {
+    top: 50%;
+    position: absolute;
     height: fit-content;
     width: fit-content;
     display: flex;
@@ -35,7 +39,12 @@
     color: $white;
     background-color: rgba($dark-gray, 0.8);
 
-    .prev-btn {
+    &.prev-btn {
+      left: 4vw;
+    }
+
+    &.next-btn {
+      right: 4vw;
     }
   }
 }

@@ -42,7 +42,7 @@
         gap: 1rem;
         position: absolute;
         left: 50%;
-        top: 90vh;
+        top: 98vh;
         transform: translate(-50%, -50vh);
 
         @include media('<tablet') {
@@ -77,7 +77,7 @@
 
   .slider-dots {
     position: absolute;
-    top: 80vh;
+    top: 85vh;
     z-index: 2;
 
     .dot {

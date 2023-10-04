@@ -27,7 +27,7 @@
   }
 
   button {
-    top: 50%;
+    top: calc(50% - 3rem);
     position: absolute;
     height: fit-content;
     width: fit-content;

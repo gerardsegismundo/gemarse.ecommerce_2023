@@ -71,6 +71,10 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+button {
+  border: none;
+}
+
 .btn {
   &-dark,
   &-light,
@@ -83,15 +87,14 @@ body {
     text-decoration: none;
     border: none;
     border-radius: 50px;
-    // clip-path: $squircles;
     cursor: pointer;
     transition: all 0.35s ease;
   }
 
   &-dark {
-    background-color: rgba($dark-gray, 0.9);
+    background-color: $dark-gray;
     color: white;
-    // border: 1px solid rgba(white, 0.1);
+    border: 1px solid rgba($white, 0.1);
 
     &:hover {
       background-color: white;
@@ -108,19 +111,16 @@ body {
     &:hover {
       background-color: white;
       color: $dark-gray;
-      // border: 1px solid rgba($dark-gray, 0.1);
     }
   }
 
   &-light {
     background-color: white;
     color: $dark-gray;
-    // border: 1px solid rgba($dark-gray, 0.1);
 
     &:hover {
       background-color: $dark-gray;
       color: white;
-      // border: 1px solid rgba(white, 0.1);
     }
   }
 }

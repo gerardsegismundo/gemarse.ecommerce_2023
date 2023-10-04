@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSpringCarousel } from 'react-spring-carousel'
 import CarouselItem from './CarouselItem'
-import sliderData from '../assets/data/sliderData'
+import trendingData from '../assets/data/trendingData'
 import { ReactComponent as ChevLeft } from '../assets/svg/chev-left.svg'
 import { ReactComponent as ChevRight } from '../assets/svg/chev-right.svg'
 
@@ -12,9 +12,9 @@ const ImageCarousel = () => {
     enableFreeScrollDrag: true,
     draggingSlideTreshold: 35,
     withLoop: true,
-    items: sliderData.map(({ id, imgSrc }) => ({
-      id,
-      renderItem: <img src={imgSrc} alt={imgSrc} draggable='false' />
+    items: trendingData.map(data => ({
+      id: data.id,
+      renderItem: <CarouselItem props={data} />
     }))
   })
 
@@ -23,7 +23,7 @@ const ImageCarousel = () => {
       <div className='container'>
         <h3>Trending</h3>
       </div>
-      <div className='carousel-fragment'>{carouselFragment}</div>
+      {carouselFragment}
       <button className='prev-btn' onClick={slideToPrevItem}>
         <ChevLeft />
       </button>

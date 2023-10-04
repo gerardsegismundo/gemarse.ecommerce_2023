@@ -13,32 +13,22 @@
     }
   }
 
-  .carousel-fragment {
-    position: relative;
-    height: 50rem;
-    overflow: hidden;
-    cursor: grabbing;
-
-    img {
-      object-fit: cover;
-      width: 600px;
-      margin-right: 30px;
-    }
-  }
-
   button {
-    top: calc(50% - 3rem);
-    position: absolute;
-    height: fit-content;
-    width: fit-content;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    border: 1px solid rgba($dark-gray, 0.5);
-    border-radius: 50%;
-    color: $dark-gray;
-    background-color: rgba($white, 0.8);
+    &.prev-btn,
+    &.next-btn {
+      top: calc(50% - 3rem);
+      position: absolute;
+      height: fit-content;
+      width: fit-content;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+      border: 1px solid rgba($dark-gray, 0.5);
+      border-radius: 50%;
+      color: $dark-gray;
+      background-color: rgba($white, 0.8);
+    }
 
     &.prev-btn {
       left: 4vw;
@@ -47,10 +37,10 @@
     &.next-btn {
       right: 4vw;
     }
+  }
 
-    svg {
-      width: 2rem;
-      height: 2rem;
-    }
+  svg {
+    width: 2rem;
+    height: 2rem;
   }
 }

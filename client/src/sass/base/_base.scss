@@ -43,7 +43,6 @@ a {
 html {
   overflow-x: hidden;
   font-size: 92%;
-  font-weight: 600;
   word-spacing: 0.15rem;
   color: #222222;
 
@@ -124,4 +123,12 @@ body {
       // border: 1px solid rgba(white, 0.1);
     }
   }
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 4vw;
+  padding-right: 4vw;
+  width: 100%;
 }

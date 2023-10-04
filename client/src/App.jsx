@@ -5,7 +5,7 @@ import Header from './components/Headers'
 const App = () => {
   return (
     <div>
-      {/* <Header /> */}
+      <Header />
       <Routes>
         <Route exact={true} path='/' element={<Home />} />
         <Route exact={true} path='/mens' element={<Mens />} />

@@ -8,34 +8,29 @@ import { ReactComponent as ChevRight } from '../assets/svg/chev-right.svg'
 const ImageCarousel = () => {
   const { carouselFragment, slideToPrevItem, slideToNextItem } = useSpringCarousel({
     slideType: 'fluid',
-    slideAmount: 1630,
-    freeScroll: true,
+    slideAmount: 630,
     enableFreeScrollDrag: true,
+    draggingSlideTreshold: 35,
     withLoop: true,
     items: sliderData.map(({ id, imgSrc }) => ({
       id,
-      renderItem: (
-        <CarouselItem>
-          <img src={imgSrc} alt={imgSrc} draggable='false' />
-        </CarouselItem>
-      )
+      renderItem: <img src={imgSrc} alt={imgSrc} draggable='false' />
     }))
   })
 
   return (
-    <>
-      <div className='image-carousel'>
-        <button className='prev-btn' onClick={slideToPrevItem}>
-          <ChevLeft />
-        </button>
-        <div></div>
-        {carouselFragment}
+    <div className='image-carousel'>
+      <div className='container'>
+        <h3>Trending</h3>
       </div>
-
+      <div className='carousel-fragment'>{carouselFragment}</div>
+      <button className='prev-btn' onClick={slideToPrevItem}>
+        <ChevLeft />
+      </button>
       <button className='next-btn' onClick={slideToNextItem}>
         <ChevRight />
       </button>
-    </>
+    </div>
   )
 }
 

@@ -7,7 +7,7 @@ import { ReactComponent as UserIcon } from '../assets/svg/user.svg'
 const Header = () => {
   return (
     <header>
-      <div className='container'>
+      <div className='header-container'>
         <MobileMenu />
         <nav>
           <ul>

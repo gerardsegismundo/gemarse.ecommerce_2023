@@ -1,10 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const CarouselItem = ({ props }) => {
   const { name, imgSrc, color, price, type } = props
+  const [isHovered, setIsHovered] = useState(false)
+
+  const handleMouseEnter = () => setIsHovered(true)
+  const handleMouseLeave = () => setIsHovered(false)
 
   return (
-    <div className='carousel-item'>
+    <div
+      className='carousel-item'
+      data-is-hover={isHovered}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       <img src={imgSrc} alt={imgSrc} draggable='false' />
 
       <div className='quick-add-wrapper'>

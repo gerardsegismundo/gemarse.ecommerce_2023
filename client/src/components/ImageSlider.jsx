@@ -49,7 +49,7 @@ const ImageSlider = () => {
                   </animated.h2>
                 ))}
               </div>
-              <button className='mens-btn btn-light'>Shop Mens</button>
+              <button className='mens-btn btn-light no-border'>Shop Mens</button>
               <button className='womens-btn btn-transparent'>Shop Womens</button>
             </div>
           </div>

@@ -4,7 +4,16 @@ import MobileMenu from './MobileMenu'
 import { ReactComponent as CartIcon } from '../assets/svg/cart.svg'
 import { ReactComponent as UserIcon } from '../assets/svg/user.svg'
 
+import { useDispatch } from 'react-redux'
+import { setCartDrawerIsClosed } from '../redux/counterSlice'
+
 const Header = () => {
+  const dispatch = useDispatch()
+
+  const handleOpenCart = () => {
+    dispatch(setCartDrawerIsClosed(false))
+  }
+
   return (
     <header>
       <div className='header-container'>
@@ -28,7 +37,7 @@ const Header = () => {
           </Link>
         </h1>
         <div className='actions'>
-          <CartIcon />
+          <CartIcon onClick={handleOpenCart} />
           <UserIcon />
         </div>
       </div>

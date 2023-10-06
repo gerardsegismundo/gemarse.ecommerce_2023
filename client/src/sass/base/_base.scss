@@ -73,6 +73,10 @@ body {
 
 button {
   border: none;
+
+  &.no-border {
+    border: none;
+  }
 }
 
 .btn {
@@ -132,8 +136,4 @@ button {
   padding-left: 4vw;
   padding-right: 4vw;
   width: 100%;
-}
-
-.quick-add-wrapper {
-  z-index: 0 !important;
 }

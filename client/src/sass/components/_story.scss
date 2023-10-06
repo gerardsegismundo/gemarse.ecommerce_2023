@@ -1,4 +1,9 @@
 .story {
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+  background-color: rgba($dark-gray, 0.03);
+  background-color: $light;
+
   .container {
     h3 {
       text-transform: uppercase;
@@ -7,13 +12,22 @@
 
     .gallery-grid {
       display: grid;
-      grid-template-columns: 25% 25% 50%;
+      grid-template-columns: 1fr 1fr 50%;
       grid-template-rows: 1fr 1fr;
       grid-template-areas:
-        'gift-card faq about'
-        'contact delivery-returns about';
+        'gift-card faq .'
+        'contact delivery-returns .';
       grid-auto-rows: minmax(50rem, 80rem);
       gap: 2rem;
+
+      @include media('<tablet') {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 50%;
+        grid-template-areas:
+          'gift-card faq'
+          'contact delivery-returns'
+          'about about';
+      }
 
       a {
         overflow: hidden;
@@ -37,6 +51,10 @@
         &:nth-of-type(5) {
           grid-area: 1 / 3 / 3 / 3;
           max-height: 100rem;
+
+          @include media('<tablet') {
+            grid-area: about;
+          }
         }
 
         &:not(:last-of-type) {
@@ -44,10 +62,19 @@
         }
 
         img {
-          height: calc(20rem + 10vw);
-          // height: 80%;
+          height: calc(100% - 4rem);
           width: 100%;
           object-fit: cover;
+        }
+
+        p {
+          margin-top: 1rem;
+          opacity: 0.8;
+          font-size: $font-small;
+        }
+
+        h4 {
+          margin-top: 0.5rem;
         }
       }
     }

@@ -117,6 +117,7 @@ button {
   &-light {
     background-color: white;
     color: $dark-gray;
+    border: 1px solid $dark-gray;
 
     &:hover {
       background-color: $dark-gray;
@@ -131,4 +132,8 @@ button {
   padding-left: 4vw;
   padding-right: 4vw;
   width: 100%;
+}
+
+.quick-add-wrapper {
+  z-index: 0 !important;
 }

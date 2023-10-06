@@ -4,7 +4,7 @@
   justify-content: center;
   gap: 10rem;
   padding-top: 5rem;
-  padding-bottom: 5rem;
+  padding-bottom: 7rem;
 
   @include media('<tablet') {
     flex-direction: column;
@@ -21,8 +21,8 @@
     }
 
     p {
-      font-size: 12px;
-      color: $dark-gray-1;
+      font-size: $font-small;
+      opacity: 0.8;
     }
   }
 
@@ -31,10 +31,10 @@
     max-width: 40rem;
 
     .input-group {
-      width: 100%;
       position: relative;
       margin-bottom: 2rem;
       border-bottom: 1px solid $dark-gray;
+      width: 100%;
 
       input:focus,
       input[data-filled='true'] {
@@ -87,9 +87,9 @@
       }
 
       button {
+        margin-left: auto;
         text-transform: uppercase;
         background: transparent;
-        margin-left: auto;
         font-weight: 600;
         font-size: 1.1rem;
       }

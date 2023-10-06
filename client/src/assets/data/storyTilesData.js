@@ -13,19 +13,27 @@ const storyTilesData = [
   },
   {
     to: '/faq',
-    imgSrc: FAQs
+    imgSrc: FAQs,
+    message: 'Got questions?',
+    title: 'FAQs'
   },
   {
     to: '/contact',
-    imgSrc: ContactUs
+    imgSrc: ContactUs,
+    message: 'Need help?',
+    title: 'Contact Us'
   },
   {
     to: '/delivery-returns',
-    imgSrc: DeliveriesReturn
+    imgSrc: DeliveriesReturn,
+    message: 'Our process',
+    title: 'Deliveries & returns'
   },
   {
     to: 'about-us',
-    imgSrc: AboutUs
+    imgSrc: AboutUs,
+    message: 'Read the Germase story',
+    title: 'About us'
   }
 ]
 

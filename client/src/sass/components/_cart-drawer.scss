@@ -36,8 +36,7 @@
     right: 0;
     height: 100vh;
     width: 35rem;
-    background-color: white;
-    overflow: visible;
+    background-color: $white;
     border-left: 1px solid $light-gray;
 
     .cart-header {
@@ -56,8 +55,80 @@
       }
     }
 
-    // .cart-items {
-    // }
+    .cart-items {
+      overflow-x: hidden;
+      overflow-y: scroll;
+      padding: 2rem;
+
+      &::-webkit-scrollbar {
+        width: 0.75rem;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: $light-gray;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: rgba($dark-gray, 0.5);
+        border-radius: 10px;
+      }
+
+      .item {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        height: 10rem;
+        align-items: center;
+        overflow: hidden;
+
+        img {
+          height: 100%;
+          width: 17rem;
+          object-fit: cover;
+        }
+
+        &-details {
+          width: 100%;
+
+          p {
+            line-height: 1.6rem;
+
+            &.name {
+              color: $dark-gray-1;
+              font-size: $font-medium;
+              text-transform: capitalize;
+            }
+
+            &.size {
+              color: $dark-gray-1;
+              font-size: $font-small;
+              margin-bottom: 0.5rem;
+            }
+
+            &.price {
+              font-weight: 600;
+              margin-bottom: 1rem;
+            }
+          }
+
+          input {
+            width: 3rem;
+          }
+
+          button {
+            margin-left: auto;
+            background-color: transparent;
+            text-decoration: underline;
+            opacity: 0.8;
+
+            &:hover {
+              opacity: 1;
+              transition: opacity 0.3s ease;
+            }
+          }
+        }
+      }
+    }
 
     .cart-footer {
       width: 100%;
@@ -65,8 +136,7 @@
       margin-top: auto;
       border-top: 1px solid $light-gray;
 
-      .flex-wrapper {
-        display: flex;
+      .d-flex {
         margin-bottom: 1.5rem;
 
         h4 {

@@ -6,24 +6,6 @@
   box-sizing: inherit;
 }
 
-* {
-  scrollbar-width: auto;
-  scrollbar-color: #efefef;
-}
-
-*::-webkit-scrollbar {
-  width: 10px;
-}
-
-*::-webkit-scrollbar-track {
-  background: #2b2b2b;
-}
-
-*::-webkit-scrollbar-thumb {
-  background-color: #efefef;
-  border-radius: 10px;
-}
-
 a {
   text-decoration: none;
 }
@@ -41,7 +23,6 @@ a {
 }
 
 html {
-  overflow-x: hidden;
   font-size: 92%;
   word-spacing: 0.15rem;
   color: #222222;
@@ -64,11 +45,31 @@ html {
 }
 
 body {
-  overflow: hidden;
+  overflow-x: hidden;
   min-height: 100%;
   box-sizing: border-box;
   font-size: 1.15rem;
   font-family: 'Poppins', sans-serif;
+
+  scrollbar-width: auto;
+  scrollbar-color: #efefef;
+
+  &.disable-scrollbar {
+    overflow-y: hidden;
+  }
+
+  &::-webkit-scrollbar {
+    width: 0.75rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba($dark-gray, 0.9);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba($white, 0.2);
+    border-radius: 10px;
+  }
 }
 
 button {
@@ -137,4 +138,24 @@ button {
   padding-left: 4vw;
   padding-right: 4vw;
   width: 100%;
+}
+
+.d-flex {
+  display: flex;
+}
+
+input[type='number'] {
+  width: 45px;
+  height: 42px;
+  line-height: 1.65;
+  float: left;
+  display: block;
+  padding: 0;
+  margin: 0;
+  padding-left: 20px;
+  border: 1px solid #eee;
+
+  &:focus {
+    outline: 0;
+  }
 }

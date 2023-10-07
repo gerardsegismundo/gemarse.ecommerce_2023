@@ -1,27 +1,37 @@
 import React, { useState } from 'react'
 import SizeButton from './SizeButton'
+import { useDispatch } from 'react-redux'
+import { addToCart, setCartDrawerIsOpen } from '../redux/actions'
 
 const CarouselItem = ({ props }) => {
   const { id, name, imgSrc, color, price, type, quantity } = props
+  const dispatch = useDispatch()
   const [isHovered, setIsHovered] = useState(false)
   const [selectedSize, setSelectedSize] = useState(null)
 
+  const sizes = ['XS', 'S', 'M', 'L', 'XL']
+  const isAccessories = type === 'accessories'
+
+  const isSoldOut = (() => {
+    if (isAccessories) return quantity === 0
+    return Object.values(quantity).every(qty => qty === 0)
+  })()
+
   const handleMouseEnter = () => setIsHovered(true)
   const handleMouseLeave = () => setIsHovered(false)
-
   const handleSizeClick = size => setSelectedSize(size)
 
   const handleAddToCart = () => {
-    if (!selectedSize) return
-    console.log({ id, size: selectedSize })
+    if (isAccessories) {
+      console.log({ id, name, imgSrc, price, quantity })
+      dispatch(addToCart({ id, name, imgSrc, price, quantity }))
+      dispatch(setCartDrawerIsOpen(true))
+    } else if (selectedSize) {
+      console.log({ id, name, imgSrc, price, quantity, size: selectedSize })
+      dispatch(addToCart({ id, name, imgSrc, price, quantity, size: selectedSize }))
+      dispatch(setCartDrawerIsOpen(true))
+    }
   }
-
-  const sizes = ['XS', 'S', 'M', 'L', 'XL']
-
-  const isSoldOut = (() => {
-    if (type === 'accessories') return quantity === 0
-    return Object.values(quantity).every(qty => qty === 0)
-  })()
 
   return (
     <div
@@ -35,7 +45,7 @@ const CarouselItem = ({ props }) => {
       <div className='quick-add-wrapper'>
         <div className='quick-add'>
           <p className='message'>Quick add - ${price}</p>
-          {type !== 'accessories' && !isSoldOut && (
+          {!isAccessories && !isSoldOut && (
             <div className='sizes'>
               {sizes.map(size => (
                 <SizeButton

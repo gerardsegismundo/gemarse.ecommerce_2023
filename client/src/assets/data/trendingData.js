@@ -23,7 +23,14 @@ const trendingData = [
     color: 'black',
     price: 78.99,
     category: 'men',
-    type: 'pants'
+    type: 'pants',
+    quantity: {
+      XS: 0,
+      S: 2,
+      M: 0,
+      L: 0,
+      XL: 3
+    }
   },
   {
     id: 2,
@@ -32,7 +39,14 @@ const trendingData = [
     color: 'black',
     price: 24.99,
     category: 'men',
-    type: 'shirt'
+    type: 'shirt',
+    quantity: {
+      XS: 5,
+      S: 10,
+      M: 0,
+      L: 15,
+      XL: 30
+    }
   },
   {
     id: 3,
@@ -41,7 +55,8 @@ const trendingData = [
     color: 'black',
     price: 56.99,
     category: 'men',
-    type: 'accessories'
+    type: 'accessories',
+    quantity: 0
   },
   {
     id: 4,
@@ -50,7 +65,8 @@ const trendingData = [
     color: 'brown',
     price: 243.99,
     category: 'women',
-    type: 'accessories'
+    type: 'accessories',
+    quantity: 5
   },
   {
     id: 5,
@@ -59,7 +75,14 @@ const trendingData = [
     color: 'white',
     price: 67.99,
     category: 'men',
-    type: 'pants'
+    type: 'pants',
+    quantity: {
+      XS: 0,
+      S: 0,
+      M: 0,
+      L: 0,
+      XL: 8
+    }
   },
   {
     id: 6,
@@ -68,7 +91,14 @@ const trendingData = [
     color: 'gray',
     price: 78.99,
     category: 'men',
-    type: 'pants'
+    type: 'pants',
+    quantity: {
+      XS: 0,
+      S: 0,
+      M: 0,
+      L: 0,
+      XL: 0
+    }
   },
   {
     id: 7,
@@ -77,7 +107,14 @@ const trendingData = [
     color: 'black',
     price: 154.99,
     category: 'mens',
-    type: 'jackets'
+    type: 'jackets',
+    quantity: {
+      XS: 5,
+      S: 10,
+      M: 0,
+      L: 15,
+      XL: 30
+    }
   },
   {
     id: 8,
@@ -86,7 +123,14 @@ const trendingData = [
     color: 'black',
     price: 58.99,
     category: 'womens',
-    type: 'leggings'
+    type: 'leggings',
+    quantity: {
+      XS: 0,
+      S: 0,
+      M: 0,
+      L: 0,
+      XL: 0
+    }
   },
   {
     id: 9,
@@ -95,7 +139,14 @@ const trendingData = [
     color: 'navy',
     price: 34.99,
     category: 'mens',
-    type: 'shirt'
+    type: 'shirt',
+    quantity: {
+      XS: 5,
+      S: 10,
+      M: 0,
+      L: 15,
+      XL: 30
+    }
   },
   {
     id: 10,
@@ -104,7 +155,14 @@ const trendingData = [
     color: 'navy',
     price: 87.99,
     category: 'mens',
-    type: 'suits'
+    type: 'suits',
+    quantity: {
+      XS: 5,
+      S: 10,
+      M: 0,
+      L: 15,
+      XL: 30
+    }
   },
   {
     id: 11,
@@ -113,7 +171,14 @@ const trendingData = [
     color: 'blue',
     price: 26.99,
     category: 'mens',
-    type: 'shirts'
+    type: 'shirts',
+    quantity: {
+      XS: 5,
+      S: 10,
+      M: 0,
+      L: 15,
+      XL: 30
+    }
   },
   {
     id: 12,
@@ -122,7 +187,8 @@ const trendingData = [
     color: 'purple',
     price: 12.99,
     category: 'mens',
-    type: 'accessories'
+    type: 'accessories',
+    quantity: 0
   },
   {
     id: 13,
@@ -131,7 +197,14 @@ const trendingData = [
     color: 'pink',
     price: 23.99,
     category: 'womens',
-    type: 'shorts'
+    type: 'shorts',
+    quantity: {
+      XS: 5,
+      S: 10,
+      M: 0,
+      L: 15,
+      XL: 30
+    }
   },
   {
     id: 14,
@@ -140,7 +213,14 @@ const trendingData = [
     color: 'black',
     price: 39.99,
     category: 'mens',
-    type: 'shirt'
+    type: 'shirt',
+    quantity: {
+      XS: 5,
+      S: 10,
+      M: 0,
+      L: 15,
+      XL: 30
+    }
   },
   {
     id: 15,
@@ -149,7 +229,14 @@ const trendingData = [
     color: 'navy',
     price: 25.99,
     category: 'mens',
-    type: 'shorts'
+    type: 'shorts',
+    quantity: {
+      XS: 5,
+      S: 10,
+      M: 0,
+      L: 15,
+      XL: 30
+    }
   },
   {
     id: 16,
@@ -158,7 +245,8 @@ const trendingData = [
     color: 'black',
     price: 17.99,
     category: 'mens',
-    type: 'accessories'
+    type: 'accessories',
+    quantity: 0
   }
 ]
 

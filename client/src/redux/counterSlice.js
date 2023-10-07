@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const uiState = {
-  cartDrawerIsClosed: 0
+  cartDrawerIsClosed: true
 }
 
 const uiReducers = {
@@ -12,7 +12,7 @@ const uiReducers = {
 
 export const counterSlice = createSlice({
   name: 'counter',
-  initialState: { uiState },
+  initialState: { ...uiState },
   reducers: { ...uiReducers }
 })
 

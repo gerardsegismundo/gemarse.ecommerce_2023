@@ -29,7 +29,6 @@
       position: absolute;
       left: 50%;
       top: 50%;
-      // transform: translate(-50%, calc(-50% - 10vh));
       transform: translate(-50%, -50%);
       width: 100%;
       height: 100%;
@@ -43,9 +42,7 @@
         gap: 1rem;
         position: absolute;
         left: 50%;
-        // top: 93vh;
-        // top: calc(100vh + -5rem);
-        top: calc(100vh + -5rem);
+        top: calc(93vh + -5rem);
         transform: translate(-50%, -50vh);
 
         @include media('<tablet') {
@@ -66,13 +63,18 @@
           }
         }
 
-        .mens-btn {
-          grid-column-start: 1;
-          justify-self: end;
-        }
+        button {
+          width: 12rem;
+          height: 3rem;
 
-        .womens-btn {
-          justify-self: baseline;
+          &.mens-btn {
+            grid-column-start: 1;
+            justify-self: end;
+          }
+
+          &.womens-btn {
+            justify-self: baseline;
+          }
         }
       }
     }

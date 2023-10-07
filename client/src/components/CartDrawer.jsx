@@ -1,4 +1,3 @@
-import React from 'react'
 import { ReactComponent as CloseIcon } from '../assets/svg/close.svg'
 
 import { useSelector, useDispatch } from 'react-redux'

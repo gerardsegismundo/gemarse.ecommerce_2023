@@ -20,6 +20,13 @@
     }
   }
 
+  h3.sold-out {
+    color: $dark-gray;
+    background-color: rgba($white, 0.5);
+    position: absolute;
+    padding: 1rem;
+  }
+
   img {
     pointer-events: none;
     z-index: -1;
@@ -60,27 +67,46 @@
       }
 
       p.message {
-        margin-bottom: 1rem;
+        margin-bottom: 2rem;
+        font-size: $font-medium;
       }
 
-      .button-group {
-        margin-bottom: 1rem;
+      .sizes {
+        margin-bottom: 2rem;
 
-        .btn-size {
-          background-color: $white;
+        .size {
+          display: inline-block;
+          background-color: rgba($white, 0.5);
           color: $dark-gray;
-          width: 2.5rem;
-          height: 2.5rem;
+          width: 3.5rem;
+          height: 3.5rem;
+          align-items: center;
+          justify-content: center;
+          display: inline-flex;
           border-radius: 0.5rem;
+          border: 2px solid rgba($dark-gray, 0.8);
+
+          &.selected {
+            background-color: $dark-gray;
+            color: $white;
+            transition: all 0.3s ease;
+          }
+
+          &.out-of-stock {
+            cursor: auto;
+            opacity: 0.3;
+          }
 
           &:not(:last-of-type) {
             margin-right: 0.5rem;
           }
 
           &:hover {
-            background-color: $dark-gray;
-            color: $white;
-            transition: all 0.3s ease;
+            &:not(.selected) {
+              background-color: rgba($white, 1);
+
+              transition: all 0.8s ease;
+            }
           }
         }
       }

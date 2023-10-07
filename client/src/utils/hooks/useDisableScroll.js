@@ -1,12 +1,12 @@
 import { useEffect } from 'react'
 
-const useDisableScroll = isEnabled => {
+const useDisableScroll = cartDrawerIsOpen => {
   useEffect(() => {
-    if (isEnabled) document.body.classList.add('disable-scrollbar')
+    if (cartDrawerIsOpen) document.body.classList.add('disable-scrollbar')
     else document.body.classList.remove('disable-scrollbar')
 
     return () => document.body.classList.remove('disable-scrollbar')
-  }, [isEnabled])
+  }, [cartDrawerIsOpen])
 }
 
 export default useDisableScroll

@@ -85,6 +85,7 @@
           height: 100%;
           width: 17rem;
           object-fit: cover;
+          overflow: hidden;
         }
 
         &-details {
@@ -109,10 +110,6 @@
               font-weight: 600;
               margin-bottom: 1rem;
             }
-          }
-
-          input {
-            width: 3rem;
           }
 
           button {

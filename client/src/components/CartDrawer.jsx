@@ -4,7 +4,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import { setCartDrawerIsOpen } from '../redux/actions'
 
 import trendingData from '../assets/data/trendingData'
-import { useEffect } from 'react'
+import CustomInputNumber from './CustomInputNumber'
+import useDisableScroll from '../utils/hooks/useDisableScroll'
 
 const CartDrawer = () => {
   const { cartDrawerIsOpen } = useSelector(state => state.ui)
@@ -13,16 +14,11 @@ const CartDrawer = () => {
 
   const handleCloseCart = () => dispatch(setCartDrawerIsOpen(false))
 
-  useEffect(() => {
-    if (cartDrawerIsOpen) {
-      document.body.classList.add('disable-scrollbar')
-    } else {
-      document.body.classList.remove('disable-scrollbar')
-    }
-  }, [cartDrawerIsOpen])
+  useDisableScroll()
 
   return (
-    <div className='cart-drawer' data-is-open={true}>
+    // <div className='cart-drawer' data-is-open={true}>
+    <div className='cart-drawer' data-is-open={cartDrawerIsOpen}>
       <div className='drawer'>
         <div className='cart-header'>
           <h4>My Cart</h4>
@@ -30,23 +26,39 @@ const CartDrawer = () => {
         </div>
         <div className='cart-items'>
           {
-            /* cartItems &&
-            cartItems.map */
-            trendingData.map(c => (
-              <div className='item' key={c.id}>
-                <img src={c.imgSrc} alt={c.imgSrc} loading='lazy' />
-                <div className='item-details'>
-                  <p className='name'>{c.name}</p>
-                  <p className='size'>Extra Small</p>
-                  {/* {c.type !== 'accessories' && <p className='size'>{c.size}</p>} */}
-                  <p className='price'>${c.price}</p>
-                  <div className='d-flex'>
-                    <input type='number' value='1' name='quantity' max={c.quantity} />
-                    <button>Remove</button>
+            cartItems &&
+              cartItems.map(c => (
+                <div className='item' key={c.id}>
+                  <img src={c.imgSrc} alt={c.imgSrc} loading='lazy' />
+                  <div className='item-details'>
+                    <p className='name'>{c.name}</p>
+                    <p className='size'>Extra Small</p>
+                    {/* {c.type !== 'accessories' && <p className='size'>{c.size}</p>} */}
+                    <p className='price'>${c.price}</p>
+                    <div className='d-flex'>
+                      {/* <input type='number' value='1' name='quantity' max={c.quantity} /> */}
+                      <CustomInputNumber max={c.quantity} />
+                      <button>Remove</button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))
+              ))
+            // trendingData.map(c => (
+            //   <div className='item' key={c.id}>
+            //     <img src={c.imgSrc} alt={c.imgSrc} loading='lazy' />
+            //     <div className='item-details'>
+            //       <p className='name'>{c.name}</p>
+            //       <p className='size'>Extra Small</p>
+            //       {/* {c.type !== 'accessories' && <p className='size'>{c.size}</p>} */}
+            //       <p className='price'>${c.price}</p>
+            //       <div className='d-flex'>
+            //         {/* <input type='number' value='1' name='quantity' max={c.quantity} /> */}
+            //         <CustomInputNumber max={c.max} />
+            //         <button>Remove</button>
+            //       </div>
+            //     </div>
+            //   </div>
+            // ))
           }
         </div>
 

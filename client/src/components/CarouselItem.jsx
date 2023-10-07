@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import SizeButton from './SizeButton'
 
 const CarouselItem = ({ props }) => {
-  const { name, imgSrc, color, price, type, quantity } = props
+  const { id, name, imgSrc, color, price, type, quantity } = props
   const [isHovered, setIsHovered] = useState(false)
   const [selectedSize, setSelectedSize] = useState(null)
 
@@ -10,6 +10,11 @@ const CarouselItem = ({ props }) => {
   const handleMouseLeave = () => setIsHovered(false)
 
   const handleSizeClick = size => setSelectedSize(size)
+
+  const handleAddToCart = () => {
+    if (!selectedSize) return
+    console.log({ id, size: selectedSize })
+  }
 
   const sizes = ['XS', 'S', 'M', 'L', 'XL']
 
@@ -43,7 +48,9 @@ const CarouselItem = ({ props }) => {
               ))}
             </div>
           )}
-          <button className='btn-dark'>{isSoldOut ? 'Email me when back in stock' : 'Add to Cart'}</button>
+          <button className='btn-dark' onClick={handleAddToCart}>
+            {isSoldOut ? 'Email me when back in stock' : 'Add to Cart'}
+          </button>
         </div>
       </div>
       <div className='content'>

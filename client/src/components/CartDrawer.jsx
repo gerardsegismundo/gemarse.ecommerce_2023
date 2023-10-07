@@ -1,16 +1,16 @@
 import { ReactComponent as CloseIcon } from '../assets/svg/close.svg'
 
 import { useSelector, useDispatch } from 'react-redux'
-import { setCartDrawerIsClosed } from '../redux/counterSlice'
+import { setCartDrawerIsOpen } from '../redux/actions'
 
 const CartDrawer = () => {
-  const cartDrawerIsClosed = useSelector(state => state.counter.cartDrawerIsClosed)
+  const cartDrawerIsOpen = useSelector(state => state.ui.cartDrawerIsOpen)
   const dispatch = useDispatch()
 
-  const handleCloseCart = () => dispatch(setCartDrawerIsClosed(true))
+  const handleCloseCart = () => dispatch(setCartDrawerIsOpen(false))
 
   return (
-    <div className='cart-drawer' data-is-closed={cartDrawerIsClosed}>
+    <div className='cart-drawer' data-is-open={cartDrawerIsOpen}>
       <div className='drawer'>
         <div className='cart-header'>
           <h4>My Cart</h4>

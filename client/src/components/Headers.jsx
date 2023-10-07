@@ -5,14 +5,12 @@ import { ReactComponent as CartIcon } from '../assets/svg/cart.svg'
 import { ReactComponent as UserIcon } from '../assets/svg/user.svg'
 
 import { useDispatch } from 'react-redux'
-import { setCartDrawerIsClosed } from '../redux/counterSlice'
+import { setCartDrawerIsOpen } from '../redux/actions'
 
 const Header = () => {
   const dispatch = useDispatch()
 
-  const handleOpenCart = () => {
-    dispatch(setCartDrawerIsClosed(false))
-  }
+  const handleOpenCart = () => dispatch(setCartDrawerIsOpen(true))
 
   return (
     <header>

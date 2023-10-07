@@ -6,14 +6,14 @@
   height: 100vh;
   width: 100vw;
 
-  &[data-is-closed='false'] {
+  &[data-is-open='true'] {
     .drawer {
       transform: translateX(0rem);
       transition: transform 0.8s $cubic-bezier;
     }
   }
 
-  &[data-is-closed='true'] {
+  &[data-is-open='false'] {
     height: 0vh;
     width: 0vw;
 

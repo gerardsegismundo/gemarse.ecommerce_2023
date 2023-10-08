@@ -23,10 +23,20 @@ const CarouselItem = ({ props }) => {
 
   const handleAddToCart = () => {
     if (isAccessories) {
-      dispatch(addToCart({ id, name, imgSrc, price, stock }))
+      dispatch(addToCart({ id, name, imgSrc, price, stock, quantity: 1 }))
       dispatch(setCartDrawerIsOpen(true))
     } else if (selectedSize) {
-      dispatch(addToCart({ id, name, imgSrc, price, stock: stock[selectedSize], size: selectedSize, quantity: 1 }))
+      dispatch(
+        addToCart({
+          id: id + selectedSize,
+          name,
+          imgSrc,
+          price,
+          stock: stock[selectedSize],
+          size: selectedSize,
+          quantity: 1
+        })
+      )
       dispatch(setCartDrawerIsOpen(true))
     }
   }

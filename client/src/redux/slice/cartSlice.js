@@ -1,8 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
+import findItemIndexById from '../../utils/helpers/findItemByIndex'
+import toFixedNumber from '../../utils/helpers/toFixedNumber'
 
 const initialState = {
   cartItems: [],
-  total: 0
+  totalPrice: 0
 }
 
 export const cartSlice = createSlice({
@@ -10,33 +12,44 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action) => {
-      const itemId = action.payload.id
+      const newItem = action.payload
+      const itemId = newItem.id
 
-      const itemIndex = state.cartItems.findIndex(i => i.id === itemId)
+      const itemIndex = findItemIndexById(state.cartItems, itemId)
 
       if (itemIndex >= 0) {
-        state.cartItems = state.cartItems.map(item =>
-          item.id === itemId ? { ...item, quantity: item.quantity + 1 } : item
-        )
+        state.cartItems[itemIndex].quantity += 1
       } else {
-        state.cartItems = [...state.cartItems, action.payload]
+        state.cartItems.push(newItem)
       }
+
+      state.totalPrice = toFixedNumber(state.totalPrice + newItem.price, 2)
     },
-    updateItemQuantity: (state, action) => {
-      const { itemId, newQuantity } = action.payload
 
-      const itemIndex = state.cartItems.findIndex(i => i.id === itemId)
+    incrementItem: (state, action) => {
+      const itemId = action.payload
 
-      const updatedItem = { ...state.cartItems[itemIndex], quantity: newQuantity }
+      const itemIndex = findItemIndexById(state.cartItems, itemId)
 
-      state.cartItems[itemIndex] = updatedItem
+      state.cartItems[itemIndex].quantity += 1
+      state.totalPrice = toFixedNumber(state.totalPrice + state.cartItems[itemIndex].price, 2)
     },
+
+    decrementItem: (state, action) => {
+      const itemId = action.payload
+
+      const itemIndex = findItemIndexById(state.cartItems, itemId)
+
+      state.cartItems[itemIndex].quantity -= 1
+      state.totalPrice = toFixedNumber(state.totalPrice - state.cartItems[itemIndex].price, 2)
+    },
+
     removeFromCart: (state, action) => {
       state.cartItems = state.cartItems.filter(item => item.id !== action.payload)
     }
   }
 })
 
-export const { addToCart, removeFromCart, updateItemQuantity } = cartSlice.actions
+export const { addToCart, removeFromCart, incrementItem, decrementItem } = cartSlice.actions
 
 export default cartSlice.reducer

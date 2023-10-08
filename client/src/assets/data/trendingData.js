@@ -56,7 +56,7 @@ const trendingData = [
     price: 56.99,
     category: 'men',
     type: 'accessories',
-    stock: 0
+    stock: 1
   },
   {
     id: 4,

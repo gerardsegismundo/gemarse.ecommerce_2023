@@ -24,7 +24,7 @@ const trendingData = [
     price: 78.99,
     category: 'men',
     type: 'pants',
-    quantity: {
+    stock: {
       XS: 0,
       S: 2,
       M: 0,
@@ -40,7 +40,7 @@ const trendingData = [
     price: 24.99,
     category: 'men',
     type: 'shirt',
-    quantity: {
+    stock: {
       XS: 5,
       S: 10,
       M: 0,
@@ -56,7 +56,7 @@ const trendingData = [
     price: 56.99,
     category: 'men',
     type: 'accessories',
-    quantity: 0
+    stock: 0
   },
   {
     id: 4,
@@ -66,7 +66,7 @@ const trendingData = [
     price: 243.99,
     category: 'women',
     type: 'accessories',
-    quantity: 5
+    stock: 5
   },
   {
     id: 5,
@@ -76,7 +76,7 @@ const trendingData = [
     price: 67.99,
     category: 'men',
     type: 'pants',
-    quantity: {
+    stock: {
       XS: 0,
       S: 0,
       M: 0,
@@ -92,7 +92,7 @@ const trendingData = [
     price: 78.99,
     category: 'men',
     type: 'pants',
-    quantity: {
+    stock: {
       XS: 0,
       S: 0,
       M: 0,
@@ -108,7 +108,7 @@ const trendingData = [
     price: 154.99,
     category: 'mens',
     type: 'jackets',
-    quantity: {
+    stock: {
       XS: 5,
       S: 10,
       M: 0,
@@ -124,7 +124,7 @@ const trendingData = [
     price: 58.99,
     category: 'womens',
     type: 'leggings',
-    quantity: {
+    stock: {
       XS: 0,
       S: 0,
       M: 0,
@@ -140,7 +140,7 @@ const trendingData = [
     price: 34.99,
     category: 'mens',
     type: 'shirt',
-    quantity: {
+    stock: {
       XS: 5,
       S: 10,
       M: 0,
@@ -156,7 +156,7 @@ const trendingData = [
     price: 87.99,
     category: 'mens',
     type: 'suits',
-    quantity: {
+    stock: {
       XS: 5,
       S: 10,
       M: 0,
@@ -172,7 +172,7 @@ const trendingData = [
     price: 26.99,
     category: 'mens',
     type: 'shirts',
-    quantity: {
+    stock: {
       XS: 5,
       S: 10,
       M: 0,
@@ -188,7 +188,7 @@ const trendingData = [
     price: 12.99,
     category: 'mens',
     type: 'accessories',
-    quantity: 0
+    stock: 0
   },
   {
     id: 13,
@@ -198,7 +198,7 @@ const trendingData = [
     price: 23.99,
     category: 'womens',
     type: 'shorts',
-    quantity: {
+    stock: {
       XS: 5,
       S: 10,
       M: 0,
@@ -214,7 +214,7 @@ const trendingData = [
     price: 39.99,
     category: 'mens',
     type: 'shirt',
-    quantity: {
+    stock: {
       XS: 5,
       S: 10,
       M: 0,
@@ -230,7 +230,7 @@ const trendingData = [
     price: 25.99,
     category: 'mens',
     type: 'shorts',
-    quantity: {
+    stock: {
       XS: 5,
       S: 10,
       M: 0,
@@ -246,7 +246,7 @@ const trendingData = [
     price: 17.99,
     category: 'mens',
     type: 'accessories',
-    quantity: 0
+    stock: 0
   }
 ]
 

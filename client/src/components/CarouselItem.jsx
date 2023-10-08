@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import { addToCart, setCartDrawerIsOpen } from '../redux/actions'
 
 const CarouselItem = ({ props }) => {
-  const { id, name, imgSrc, color, price, type, quantity } = props
+  const { id, name, imgSrc, color, price, type, stock } = props
   const dispatch = useDispatch()
   const [isHovered, setIsHovered] = useState(false)
   const [selectedSize, setSelectedSize] = useState(null)
@@ -13,8 +13,8 @@ const CarouselItem = ({ props }) => {
   const isAccessories = type === 'accessories'
 
   const isSoldOut = (() => {
-    if (isAccessories) return quantity === 0
-    return Object.values(quantity).every(qty => qty === 0)
+    if (isAccessories) return stock === 0
+    return Object.values(stock).every(s => s === 0)
   })()
 
   const handleMouseEnter = () => setIsHovered(true)
@@ -23,10 +23,10 @@ const CarouselItem = ({ props }) => {
 
   const handleAddToCart = () => {
     if (isAccessories) {
-      dispatch(addToCart({ id, name, imgSrc, price, quantity }))
+      dispatch(addToCart({ id, name, imgSrc, price, stock }))
       dispatch(setCartDrawerIsOpen(true))
     } else if (selectedSize) {
-      dispatch(addToCart({ id, name, imgSrc, price, quantity: quantity[selectedSize], size: selectedSize }))
+      dispatch(addToCart({ id, name, imgSrc, price, stock: stock[selectedSize], size: selectedSize, quantity: 1 }))
       dispatch(setCartDrawerIsOpen(true))
     }
   }
@@ -50,7 +50,7 @@ const CarouselItem = ({ props }) => {
                   key={size}
                   size={size}
                   isSelected={selectedSize === size}
-                  isOutOfStock={quantity[size] === 0}
+                  isOutOfStock={stock[size] === 0}
                   onClick={handleSizeClick}
                 />
               ))}

@@ -1,15 +1,18 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { updateItemQuantity } from '../redux/actions'
 
-const CustomInputNumber = ({ max }) => {
-  const [value, setValue] = useState(1)
+const CustomInputNumber = ({ max, value, itemId }) => {
+  const [updatedValue, setUpdatedValue] = useState(value)
+  const dispatch = useDispatch()
 
-  const handleIncrement = () => {
-    if (value < max) setValue(value + 1)
-  }
+  const handleIncrement = () => updatedValue < max && setUpdatedValue(updatedValue + 1)
+  const handleDecrement = () => updatedValue > 1 && setUpdatedValue(updatedValue - 1)
 
-  const handleDecrement = () => {
-    console.log('WOW')
-    if (value > 1) setValue(value - 1)
+  const handleBlur = () => {
+    if (updatedValue !== value) {
+      dispatch(updateItemQuantity({ itemId, newQuantity: updatedValue }))
+    }
   }
 
   return (
@@ -19,8 +22,9 @@ const CustomInputNumber = ({ max }) => {
         min='1'
         max={max}
         step='1'
-        value={value}
-        onChange={e => setValue(parseInt(e.target.value, 10))}
+        value={updatedValue}
+        onChange={e => setUpdatedValue(parseInt(e.target.value, 10))}
+        onBlur={handleBlur}
       />
       <div className='quantity-nav'>
         <div className='quantity-button quantity-up' onClick={handleIncrement}>

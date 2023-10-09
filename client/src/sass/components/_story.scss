@@ -65,6 +65,9 @@
           height: calc(100% - 4rem);
           width: 100%;
           object-fit: cover;
+          position: relative;
+          filter: grayscale(0.75);
+          transition: filter 0.5s ease;
         }
 
         p {
@@ -75,6 +78,30 @@
 
         h4 {
           margin-top: 0.5rem;
+          transform: translateX(-1.25rem);
+          transition: all 0.5s ease;
+
+          svg {
+            opacity: 0;
+            margin-right: 0.25rem;
+          }
+
+          &:hover {
+          }
+        }
+
+        &:hover {
+          img {
+            filter: grayscale(0);
+          }
+
+          h4 {
+            transform: translateX(0rem);
+
+            svg {
+              opacity: 1;
+            }
+          }
         }
       }
     }

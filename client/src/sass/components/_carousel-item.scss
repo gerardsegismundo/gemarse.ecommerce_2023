@@ -5,6 +5,14 @@
   margin-right: 30px;
   user-select: none;
 
+  @include media('<desktop') {
+    margin-right: 22.5px;
+  }
+
+  @include media('<tablet') {
+    margin-right: 15px;
+  }
+
   &[data-is-hover='true'] {
     .quick-add-wrapper {
       .quick-add {
@@ -30,9 +38,19 @@
     pointer-events: none;
     z-index: -1;
     cursor: pointer;
-    height: 50rem;
     object-fit: cover;
+    height: 50rem;
     width: 600px;
+
+    @include media('<desktop') {
+      height: 40rem;
+      width: 475px;
+    }
+
+    @include media('<tablet') {
+      height: 30rem;
+      width: 350px;
+    }
   }
 
   .quick-add-wrapper {

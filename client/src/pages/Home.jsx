@@ -1,5 +1,5 @@
 import React from 'react'
-import { ImageSlider, ImageCarousel, NewsLetterBanner, Footer } from '../components'
+import { ImageSlider, ImageCarousel, NewsLetterBanner } from '../components'
 import Story from '../components/Story'
 
 const Home = () => {
@@ -9,7 +9,6 @@ const Home = () => {
       <ImageCarousel />
       <NewsLetterBanner />
       <Story />
-      <Footer />
     </div>
   )
 }

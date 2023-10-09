@@ -1,6 +1,6 @@
+import { round } from 'lodash'
 import { createSlice } from '@reduxjs/toolkit'
 import findItemIndexById from '../../utils/helpers/findItemByIndex'
-import { round } from 'lodash'
 
 const initialState = {
   cartItems: [],

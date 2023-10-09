@@ -1,12 +1,10 @@
 import { ReactComponent as CloseIcon } from '../assets/svg/close.svg'
 import { useSelector, useDispatch } from 'react-redux'
-import { round } from 'lodash'
+import CartItem from './CartItem'
 
 import { setCartDrawerIsOpen, removeFromCart } from '../redux/actions'
 
-import CustomInputNumber from './CustomInputNumber'
 import useDisableScroll from '../utils/hooks/useDisableScroll'
-import translateSize from '../utils/helpers/translateSizes'
 
 const CartDrawer = () => {
   const { cartDrawerIsOpen } = useSelector(state => state.ui)
@@ -31,24 +29,7 @@ const CartDrawer = () => {
           {cartItems.length === 0 ? (
             <p className='is-empty'>Cart is empty</p>
           ) : (
-            cartItems.map(c => {
-              const itemTotal = round(c.price * c.quantity, 2)
-
-              return (
-                <div className='item' key={c.id}>
-                  <img src={c.imgSrc} alt={c.imgSrc} loading='lazy' />
-                  <div className='item-details'>
-                    <p className='name'>{c.name}</p>
-                    {c.type !== 'accessories' && <p className='size'>{translateSize(c.size)}</p>}
-                    <p className='price'>${itemTotal}</p>
-                    <div className='d-flex'>
-                      <CustomInputNumber max={c.stock} itemId={c.id} value={c.quantity} />
-                      <button onClick={() => handleRemove(c.id, itemTotal)}>Remove</button>
-                    </div>
-                  </div>
-                </div>
-              )
-            })
+            cartItems.map(item => <CartItem key={item.id} item={item} onRemove={handleRemove} />)
           )}
         </div>
 

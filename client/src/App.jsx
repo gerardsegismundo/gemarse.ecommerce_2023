@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router'
 import { Home, Mens, Womens, Accessories } from './pages'
 import Header from './components/Headers'
-import CartDrawer from './components/CartDrawer'
+import { CartDrawer, Footer } from './components'
 
 const App = () => {
   return (
@@ -14,6 +14,7 @@ const App = () => {
         <Route exact={true} path='/womens' element={<Womens />} />
         <Route exact={true} path='/accessories' element={<Accessories />} />
       </Routes>
+      <Footer />
     </div>
   )
 }

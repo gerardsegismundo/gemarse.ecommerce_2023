@@ -1,6 +1,7 @@
 import { ReactComponent as CloseIcon } from '../assets/svg/close.svg'
-
 import { useSelector, useDispatch } from 'react-redux'
+import { round } from 'lodash'
+
 import { setCartDrawerIsOpen, removeFromCart } from '../redux/actions'
 
 import CustomInputNumber from './CustomInputNumber'
@@ -15,7 +16,7 @@ const CartDrawer = () => {
   const dispatch = useDispatch()
 
   const handleClose = () => dispatch(setCartDrawerIsOpen(false))
-  const handleRemove = id => dispatch(removeFromCart(id))
+  const handleRemove = (id, itemTotal) => dispatch(removeFromCart({ id, itemTotal }))
 
   useDisableScroll(cartDrawerIsOpen)
 
@@ -27,27 +28,34 @@ const CartDrawer = () => {
           <CloseIcon onClick={handleClose} />
         </div>
         <div className='cart-items'>
-          {cartItems &&
-            cartItems.map(c => (
-              <div className='item' key={c.id}>
-                <img src={c.imgSrc} alt={c.imgSrc} loading='lazy' />
-                <div className='item-details'>
-                  <p className='name'>{c.name}</p>
-                  {c.type !== 'accessories' && <p className='size'>{translateSize(c.size)}</p>}
-                  <p className='price'>${(c.price * c.quantity).toFixed(2)}</p>
-                  <div className='d-flex'>
-                    <CustomInputNumber max={c.stock} itemId={c.id} value={c.quantity} />
-                    <button onClick={() => handleRemove(c.id)}>Remove</button>
+          {cartItems.length === 0 ? (
+            <p className='is-empty'>Cart is empty</p>
+          ) : (
+            cartItems.map(c => {
+              const itemTotal = round(c.price * c.quantity, 2)
+
+              return (
+                <div className='item' key={c.id}>
+                  <img src={c.imgSrc} alt={c.imgSrc} loading='lazy' />
+                  <div className='item-details'>
+                    <p className='name'>{c.name}</p>
+                    {c.type !== 'accessories' && <p className='size'>{translateSize(c.size)}</p>}
+                    <p className='price'>${itemTotal}</p>
+                    <div className='d-flex'>
+                      <CustomInputNumber max={c.stock} itemId={c.id} value={c.quantity} />
+                      <button onClick={() => handleRemove(c.id, itemTotal)}>Remove</button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              )
+            })
+          )}
         </div>
 
         <div className='cart-footer'>
           <div className='d-flex'>
             <h4>Total</h4>
-            <p>{totalPrice}</p>
+            <p>{totalPrice > 0 && totalPrice}</p>
           </div>
           <button className='btn-dark'>Proceed to Checkout</button>
           <button className='btn-light'>Your Cart</button>

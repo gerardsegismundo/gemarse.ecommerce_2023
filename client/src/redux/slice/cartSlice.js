@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import findItemIndexById from '../../utils/helpers/findItemByIndex'
-import toFixedNumber from '../../utils/helpers/toFixedNumber'
+import { round } from 'lodash'
 
 const initialState = {
   cartItems: [],
@@ -23,7 +23,7 @@ export const cartSlice = createSlice({
         state.cartItems.push(newItem)
       }
 
-      state.totalPrice = toFixedNumber(state.totalPrice + newItem.price, 2)
+      state.totalPrice = round(state.totalPrice + newItem.price, 2)
     },
 
     incrementItem: (state, action) => {
@@ -32,7 +32,7 @@ export const cartSlice = createSlice({
       const itemIndex = findItemIndexById(state.cartItems, itemId)
 
       state.cartItems[itemIndex].quantity += 1
-      state.totalPrice = toFixedNumber(state.totalPrice + state.cartItems[itemIndex].price, 2)
+      state.totalPrice = round(state.totalPrice + state.cartItems[itemIndex].price, 2)
     },
 
     decrementItem: (state, action) => {
@@ -41,11 +41,13 @@ export const cartSlice = createSlice({
       const itemIndex = findItemIndexById(state.cartItems, itemId)
 
       state.cartItems[itemIndex].quantity -= 1
-      state.totalPrice = toFixedNumber(state.totalPrice - state.cartItems[itemIndex].price, 2)
+      state.totalPrice = round(state.totalPrice - state.cartItems[itemIndex].price, 2)
     },
-
     removeFromCart: (state, action) => {
-      state.cartItems = state.cartItems.filter(item => item.id !== action.payload)
+      const { id, itemTotal } = action.payload
+
+      state.cartItems = state.cartItems.filter(item => item.id !== id)
+      state.totalPrice = round(state.totalPrice - itemTotal, 2)
     }
   }
 })

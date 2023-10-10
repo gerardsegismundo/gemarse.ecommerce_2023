@@ -4,7 +4,8 @@ import findItemIndexById from '../../utils/helpers/findItemByIndex'
 
 const initialState = {
   cartItems: [],
-  totalPrice: 0
+  totalPrice: 0,
+  itemsInCart: 0
 }
 
 export const cartSlice = createSlice({
@@ -24,6 +25,7 @@ export const cartSlice = createSlice({
       }
 
       state.totalPrice = round(state.totalPrice + newItem.price, 2)
+      state.itemsInCart++
     },
 
     incrementItem: (state, action) => {
@@ -33,6 +35,7 @@ export const cartSlice = createSlice({
 
       state.cartItems[itemIndex].quantity += 1
       state.totalPrice = round(state.totalPrice + state.cartItems[itemIndex].price, 2)
+      state.itemsInCart++
     },
 
     decrementItem: (state, action) => {
@@ -42,12 +45,17 @@ export const cartSlice = createSlice({
 
       state.cartItems[itemIndex].quantity -= 1
       state.totalPrice = round(state.totalPrice - state.cartItems[itemIndex].price, 2)
+      state.itemsInCart--
     },
+
     removeFromCart: (state, action) => {
-      const { id, itemTotal } = action.payload
+      const { id, itemTotalPrice, itemQuantity } = action.payload
+
+      console.log({ itemTotalPrice })
 
       state.cartItems = state.cartItems.filter(item => item.id !== id)
-      state.totalPrice = round(state.totalPrice - itemTotal, 2)
+      state.totalPrice = round(state.totalPrice - itemTotalPrice, 2)
+      state.itemsInCart = state.itemsInCart - itemQuantity
     }
   }
 })

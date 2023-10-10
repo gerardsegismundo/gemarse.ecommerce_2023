@@ -5,7 +5,7 @@ header {
   z-index: 1;
   padding: 1.5rem 0;
   color: white;
-  background-color: rgba($dark-gray, 0.1);
+  background-color: rgba($dark-gray, 0);
   transition: background-color 0.3s ease;
 
   &.scrolled {
@@ -170,14 +170,23 @@ header {
         grid-area: actions;
       }
 
+      .cart-group {
+        margin-left: 1.25rem;
+        position: relative;
+
+        i.items-in-cart {
+          color: $white;
+          font-size: $font-small;
+          position: absolute;
+          bottom: -0.17rem;
+          left: calc(100% + 0.1rem);
+        }
+      }
+
       svg {
         width: 1.5rem;
         height: 1.5rem;
         cursor: pointer;
-
-        &.cart {
-          margin-right: 20px;
-        }
       }
     }
   }

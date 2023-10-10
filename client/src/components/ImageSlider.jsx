@@ -1,21 +1,23 @@
 import React, { useState } from 'react'
 import sliderData from '../assets/data/sliderData'
+import SliderItem from './SliderItem'
 
-import { useTransition, animated } from 'react-spring'
+import { useTransition, config } from 'react-spring'
 const ImageSlider = () => {
-  const [currentSlide, setCurrentSlide] = useState(0)
+  const [sliderIndex, setSliderIndex] = useState(0)
 
   const handleDotClick = index => {
-    setCurrentSlide(index)
+    setSliderIndex(index)
   }
 
-  const imageTransitions = useTransition(currentSlide, {
+  const imageTransitions = useTransition(sliderIndex, {
     from: { opacity: 0 },
     enter: { opacity: 1 },
-    config: { duration: 750 }
+    leave: { opacity: 0 },
+    config: config.molasses
   })
 
-  const labelTransitions = useTransition(currentSlide, {
+  const labelTransitions = useTransition(sliderIndex, {
     from: { opacity: 0, transform: 'translateY(-50px)' },
     enter: { opacity: 1, transform: 'translateY(0px)' },
     config: { duration: 500, delay: 500 }
@@ -23,46 +25,18 @@ const ImageSlider = () => {
 
   return (
     <div className='image-slider'>
-      {imageTransitions((_, currentIndex) => (
-        <animated.div className='slider-item' key={currentIndex}>
-          <div className='image-wrapper'>
-            <img
-              src={
-                currentIndex === 3
-                  ? window.innerWidth > 768
-                    ? sliderData[currentIndex].imgSrc.desktop
-                    : sliderData[currentIndex].imgSrc.mobile
-                  : sliderData[currentIndex].imgSrc
-              }
-              alt={sliderData[currentIndex].imgSrc}
-              loading='lazy'
-            />
-          </div>
-          <div className='overlay'>
-            <div className='banner-content'>
-              <div className='label-wrapper'>
-                {labelTransitions(labelStyles => (
-                  <animated.h2
-                    className='label'
-                    style={{
-                      opacity: labelStyles.opacity,
-                      transform: labelStyles.transform
-                    }}
-                  >
-                    {sliderData[currentIndex].label}
-                  </animated.h2>
-                ))}
-              </div>
-              <button className='mens-btn btn-light no-border'>Shop Mens</button>
-              <button className='womens-btn btn-transparent'>Shop Womens</button>
-            </div>
-          </div>
-        </animated.div>
+      {imageTransitions(() => (
+        <SliderItem
+          sliderIndex={sliderIndex}
+          currentSlideData={sliderData[sliderIndex]}
+          windowWidth={window.innerWidth}
+          labelTransitions={labelTransitions}
+        />
       ))}
       <div className='slider-dots'>
         {sliderData.map((_, index) => (
           <span
-            className={`dot${index === currentSlide ? ' active' : ''}`}
+            className={`dot${index === sliderIndex ? ' active' : ''}`}
             onClick={() => handleDotClick(index)}
             key={index}
           />

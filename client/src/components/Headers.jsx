@@ -4,18 +4,19 @@ import MobileMenu from './MobileMenu'
 import { ReactComponent as CartIcon } from '../assets/svg/cart.svg'
 import { ReactComponent as UserIcon } from '../assets/svg/user.svg'
 
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { setCartDrawerIsOpen } from '../redux/actions'
 import useScrollListener from '../utils/hooks/useScrollListener'
 
 const Header = () => {
   const scrolled = useScrollListener()
   const dispatch = useDispatch()
+  const { itemsInCart } = useSelector(state => state.cart)
 
   const handleOpenCart = () => dispatch(setCartDrawerIsOpen(true))
 
   return (
-    <header className={scrolled ? 'scrolled' : ''}>
+    <header className={scrolled ? ' scrolled' : ''}>
       <div className='header-container'>
         <MobileMenu />
         <nav>
@@ -37,8 +38,11 @@ const Header = () => {
           </Link>
         </h1>
         <div className='actions'>
-          <CartIcon onClick={handleOpenCart} />
           <UserIcon />
+          <div className='cart-group'>
+            <CartIcon onClick={handleOpenCart} />
+            <i className='items-in-cart'>{itemsInCart}</i>
+          </div>
         </div>
       </div>
     </header>

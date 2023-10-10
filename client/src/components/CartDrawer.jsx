@@ -14,7 +14,9 @@ const CartDrawer = () => {
   const dispatch = useDispatch()
 
   const handleClose = () => dispatch(setCartDrawerIsOpen(false))
-  const handleRemove = (id, itemTotal) => dispatch(removeFromCart({ id, itemTotal }))
+  const handleRemove = (id, itemTotalPrice, itemQuantity) => {
+    dispatch(removeFromCart({ id, itemTotalPrice, itemQuantity }))
+  }
 
   useDisableScroll(cartDrawerIsOpen)
 

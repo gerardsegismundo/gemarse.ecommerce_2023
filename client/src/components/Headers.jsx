@@ -6,14 +6,16 @@ import { ReactComponent as UserIcon } from '../assets/svg/user.svg'
 
 import { useDispatch } from 'react-redux'
 import { setCartDrawerIsOpen } from '../redux/actions'
+import useScrollListener from '../utils/hooks/useScrollListener'
 
 const Header = () => {
+  const scrolled = useScrollListener()
   const dispatch = useDispatch()
 
   const handleOpenCart = () => dispatch(setCartDrawerIsOpen(true))
 
   return (
-    <header>
+    <header className={scrolled ? 'scrolled' : ''}>
       <div className='header-container'>
         <MobileMenu />
         <nav>

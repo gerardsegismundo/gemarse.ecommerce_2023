@@ -1,8 +1,9 @@
 import menWomenImg from '../images/slider_items/men-women.jpg'
 import hoodies from '../images/slider_items/hoodies.jpg'
 import teesTops from '../images/slider_items/tees-tops.jpg'
-import suits from '../images/slider_items/suits.jpg'
 import chinosJeans from '../images/slider_items/chinos-jeans.jpg'
+import suitsMobile from '../images/slider_items/suits-mobile.jpg'
+import suitsDesktop from '../images/slider_items/suits-desktop.jpg'
 
 const sliderData = [
   {
@@ -25,7 +26,10 @@ const sliderData = [
   },
   {
     label: 'Suits',
-    imgSrc: suits,
+    imgSrc: {
+      mobile: suitsMobile,
+      desktop: suitsDesktop
+    },
     shopMensLink: '',
     shopWomensLink: ''
   },

@@ -23,16 +23,20 @@ const ImageSlider = () => {
 
   return (
     <div className='image-slider'>
-      {imageTransitions((styles, currentIndex) => (
-        <animated.div
-          style={{
-            ...styles
-          }}
-          className='slider-item'
-          key={currentIndex}
-        >
+      {imageTransitions((_, currentIndex) => (
+        <animated.div className='slider-item' key={currentIndex}>
           <div className='image-wrapper'>
-            <img src={sliderData[currentIndex].imgSrc} alt={sliderData[currentIndex].imgSrc} loading='lazy' />
+            <img
+              src={
+                currentIndex === 3
+                  ? window.innerWidth > 768
+                    ? sliderData[currentIndex].imgSrc.desktop
+                    : sliderData[currentIndex].imgSrc.mobile
+                  : sliderData[currentIndex].imgSrc
+              }
+              alt={sliderData[currentIndex].imgSrc}
+              loading='lazy'
+            />
           </div>
           <div className='overlay'>
             <div className='banner-content'>

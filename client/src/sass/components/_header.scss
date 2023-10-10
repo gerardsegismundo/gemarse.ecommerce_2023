@@ -3,8 +3,15 @@ header {
   justify-content: center;
   position: absolute;
   z-index: 1;
-  padding: 2rem 0;
+  padding: 1.5rem 0;
   color: white;
+  background-color: rgba($dark-gray, 0.1);
+  transition: background-color 0.3s ease;
+
+  &.scrolled {
+    position: fixed;
+    background-color: rgba($dark-gray, 0.9);
+  }
 
   .header-container {
     display: flex;
@@ -94,7 +101,7 @@ header {
         justify-content: center;
         grid-area: nav;
         width: 100vw;
-        margin-top: 1.5rem;
+        margin-top: 0.5rem;
         padding-left: 0rem;
       }
 
@@ -118,18 +125,6 @@ header {
             text-align: center;
           }
 
-          &.mens {
-            @include media('<desktop') {
-              border-right: 1px solid white;
-            }
-          }
-
-          &.womens {
-            @include media('<desktop') {
-              border-left: 1px solid white;
-            }
-          }
-
           &.accessories {
             @include media('<desktop') {
               display: none;
@@ -151,6 +146,7 @@ header {
       text-align: center;
       // letter-spacing: -1px;
       line-height: 3rem;
+
       transform: scaleY(1.5);
       width: 50vw;
 

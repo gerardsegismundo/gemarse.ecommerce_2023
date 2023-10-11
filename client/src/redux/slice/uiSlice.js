@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  cartDrawerIsOpen: false
+  cartDrawerIsOpen: false,
+  subMenuIsOpen: false
 }
 
 export const uiSlice = createSlice({
@@ -10,6 +11,9 @@ export const uiSlice = createSlice({
   reducers: {
     setCartDrawerIsOpen: (state, action) => {
       state.cartDrawerIsOpen = action.payload
+    },
+    setSubMenuIsOpen: (state, action) => {
+      state.subMenuIsOpen = action.payload
     }
   }
 })

@@ -6,8 +6,13 @@
   transition: all 0.8s $cubic-bezier;
   box-shadow: $box-shadow-0;
   position: fixed;
+  opacity: 0;
+  pointer-events: none;
+
+  // display: none;
 
   &.open {
+    pointer-events: auto;
     transform: translateY(5.9rem);
     opacity: 1;
   }

@@ -12,7 +12,7 @@ const CartItem = ({ item, onRemove }) => {
       <div className='item-details'>
         <p className='name'>{item.name}</p>
         {item.type !== 'accessories' && <p className='size'>{translateSize(item.size)}</p>}
-        <p className='price'>${itemTotalPrice}</p>
+        <p className='price'>${itemTotalPrice.toFixed(2)}</p>
         <div className='d-flex'>
           <CustomInputNumber max={item.stock} itemId={item.id} value={item.quantity} />
           <button onClick={() => onRemove(item.id, itemTotalPrice, item.quantity)}>Remove</button>

@@ -1,12 +1,13 @@
 import { Route, Routes } from 'react-router'
 import { Home, Mens, Womens, Accessories } from './pages'
 import Header from './components/Headers'
-import { CartDrawer, Footer } from './components'
+import { CartDrawer, Footer, SubMenu } from './components'
 
 const App = () => {
   return (
     <div>
       <Header />
+      <SubMenu />
       <CartDrawer />
       <Routes>
         <Route exact={true} path='/' element={<Home />} />

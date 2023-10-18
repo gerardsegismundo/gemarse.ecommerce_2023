@@ -2,7 +2,8 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   cartDrawerIsOpen: false,
-  subMenuIsOpen: false
+  subMenuIsOpen: false,
+  isMen: true
 }
 
 export const uiSlice = createSlice({

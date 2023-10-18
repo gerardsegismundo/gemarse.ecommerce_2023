@@ -28,7 +28,7 @@
   }
 
   h3.sold-out {
-    color: $dark-gray;
+    color: $dark-gray !important;
     background-color: rgba($white, 0.5);
     position: absolute;
     padding: 1rem;

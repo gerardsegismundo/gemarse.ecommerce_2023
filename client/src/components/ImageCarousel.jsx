@@ -25,7 +25,7 @@ const ImageCarousel = () => {
   return (
     <div className='image-carousel'>
       <div className='container'>
-        <h3>Trending</h3>
+        <h3 className='trending'>Trending</h3>
       </div>
       <div className='container'>{carouselFragment}</div>
       <button className='prev-btn' onClick={slideToPrevItem}>

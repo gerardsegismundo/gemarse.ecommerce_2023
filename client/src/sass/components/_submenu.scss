@@ -9,8 +9,6 @@
   opacity: 0;
   pointer-events: none;
 
-  // display: none;
-
   &.open {
     pointer-events: auto;
     transform: translateY(5.9rem);
@@ -26,11 +24,12 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-top: 2rem;
-      padding: 0.5rem;
+      margin: 3.5rem 0 5rem 0;
+      padding: 1rem;
       width: 45%;
       min-width: 21rem;
-      background-color: rgba($light-gray, 0.9);
+      max-width: 50rem;
+      background-color: rgba($light-gray, 0.4);
       border-radius: 0.25rem;
 
       button {
@@ -50,9 +49,90 @@
         border: none;
         border: none !important;
         background-color: transparent;
+        font-size: $font-medium;
 
         &:focus {
           outline: none;
+        }
+      }
+    }
+
+    .row {
+      width: 100%;
+      display: flex;
+
+      .nav-list,
+      .featured-items {
+        h5 {
+          font-size: 1.15rem;
+        }
+      }
+
+      .nav-list {
+        display: flex;
+        gap: 20rem;
+
+        ul {
+          li {
+            line-height: 2.125rem;
+
+            &:first-child {
+              font-weight: 600;
+            }
+
+            &:not(:first-child) {
+              opacity: 0.7;
+            }
+          }
+
+          &:not(:last-child) {
+            margin-bottom: 2rem;
+          }
+        }
+      }
+
+      .featured-items {
+        margin-left: auto;
+        width: 50%;
+
+        h5 {
+          line-height: 2.125rem;
+          font-size: 1.15rem;
+        }
+
+        .flex {
+          display: flex;
+          gap: 2rem;
+          margin-top: 0.5rem;
+
+          .featured-item {
+            display: flex;
+            position: relative;
+            cursor: pointer;
+
+            .details {
+              padding: 0.75rem 1.25rem;
+              position: absolute;
+              bottom: -1px;
+              background-color: rgba($dark-gray, 0.1);
+              width: 100%;
+
+              p {
+                font-size: $font-medium;
+                text-transform: capitalize;
+                color: $white;
+                line-height: 2rem;
+
+                &.price {
+                  font-weight: 600;
+                }
+              }
+            }
+
+            img {
+              height: 30rem;
+            }
+          }
         }
       }
     }

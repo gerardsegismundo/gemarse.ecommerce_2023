@@ -1,9 +1,12 @@
 import blazers from '../images/featured/blazers.jpg'
+import bodySuit from '../images/featured/body-suit.jpg'
 import joggers from '../images/featured/joggers.jpg'
+import leggings from '../images/featured/leggings.jpg'
 import longSleeve from '../images/featured/long-sleeve.jpg'
+import sportBra from '../images/featured/sport-bra.jpg'
 
 const featuredItems = {
-  men: [
+  mens: [
     {
       id: 17,
       name: 'joggers',
@@ -53,7 +56,56 @@ const featuredItems = {
       }
     }
   ],
-  women: {}
+  womens: [
+    {
+      id: 20,
+      name: 'body suit',
+      imgSrc: bodySuit,
+      color: 'blue green',
+      price: 55.99,
+      category: 'women',
+      type: 'bodysuit',
+      stock: {
+        XS: 5,
+        S: 2,
+        M: 8,
+        L: 20,
+        XL: 3
+      }
+    },
+    {
+      id: 21,
+      name: 'leggings',
+      imgSrc: leggings,
+      color: 'black',
+      price: 78.99,
+      category: 'women',
+      type: 'leggings',
+      stock: {
+        XS: 18,
+        S: 2,
+        M: 5,
+        L: 3,
+        XL: 3
+      }
+    },
+    {
+      id: 22,
+      name: 'sports bra',
+      imgSrc: sportBra,
+      color: 'black',
+      price: 55.99,
+      category: 'women',
+      type: 'sports bra',
+      stock: {
+        XS: 45,
+        S: 23,
+        M: 18,
+        L: 32,
+        XL: 32
+      }
+    }
+  ]
 }
 
 export default featuredItems

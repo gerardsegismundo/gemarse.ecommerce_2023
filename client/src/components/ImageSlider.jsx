@@ -6,16 +6,7 @@ import { useTransition, config } from 'react-spring'
 const ImageSlider = () => {
   const [sliderIndex, setSliderIndex] = useState(0)
 
-  const handleDotClick = index => {
-    setSliderIndex(index)
-  }
-
-  const imageTransitions = useTransition(sliderIndex, {
-    from: { opacity: 0 },
-    enter: { opacity: 1 },
-    leave: { opacity: 0 },
-    config: config.molasses
-  })
+  const handleDotClick = index => setSliderIndex(index)
 
   const labelTransitions = useTransition(sliderIndex, {
     from: { opacity: 0, transform: 'translateY(-50px)' },
@@ -25,14 +16,14 @@ const ImageSlider = () => {
 
   return (
     <div className='image-slider'>
-      {imageTransitions(() => (
-        <SliderItem
-          sliderIndex={sliderIndex}
-          currentSlideData={sliderData[sliderIndex]}
-          windowWidth={window.innerWidth}
-          labelTransitions={labelTransitions}
-        />
-      ))}
+      <SliderItem
+        sliderData={sliderData}
+        sliderIndex={sliderIndex}
+        currentSlideData={sliderData[sliderIndex]}
+        windowWidth={window.innerWidth}
+        labelTransitions={labelTransitions}
+      />
+
       <div className='slider-dots'>
         {sliderData.map((_, index) => (
           <span

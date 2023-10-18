@@ -1,21 +1,27 @@
 import React from 'react'
 import { animated } from 'react-spring'
+import sliderData from '../assets/data/sliderData'
 
 const SliderItem = ({ sliderIndex, currentSlideData, windowWidth, labelTransitions }) => {
   return (
-    <animated.div className='slider-item' key={sliderIndex}>
+    <div className='slider-item' key={sliderIndex}>
       <div className='image-wrapper'>
-        <img
-          src={
-            sliderIndex === 3
-              ? windowWidth > 768
-                ? currentSlideData.imgSrc.desktop
-                : currentSlideData.imgSrc.mobile
-              : currentSlideData.imgSrc
-          }
-          alt={currentSlideData.imgSrc}
-          loading='lazy'
-        />
+        {sliderData.map((data, index) => {
+          return (
+            <img
+              src={
+                sliderIndex === 3
+                  ? windowWidth > 768
+                    ? currentSlideData.imgSrc.desktop
+                    : currentSlideData.imgSrc.mobile
+                  : data.imgSrc
+              }
+              alt={data.imgSrc.label}
+              key={index}
+              className={index === sliderIndex ? 'is-visible' : ''}
+            />
+          )
+        })}
       </div>
       <div className='overlay'>
         <div className='banner-content'>
@@ -36,7 +42,7 @@ const SliderItem = ({ sliderIndex, currentSlideData, windowWidth, labelTransitio
           <button className='womens-btn btn-transparent'>Shop Womens</button>
         </div>
       </div>
-    </animated.div>
+    </div>
   )
 }
 

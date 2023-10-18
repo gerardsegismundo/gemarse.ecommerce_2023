@@ -5,7 +5,7 @@ import { ReactComponent as CartIcon } from '../assets/svg/cart.svg'
 import { ReactComponent as UserIcon } from '../assets/svg/user.svg'
 
 import { useDispatch, useSelector } from 'react-redux'
-import { setCartDrawerIsOpen } from '../redux/actions'
+import { setCartDrawerIsOpen, setSubMenu } from '../redux/actions'
 import useScrollListener from '../utils/hooks/useScrollListener'
 
 const Header = () => {
@@ -15,16 +15,20 @@ const Header = () => {
 
   const handleOpenCart = () => dispatch(setCartDrawerIsOpen(true))
 
+  const handleOnHover = gender => {
+    dispatch(setSubMenu({ isOpen: true, gender }))
+  }
+
   return (
     <header className={scrolled ? ' scrolled' : ''}>
       <div className='header-container'>
         <MobileMenu />
         <nav>
           <ul>
-            <li className='mens'>
+            <li className='mens' onMouseEnter={() => handleOnHover('mens')}>
               <Link to='/mens'>Mens</Link>
             </li>
-            <li className='womens'>
+            <li className='womens' onMouseEnter={() => handleOnHover('womens')}>
               <Link to='/womens'>Womens</Link>
             </li>
             <li className='accessories'>
@@ -33,7 +37,7 @@ const Header = () => {
           </ul>
         </nav>
         <h1 className='brand'>
-          <Link to='/' aria-label='Gemiarse Homepage'>
+          <Link to='/' aria-label='Gemarse Homepage'>
             Gemarse
           </Link>
         </h1>

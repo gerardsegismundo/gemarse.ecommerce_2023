@@ -70,7 +70,7 @@
 
       .nav-list {
         display: flex;
-        gap: 20rem;
+        gap: 10vw;
 
         ul {
           li {
@@ -98,12 +98,13 @@
         h5 {
           line-height: 2.125rem;
           font-size: 1.15rem;
+          text-transform: capitalize;
         }
 
         .flex {
           display: flex;
           gap: 2rem;
-          margin-top: 0.5rem;
+          margin-top: 1rem;
 
           .featured-item {
             display: flex;
@@ -130,7 +131,11 @@
             }
 
             img {
-              height: 30rem;
+              height: 25rem;
+              object-fit: cover;
+              width: 10vw;
+              min-width: 12rem;
+              max-width: 20rem;
             }
           }
         }

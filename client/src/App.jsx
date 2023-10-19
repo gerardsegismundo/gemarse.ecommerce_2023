@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router'
 import { Home, Mens, Womens, Accessories } from './pages'
 import Header from './components/Headers'
-import { CartDrawer, Footer, SubMenu } from './components'
+import { CartDrawer, Footer, SubMenu, RecentlyViewed } from './components'
 
 const App = () => {
   return (
@@ -15,6 +15,7 @@ const App = () => {
         <Route exact={true} path='/womens' element={<Womens />} />
         <Route exact={true} path='/accessories' element={<Accessories />} />
       </Routes>
+      <RecentlyViewed />
       <Footer />
     </div>
   )

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import sliderData from '../assets/data/sliderData'
 import SliderItem from './SliderItem'
 
-import { useTransition, config } from 'react-spring'
+import { useTransition } from 'react-spring'
 const ImageSlider = () => {
   const [sliderIndex, setSliderIndex] = useState(0)
 

@@ -161,3 +161,49 @@ button {
 .d-flex {
   display: flex;
 }
+
+.input-group {
+  position: relative;
+
+  input:focus,
+  input[data-filled='true'] {
+    + label {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+  }
+
+  input {
+    padding-left: 0.1rem;
+    padding-bottom: 0.5rem;
+    height: 2rem;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    background-color: transparent;
+
+    :-webkit-autofill,
+    :-webkit-autofill:hover,
+    :-webkit-autofill:focus,
+    :-webkit-autofill:active {
+      transition: background-color 5000s ease-in-out 0s;
+    }
+  }
+
+  label {
+    position: absolute;
+    left: 0;
+    bottom: 0.5rem;
+    z-index: -1;
+    user-select: none;
+    opacity: 0.8;
+  }
+}
+
+:-webkit-autofill,
+:-webkit-autofill:hover,
+:-webkit-autofill:focus,
+:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+}

@@ -1,8 +1,8 @@
-import React from 'react'
 import { ReactComponent as TwitterIcon } from '../assets/svg/twitter.svg'
 import { ReactComponent as FacebookIcon } from '../assets/svg/facebook.svg'
 import { ReactComponent as InstagramIcon } from '../assets/svg/instagram.svg'
 import FooterPayment from './FooterPayment'
+import SubscriptionForm from './SubscriptionForm'
 
 const Footer = () => {
   return (
@@ -29,7 +29,7 @@ const Footer = () => {
           <ul className='company'>
             <li>COMPANY</li>
             <li>Blakely Blog</li>
-            <li>Contact U</li>
+            <li>Contact Us</li>
             <li>About Blakely</li>
             <li>FAQs</li>
           </ul>
@@ -47,6 +47,11 @@ const Footer = () => {
             <li>Cookie Policy</li>
             <li>Sitemap</li>
           </ul>
+        </div>
+
+        <div className='subscribe'>
+          <h4>Subscribe to our newsletter</h4>
+          <SubscriptionForm />
         </div>
 
         <div className='bottom-group'>

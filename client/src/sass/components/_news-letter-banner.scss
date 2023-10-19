@@ -31,39 +31,9 @@
     max-width: 40rem;
 
     .input-group {
-      position: relative;
-      margin-bottom: 2rem;
       border-bottom: 1px solid $dark-gray;
+      margin-bottom: 2rem;
       width: 100%;
-
-      input:focus,
-      input[data-filled='true'] {
-        + label {
-          transform: translateY(10px) scale(-5px);
-          opacity: 0;
-          transition: all 0.3s ease;
-        }
-      }
-
-      input {
-        padding-left: 0.1rem;
-        padding-bottom: 0.5rem;
-        height: 2rem;
-        width: 100%;
-        border: none;
-        outline: none;
-        font-size: 1rem;
-        background-color: transparent;
-      }
-
-      label {
-        position: absolute;
-        left: 0;
-        bottom: 0.5rem;
-        z-index: -1;
-        user-select: none;
-        opacity: 0.8;
-      }
     }
 
     p {

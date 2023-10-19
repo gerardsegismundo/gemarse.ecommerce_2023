@@ -1,6 +1,6 @@
 footer {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-top: 7.5rem;
+  padding-bottom: 7.5rem;
   background-color: $dark-gray-1;
   color: rgba($light, 1);
 
@@ -10,12 +10,8 @@ footer {
       justify-content: center;
       align-items: center;
       width: 100%;
-
-      @include media('<tablet') {
-        display: grid;
-        grid: 1fr 1fr / 1fr 1fr;
-        gap: 1rem;
-      }
+      padding-bottom: 5rem;
+      border-bottom: 1px solid $light-gray;
 
       h2 {
         text-transform: uppercase;
@@ -24,10 +20,6 @@ footer {
         font-size: 1.25rem;
         letter-spacing: 2px;
         margin-right: 2rem;
-      }
-
-      p {
-        grid-column: 1/3;
       }
 
       .social-groups {
@@ -46,6 +38,36 @@ footer {
 
           &:not(:last-of-type) {
             margin-right: 1.5rem;
+          }
+        }
+      }
+    }
+
+    .row {
+      display: flex;
+      gap: min(10vw, 15rem);
+    }
+
+    .bottom-group {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-end;
+      margin-top: 5rem;
+
+      p {
+        line-height: 1.5rem;
+      }
+
+      .footer-payment {
+        display: flex;
+
+        margin-left: auto;
+
+        .payment-icons {
+          display: flex;
+
+          li:not(:last-child) {
+            margin-right: 0.5rem;
           }
         }
       }

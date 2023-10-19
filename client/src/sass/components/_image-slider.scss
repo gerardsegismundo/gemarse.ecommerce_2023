@@ -22,10 +22,11 @@
         min-height: 100vh;
         object-fit: cover;
         opacity: 0;
+        left: -50vw;
+        transition: opacity 0.3s ease-in-out;
 
-        &.is-visible {
+        &.is-active {
           opacity: 1;
-          left: -50vw;
         }
       }
     }

@@ -9,16 +9,10 @@ const SliderItem = ({ sliderIndex, currentSlideData, windowWidth, labelTransitio
         {sliderData.map((data, index) => {
           return (
             <img
-              src={
-                sliderIndex === 3
-                  ? windowWidth > 768
-                    ? currentSlideData.imgSrc.desktop
-                    : currentSlideData.imgSrc.mobile
-                  : data.imgSrc
-              }
+              src={sliderIndex === 3 ? (windowWidth > 768 ? data.imgSrc.desktop : data.imgSrc.mobile) : data.imgSrc}
               alt={data.imgSrc.label}
               key={index}
-              className={index === sliderIndex ? 'is-visible' : ''}
+              className={index === sliderIndex ? 'is-active' : ''}
             />
           )
         })}

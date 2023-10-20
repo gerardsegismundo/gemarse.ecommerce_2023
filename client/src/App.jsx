@@ -15,7 +15,7 @@ const App = () => {
         <Route exact={true} path='/womens' element={<Womens />} />
         <Route exact={true} path='/accessories' element={<Accessories />} />
       </Routes>
-      {/* <RecentlyViewed /> */}
+      <RecentlyViewed />
       <Footer />
     </div>
   )

@@ -4,6 +4,21 @@ footer {
   background-color: $dark-gray;
   color: rgba($light, 1);
 
+  .brand {
+    font-family: $font-primary;
+    font-size: 2.5rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 3rem;
+
+    transform: scaleY(1.5);
+
+    @include media('<tablet') {
+      font-size: 2rem;
+      letter-spacing: 0.25rem;
+    }
+  }
+
   .container {
     .footer-header {
       display: flex;
@@ -13,27 +28,30 @@ footer {
       padding-bottom: 5rem;
       border-bottom: 1px solid $light-gray;
 
-      h2 {
-        text-transform: uppercase;
-        font-family: 'BrandFont', sans-serif;
-        transform: scaleY(1.5);
-        font-size: 1.25rem;
-        letter-spacing: 2px;
-        margin-right: 2rem;
+      @include media('<desktop') {
+        justify-content: flex-start;
       }
+
+      // h2 {
+      //   text-transform: uppercase;
+      //   font-family: 'BrandFont', sans-serif;
+      //   transform: scaleY(1.5);
+      //   font-size: 1.25rem;
+      //   letter-spacing: 2px;
+      //   margin-right: 2rem;
+      // }
 
       .social-groups {
         display: flex;
         margin-left: auto;
 
-        @include media('<tablet') {
-          grid-column: 2 / 3;
-          grid-row: 1 / 2;
+        @include media('<desktop') {
+          margin-left: 10vw;
         }
 
         svg {
-          height: 1.25rem;
-          width: 1.25rem;
+          height: 2rem;
+          width: 2rem;
           cursor: pointer;
 
           &:not(:last-of-type) {
@@ -48,8 +66,17 @@ footer {
       gap: min(10vw, 15rem);
       padding: 5rem 0;
       border-bottom: 1px solid $light-gray;
+      flex-wrap: wrap;
+
+      @include media('<desktop') {
+        display: grid;
+        gap: 5rem;
+        grid-template: 15rem 15rem / 15rem 1fr;
+      }
 
       ul {
+        max-width: 50rem;
+
         li {
           width: fit-content;
           position: relative;
@@ -94,37 +121,91 @@ footer {
         margin-bottom: 3rem;
       }
 
-      .input-group {
-        width: 35rem;
-        border-bottom: 1px solid $white;
-        background-color: transparent;
+      .subscription-form {
+        display: flex;
+        gap: 5vw;
 
-        input {
-          caret-color: $white;
-          color: $white;
+        @include media('<desktop') {
+          display: block;
+        }
+
+        .input-group {
+          width: 35rem;
+          border-bottom: 1px solid $white;
           background-color: transparent;
 
-          :-webkit-autofill,
-          :-webkit-autofill:hover,
-          :-webkit-autofill:focus,
-          :-webkit-autofill:active {
-            -webkit-text-fill-color: $white;
+          input {
+            caret-color: $white;
+            color: $white;
+            background-color: transparent;
+
+            :-webkit-autofill,
+            :-webkit-autofill:hover,
+            :-webkit-autofill:focus,
+            :-webkit-autofill:active {
+              -webkit-text-fill-color: $white;
+              transition: all 5000s ease-in-out 0s;
+            }
+          }
+
+          label {
+            color: $white;
+            z-index: 99999;
+            pointer-events: none;
           }
         }
 
-        label {
-          color: $white;
-          z-index: 99999;
-          pointer-events: none;
+        .radio-group {
+          width: calc(25rem + 5vw);
+          min-width: 35rem;
+
+          p {
+            margin-bottom: 1rem;
+
+            @include media('<desktop') {
+              margin-top: 2rem;
+            }
+          }
+
+          .flex-wrapper {
+            display: flex;
+            align-items: center;
+
+            input[type='radio'] {
+              margin-right: 0.3rem;
+            }
+
+            label {
+              font-size: 0.9rem;
+
+              &:not(:last-of-type) {
+                margin-right: 1rem;
+              }
+            }
+
+            button {
+              margin-left: auto;
+              text-transform: uppercase;
+              background: transparent;
+              font-weight: 600;
+              font-size: 1.1rem;
+            }
+          }
         }
       }
     }
 
     .bottom-group {
       display: flex;
-      gap: 1rem;
+      gap: 10vw;
       align-items: flex-end;
       margin-top: 5rem;
+
+      @include media('<desktop') {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2.5rem;
+      }
 
       p {
         line-height: 1.5rem;
@@ -132,8 +213,11 @@ footer {
 
       .footer-payment {
         display: flex;
-
         margin-left: auto;
+
+        @include media('<desktop') {
+          margin-left: 0;
+        }
 
         .payment-icons {
           display: flex;

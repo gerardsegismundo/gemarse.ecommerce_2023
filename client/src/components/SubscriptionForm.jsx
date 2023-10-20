@@ -19,7 +19,7 @@ const SubscriptionForm = () => {
   }
 
   return (
-    <div className='form-group'>
+    <div className='subscription-form'>
       <div className='input-group'>
         <input
           type='email'
@@ -27,15 +27,20 @@ const SubscriptionForm = () => {
           value={formData.email}
           onChange={handleOnChange}
           data-filled={formData.email.length > 0}
+          autocomplete='off'
         />
         <label htmlFor='email'>Enter your email</label>
       </div>
-      <p>Which products are you interested in?</p>
-      <div className='flex-wrapper'>
-        <InputRadioGroup value='male' onChange={handleOnChange} checked={formData.gender === 'male'} />
-        <InputRadioGroup value='female' onChange={handleOnChange} checked={formData.gender === 'female'} />
-        <InputRadioGroup value='both' onChange={handleOnChange} checked={formData.gender === 'both'} />
-        <button onClick={handleOnSubmit}>submit</button>
+      <div className='radio-group'>
+        <p>Which products are you interested in?</p>
+        <div className='flex-wrapper'>
+          <InputRadioGroup value='male' onChange={handleOnChange} checked={formData.gender === 'male'} />
+          <InputRadioGroup value='female' onChange={handleOnChange} checked={formData.gender === 'female'} />
+          <InputRadioGroup value='both' onChange={handleOnChange} checked={formData.gender === 'both'} />
+          <button className='btn' onClick={handleOnSubmit}>
+            subscribe
+          </button>
+        </div>
       </div>
     </div>
   )

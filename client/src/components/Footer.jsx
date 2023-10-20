@@ -9,7 +9,7 @@ const Footer = () => {
     <footer>
       <div className='container'>
         <div className='footer-header'>
-          <h2>Gemarse</h2>
+          <h2 className='brand'>Gemarse</h2>
 
           <div className='social-groups'>
             <FacebookIcon />
@@ -51,11 +51,12 @@ const Footer = () => {
 
         <div className='subscribe'>
           <h4>Subscribe to our newsletter</h4>
+
           <SubscriptionForm />
         </div>
 
         <div className='bottom-group'>
-          <h2>Gemarse</h2>
+          <h2 className='brand'>Gemarse</h2>
           <p>© Blakely Clothing US 2023 all rights reserved</p>
           <FooterPayment />
         </div>

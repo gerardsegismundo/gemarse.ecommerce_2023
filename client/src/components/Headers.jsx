@@ -12,6 +12,7 @@ const Header = () => {
   const scrolled = useScrollListener()
   const dispatch = useDispatch()
   const { itemsInCart } = useSelector(state => state.cart)
+  const { isOpen: subMenuIsOpen } = useSelector(state => state.ui.subMenu)
 
   const handleOpenCart = () => dispatch(setCartDrawerIsOpen(true))
 
@@ -20,7 +21,7 @@ const Header = () => {
   }
 
   return (
-    <header className={scrolled ? ' scrolled' : ''}>
+    <header className={scrolled || subMenuIsOpen ? 'active' : ''}>
       <div className='header-container'>
         <MobileMenu />
         <nav>

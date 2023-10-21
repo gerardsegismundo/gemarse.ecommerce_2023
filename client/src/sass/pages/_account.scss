@@ -1,5 +1,5 @@
 .account {
-  padding-top: 6rem;
+  padding-top: 10rem;
   height: 70rem;
 
   .container {
@@ -19,48 +19,50 @@
         margin-bottom: 3rem;
       }
 
-      .input-group {
-        display: flex;
-        flex-direction: column;
-        align-self: flex-start;
+      form.sign-in-form {
         width: 100%;
 
-        &:first-of-type {
-          margin-bottom: 2rem;
-        }
+        .md-input-group {
+          display: flex;
+          flex-direction: column;
+          align-self: flex-start;
+          border-bottom: 1px solid rgba($dark-gray, 0.9);
 
-        label {
-          text-transform: uppercase;
-          margin-bottom: 0.5rem;
-        }
+          &:first-of-type {
+            margin-bottom: 2rem;
+          }
 
-        input {
-          background-color: transparent;
-          border-radius: 1px;
+          input {
+            background-color: transparent;
+            border-radius: 1px;
 
-          padding: 0.75rem 1rem;
-          border: 1px solid rgba($dark-gray, 0.9);
-          width: 40.5rem;
-          max-width: 80vw;
+            width: 40.5rem;
+            max-width: 80vw;
 
-          &:focus,
-          &:active {
-            border: 1px solid rgba($dark-gray, 0.9);
+            &:focus,
+            &:active {
+              + label {
+                opacity: 0;
+              }
+            }
           }
         }
       }
 
       a {
-        margin: 0.5rem 0 1rem 0;
+        margin: 0.5rem 0 4rem 0;
         font-size: $font-small;
         align-self: flex-end;
       }
 
       button {
-        margin-top: 1rem;
-        width: fit-content;
+        &.sign-in-btn {
+          margin-bottom: 4rem;
+        }
 
-        // align-self: center;
+        &.sign-up-btn {
+          margin-top: 1rem;
+        }
       }
     }
   }

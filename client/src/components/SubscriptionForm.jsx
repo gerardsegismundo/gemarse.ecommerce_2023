@@ -27,7 +27,7 @@ const SubscriptionForm = () => {
           value={formData.email}
           onChange={handleOnChange}
           data-filled={formData.email.length > 0}
-          autocomplete='off'
+          autoComplete='off'
         />
         <label htmlFor='email'>Enter your email</label>
       </div>

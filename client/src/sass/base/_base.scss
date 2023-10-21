@@ -124,7 +124,7 @@ button {
     &:hover {
       background-color: white;
       color: $dark-gray;
-      border: 1px solid rgba($dark-gray, 0.1);
+      border: 1px solid $dark-gray /* rgba($dark-gray, 0.1) */;
     }
   }
 

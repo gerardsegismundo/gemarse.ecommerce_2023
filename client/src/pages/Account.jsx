@@ -16,7 +16,7 @@ const Account = () => {
     <div className='account'>
       <div className='container'>
         <div className='sign-in'>
-          <h2>Sign In</h2>
+          <h2>Welcome back</h2>
           <form className='sign-in-form'>
             <div className='md-input-group'>
               <input

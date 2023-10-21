@@ -1,6 +1,5 @@
 .account {
-  padding-top: 10rem;
-  height: 70rem;
+  padding: 15vh 0rem;
 
   .container {
     display: flex;
@@ -8,7 +7,6 @@
 
     .sign-in {
       padding: 5rem 0;
-      max-width: 50rem;
       display: flex;
       align-items: center;
       flex-direction: column;
@@ -16,7 +14,7 @@
       h2 {
         text-align: center;
         text-transform: capitalize;
-        margin-bottom: 3rem;
+        margin-bottom: 7rem;
       }
 
       form.sign-in-form {
@@ -36,9 +34,6 @@
             background-color: transparent;
             border-radius: 1px;
 
-            width: 40.5rem;
-            max-width: 80vw;
-
             &:focus,
             &:active {
               + label {
@@ -50,18 +45,18 @@
       }
 
       a {
-        margin: 0.5rem 0 4rem 0;
+        margin: 0.5rem 0 7rem 0;
         font-size: $font-small;
         align-self: flex-end;
       }
 
       button {
         &.sign-in-btn {
-          margin-bottom: 4rem;
+          margin-bottom: 7rem;
         }
 
         &.sign-up-btn {
-          margin-top: 1rem;
+          margin-top: 2rem;
         }
       }
     }

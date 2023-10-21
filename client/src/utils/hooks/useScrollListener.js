@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 
 function useScrollListener() {
   const [scrolled, setScrolled] = useState(false)
-  console.log('WHEY!')
+
   const handleScroll = () => {
     if (window.scrollY > 0) {
       setScrolled(true)
@@ -19,7 +19,6 @@ function useScrollListener() {
     }
   }, [])
 
-  console.log(scrolled)
   return scrolled
 }
 

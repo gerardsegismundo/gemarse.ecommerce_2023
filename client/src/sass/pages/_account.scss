@@ -1,0 +1,53 @@
+.account {
+  padding-top: 6rem;
+  height: 70rem;
+
+  .container {
+    display: flex;
+    justify-content: center;
+
+    .sign-in {
+      padding: 5rem 0;
+      max-width: 50rem;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+
+      h3 {
+        text-align: center;
+        text-transform: capitalize;
+        margin-bottom: 3rem;
+      }
+
+      .input-group {
+        align-self: flex-start;
+        width: 100%;
+
+        &:first-of-type {
+          margin-bottom: 1rem;
+        }
+
+        label {
+          text-transform: uppercase;
+        }
+
+        input {
+          width: 100%;
+        }
+      }
+
+      a {
+        margin: 0.5rem 0 1rem 0;
+        font-size: $font-small;
+        align-self: flex-end;
+      }
+
+      button {
+        margin-top: 1rem;
+        width: fit-content;
+
+        // align-self: center;
+      }
+    }
+  }
+}

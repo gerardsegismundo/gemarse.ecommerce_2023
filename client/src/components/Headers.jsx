@@ -4,6 +4,7 @@ import MobileMenu from './MobileMenu'
 import { ReactComponent as CartIcon } from '../assets/svg/cart.svg'
 import { ReactComponent as UserIcon } from '../assets/svg/user.svg'
 
+import { useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { setCartDrawerIsOpen, setSubMenu } from '../redux/actions'
 import useScrollListener from '../utils/hooks/useScrollListener'
@@ -11,6 +12,7 @@ import useScrollListener from '../utils/hooks/useScrollListener'
 const Header = () => {
   const scrolled = useScrollListener()
   const dispatch = useDispatch()
+  const location = useLocation()
   const { itemsInCart } = useSelector(state => state.cart)
   const { isOpen: subMenuIsOpen } = useSelector(state => state.ui.subMenu)
 
@@ -20,8 +22,10 @@ const Header = () => {
     dispatch(setSubMenu({ isOpen: true, gender }))
   }
 
+  const isOnAccountPage = location.pathname === '/account'
+
   return (
-    <header className={scrolled || subMenuIsOpen ? 'active' : ''}>
+    <header className={scrolled || subMenuIsOpen || isOnAccountPage ? 'active' : ''}>
       <div className='header-container'>
         <MobileMenu />
         <nav>
@@ -43,7 +47,9 @@ const Header = () => {
           </Link>
         </h1>
         <div className='actions'>
-          <UserIcon />
+          <Link to='/account' aria-label='Account'>
+            <UserIcon />
+          </Link>
           <div className='cart-group'>
             <CartIcon onClick={handleOpenCart} />
             <i className='items-in-cart'>{itemsInCart}</i>

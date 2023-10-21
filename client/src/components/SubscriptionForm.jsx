@@ -20,7 +20,7 @@ const SubscriptionForm = () => {
 
   return (
     <div className='subscription-form'>
-      <div className='input-group'>
+      <div className='md-input-group'>
         <input
           type='email'
           name='email'

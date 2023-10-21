@@ -5,7 +5,7 @@ const Account = () => {
     <div className='account'>
       <div className='container'>
         <div className='sign-in'>
-          <h3>Sign In</h3>
+          <h2>Sign In</h2>
           <div className='input-group'>
             <label htmlFor='email'>Email</label>
             <input type='text' name='email' />

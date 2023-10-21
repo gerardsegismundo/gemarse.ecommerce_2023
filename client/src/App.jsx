@@ -5,7 +5,7 @@ import { CartDrawer, Footer, SubMenu, RecentlyViewed } from './components'
 
 const App = () => {
   return (
-    <div>
+    <>
       <Header />
       <SubMenu />
       <CartDrawer />
@@ -18,7 +18,7 @@ const App = () => {
       </Routes>
       <RecentlyViewed />
       <Footer />
-    </div>
+    </>
   )
 }
 

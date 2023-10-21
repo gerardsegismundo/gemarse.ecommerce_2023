@@ -13,26 +13,40 @@
       align-items: center;
       flex-direction: column;
 
-      h3 {
+      h2 {
         text-align: center;
         text-transform: capitalize;
         margin-bottom: 3rem;
       }
 
       .input-group {
+        display: flex;
+        flex-direction: column;
         align-self: flex-start;
         width: 100%;
 
         &:first-of-type {
-          margin-bottom: 1rem;
+          margin-bottom: 2rem;
         }
 
         label {
           text-transform: uppercase;
+          margin-bottom: 0.5rem;
         }
 
         input {
-          width: 100%;
+          background-color: transparent;
+          border-radius: 1px;
+
+          padding: 0.75rem 1rem;
+          border: 1px solid rgba($dark-gray, 0.9);
+          width: 40.5rem;
+          max-width: 80vw;
+
+          &:focus,
+          &:active {
+            border: 1px solid rgba($dark-gray, 0.9);
+          }
         }
       }
 

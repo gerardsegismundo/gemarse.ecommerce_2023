@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { useMatch } from 'react-router'
 import MobileMenu from './MobileMenu'
 import { ReactComponent as CartIcon } from '../assets/svg/cart.svg'
 import { ReactComponent as UserIcon } from '../assets/svg/user.svg'
@@ -15,7 +16,10 @@ const Header = () => {
   const { isOpen: subMenuIsOpen } = useSelector(state => state.ui.subMenu)
 
   const location = useLocation()
+
   const isOnAccountPage = location.pathname === '/account'
+  const isOnProductPage = useMatch('/product/:product_name')
+  const isOnLightPage = isOnAccountPage || isOnProductPage
 
   const handleOpenCart = () => dispatch(setCartDrawerIsOpen(true))
 
@@ -24,7 +28,7 @@ const Header = () => {
   }
 
   return (
-    <header className={scrolled || subMenuIsOpen || isOnAccountPage ? 'active' : ''}>
+    <header className={scrolled || subMenuIsOpen || isOnLightPage ? 'active' : ''}>
       <div className='header-container'>
         <MobileMenu />
         <nav>

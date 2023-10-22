@@ -3,7 +3,7 @@ import Story from '../components/Story'
 
 const Home = () => {
   return (
-    <div className='home'>
+    <div className='home-page'>
       <ImageSlider />
       <ImageCarousel />
       <NewsLetterBanner />

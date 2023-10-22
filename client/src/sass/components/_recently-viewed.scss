@@ -3,7 +3,7 @@
   background-color: rgba($dark-gray, 0.05);
 
   .container {
-    h3 {
+    h3.title {
       word-spacing: 0.15rem;
       font-family: 'Poppins', sans-serif;
       margin: 0;
@@ -11,7 +11,6 @@
       box-sizing: inherit;
       text-transform: uppercase;
       margin-bottom: 5rem;
-      // color: $white;
     }
 
     .grid {

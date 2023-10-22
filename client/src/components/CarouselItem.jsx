@@ -2,11 +2,12 @@ import React, { useState } from 'react'
 import SizeButton from './SizeButton'
 import { useDispatch } from 'react-redux'
 import { addToCart, setCartDrawerIsOpen } from '../redux/actions'
+import { useNavigate } from 'react-router-dom'
 
 const CarouselItem = ({ props }) => {
-  const { _id, name, color, price, type, stock } = props
-  let { imgSrc } = props
+  const { _id, name, color, price, imgSrc, type, stock } = props
 
+  const navigate = useNavigate()
   const dispatch = useDispatch()
   const [isHovered, setIsHovered] = useState(false)
   const [selectedSize, setSelectedSize] = useState(null)
@@ -43,12 +44,18 @@ const CarouselItem = ({ props }) => {
     }
   }
 
+  const handleOnClick = () => {
+    const formattedName = name.replace(/ /g, '-')
+    navigate(`/product/${formattedName}`)
+  }
+
   return (
     <div
       className='carousel-item'
       data-is-hover={isHovered}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onClick={handleOnClick}
     >
       {isSoldOut && <h3 className='sold-out'>SOLD OUT</h3>}
       <img src={imgSrc} alt={name} draggable='false' />

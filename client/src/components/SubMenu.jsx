@@ -1,12 +1,14 @@
 import { ReactComponent as SearchIcon } from '../assets/svg/search.svg'
 import { setSubMenu } from '../redux/actions'
 import { useSelector, useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 import products from '../assets/data/products'
 
 const SubMenu = () => {
   const { isOpen, gender } = useSelector(state => state.ui.subMenu)
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const featuredMens = products.filter(product => product.category === 'men').slice(0, 3)
   const featuredWomens = products.filter(product => product.category === 'women').slice(0, 3)
@@ -14,6 +16,12 @@ const SubMenu = () => {
   const featuredProducts = gender === 'mens' ? featuredMens : featuredWomens
 
   const hadleOnLeave = () => {
+    dispatch(setSubMenu({ isOpen: false, gender: null }))
+  }
+
+  const handleOnNavigate = name => {
+    const formattedName = name.replace(/ /g, '-')
+    navigate(`/product/${formattedName}`)
     dispatch(setSubMenu({ isOpen: false, gender: null }))
   }
 
@@ -101,7 +109,7 @@ const SubMenu = () => {
             <h5>Featured {gender}</h5>
             <div className='flex'>
               {featuredProducts.map(item => (
-                <div key={item.id + item.name} className='featured-item'>
+                <div key={item.id + item.name} className='featured-item' onClick={() => handleOnNavigate(item.name)}>
                   <div className='details'>
                     <p className='name'>{item.name}</p>
                     <p className='price'>${item.price}</p>

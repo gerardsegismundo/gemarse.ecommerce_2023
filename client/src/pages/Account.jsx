@@ -13,7 +13,7 @@ const Account = () => {
   }
 
   return (
-    <div className='account'>
+    <div className='account-page'>
       <div className='container'>
         <div className='sign-in'>
           <h2>Welcome back</h2>

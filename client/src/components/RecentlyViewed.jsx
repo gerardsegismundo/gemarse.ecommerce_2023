@@ -8,7 +8,7 @@ const RecentlyViewed = () => {
   return (
     <div className='recently-viewed'>
       <div className='container'>
-        <h3>Recently Viewed</h3>
+        <h3 className='title'>Recently Viewed</h3>
         <div className='grid'>
           {fourItems.map(data => (
             <div key={data.id}>

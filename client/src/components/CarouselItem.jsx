@@ -4,7 +4,9 @@ import { useDispatch } from 'react-redux'
 import { addToCart, setCartDrawerIsOpen } from '../redux/actions'
 
 const CarouselItem = ({ props }) => {
-  const { _id, name, imgSrc, color, price, type, stock } = props
+  const { _id, name, color, price, type, stock } = props
+  let { imgSrc } = props
+
   const dispatch = useDispatch()
   const [isHovered, setIsHovered] = useState(false)
   const [selectedSize, setSelectedSize] = useState(null)
@@ -49,7 +51,7 @@ const CarouselItem = ({ props }) => {
       onMouseLeave={handleMouseLeave}
     >
       {isSoldOut && <h3 className='sold-out'>SOLD OUT</h3>}
-      <img src={imgSrc} alt={imgSrc} draggable='false' />
+      <img src={imgSrc} alt={name} draggable='false' />
       <div className='quick-add-wrapper'>
         <div className='quick-add'>
           <p className='message'>Quick add - ${price}</p>

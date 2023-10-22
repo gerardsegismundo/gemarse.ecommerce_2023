@@ -1,15 +1,13 @@
-import React, { useState, useEffect } from 'react'
 import { useSpringCarousel } from 'react-spring-carousel'
 import { ReactComponent as ChevLeft } from '../assets/svg/chev-left.svg'
 import { ReactComponent as ChevRight } from '../assets/svg/chev-right.svg'
 import CarouselItem from './CarouselItem'
 import useResponsiveSlideAmount from '../utils/hooks/useResponsiveSlideAmount'
-import axios from 'axios'
+
 import trendingData from '../assets/data/trendingData'
 
 const ImageCarousel = () => {
   const slideAmount = useResponsiveSlideAmount()
-  const [trendingItems, setTrendingItems] = useState([])
 
   const { carouselFragment, slideToPrevItem, slideToNextItem } = useSpringCarousel({
     initialActiveItem: 1,
@@ -18,28 +16,11 @@ const ImageCarousel = () => {
     enableFreeScrollDrag: true,
     draggingSlideTreshold: 35,
     withLoop: true,
-    items: trendingItems.length
-      ? trendingItems.map(data => ({
-          id: data._id,
-          renderItem: <CarouselItem props={data} />
-        }))
-      : [{ id: 1, renderItem: <></> }]
+    items: trendingData.map(data => ({
+      id: data._id,
+      renderItem: <CarouselItem props={data} />
+    }))
   })
-
-  const fetchTrendingProducts = async () => {
-    try {
-      const response = await axios.get('http://localhost:5000/api/v1/products/trending-products')
-      setTrendingItems(response.data)
-      console.log(response.data)
-      console.log(trendingData)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
-  useEffect(() => {
-    fetchTrendingProducts()
-  }, [])
 
   return (
     <div className='image-carousel'>

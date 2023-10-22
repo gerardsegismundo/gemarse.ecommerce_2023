@@ -1,11 +1,17 @@
 import { ReactComponent as SearchIcon } from '../assets/svg/search.svg'
-import featuredItems from '../assets/data/featuredItems'
 import { setSubMenu } from '../redux/actions'
 import { useSelector, useDispatch } from 'react-redux'
+
+import products from '../assets/data/products'
 
 const SubMenu = () => {
   const { isOpen, gender } = useSelector(state => state.ui.subMenu)
   const dispatch = useDispatch()
+
+  const featuredMens = products.filter(product => product.category === 'men').slice(0, 3)
+  const featuredWomens = products.filter(product => product.category === 'women').slice(0, 3)
+
+  const featuredProducts = gender === 'mens' ? featuredMens : featuredWomens
 
   const hadleOnLeave = () => {
     dispatch(setSubMenu({ isOpen: false, gender: null }))
@@ -94,16 +100,15 @@ const SubMenu = () => {
           <div className='featured-items'>
             <h5>Featured {gender}</h5>
             <div className='flex'>
-              {gender &&
-                featuredItems[gender].map(item => (
-                  <div key={item.id + item.name} className='featured-item'>
-                    <div className='details'>
-                      <p className='name'>{item.name}</p>
-                      <p className='price'>${item.price}</p>
-                    </div>
-                    <img src={item.imgSrc} alt={item.name} />
+              {featuredProducts.map(item => (
+                <div key={item.id + item.name} className='featured-item'>
+                  <div className='details'>
+                    <p className='name'>{item.name}</p>
+                    <p className='price'>${item.price}</p>
                   </div>
-                ))}
+                  <img src={item.imgSrc} alt={item.name} />
+                </div>
+              ))}
             </div>
           </div>
         </div>

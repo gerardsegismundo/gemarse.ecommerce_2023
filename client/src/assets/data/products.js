@@ -1,21 +1,27 @@
-import blackJeans from '../images/trending_items/black-jeans.jpg'
-import blackShirt from '../images/trending_items/black-shirt.jpg'
-import blackWallet from '../images/trending_items/black-wallet.jpg'
-import brownLeatherBag from '../images/trending_items/brown-leather-bag.jpg'
-import chinosStretch from '../images/trending_items/chinos-stretch.jpg'
-import dressPants from '../images/trending_items/dress-pants.jpg'
-import leatherJacket from '../images/trending_items/leather-jacket.jpg'
-import leggings from '../images/trending_items/leggings.jpg'
-import navyPolo from '../images/trending_items/navy-polo.jpg'
-import navySuit from '../images/trending_items/navy-suit.jpg'
-import polo from '../images/trending_items/polo.jpg'
-import purpleGoldTie from '../images/trending_items/purple-gold-tie.jpg'
-import sportShorts from '../images/trending_items/sport-shorts.jpg'
-import stripeShirt from '../images/trending_items/stripe-shirt.jpg'
-import summerShort from '../images/trending_items/summer-short.jpg'
-import weddingBowTie from '../images/trending_items/wedding-bow-tie.jpg'
+import blackJeans from '../images/products/black-jeans.jpg'
+import blackShirt from '../images/products/black-shirt.jpg'
+import blackWallet from '../images/products/black-wallet.jpg'
+import brownLeatherBag from '../images/products/brown-leather-bag.jpg'
+import chinosStretch from '../images/products/chinos-stretch.jpg'
+import dressPants from '../images/products/dress-pants.jpg'
+import leatherJacket from '../images/products/leather-jacket.jpg'
+import leggings2 from '../images/products/leggings-2.jpg'
+import navyPolo from '../images/products/navy-polo.jpg'
+import navySuit from '../images/products/navy-suit.jpg'
+import polo from '../images/products/polo.jpg'
+import purpleGoldTie from '../images/products/purple-gold-tie.jpg'
+import sportShorts from '../images/products/sport-shorts.jpg'
+import stripeShirt from '../images/products/stripe-shirt.jpg'
+import summerShort from '../images/products/summer-short.jpg'
+import weddingBowTie from '../images/products/wedding-bow-tie.jpg'
+import blazers from '../images/products/blazers.jpg'
+import bodySuit from '../images/products/body-suit.jpg'
+import joggers from '../images/products/joggers.jpg'
+import leggings from '../images/products/leggings.jpg'
+import longSleeve from '../images/products/long-sleeve.jpg'
+import sportBra from '../images/products/sport-bra.jpg'
 
-const trendingData = [
+const products = [
   {
     id: 1,
     name: 'black jeans',
@@ -24,6 +30,7 @@ const trendingData = [
     price: 78.99,
     category: 'men',
     type: 'pants',
+    isTrending: false,
     stock: {
       XS: 0,
       S: 2,
@@ -40,6 +47,7 @@ const trendingData = [
     price: 24.99,
     category: 'men',
     type: 'shirt',
+    isTrending: false,
     stock: {
       XS: 5,
       S: 10,
@@ -76,6 +84,7 @@ const trendingData = [
     price: 67.99,
     category: 'men',
     type: 'pants',
+    isTrending: true,
     stock: {
       XS: 0,
       S: 0,
@@ -92,6 +101,7 @@ const trendingData = [
     price: 78.99,
     category: 'men',
     type: 'pants',
+    isTrending: true,
     stock: {
       XS: 0,
       S: 0,
@@ -108,6 +118,7 @@ const trendingData = [
     price: 154.99,
     category: 'mens',
     type: 'jackets',
+    isTrending: true,
     stock: {
       XS: 5,
       S: 10,
@@ -119,11 +130,12 @@ const trendingData = [
   {
     id: 8,
     name: 'black leggings',
-    imgSrc: leggings,
+    imgSrc: leggings2,
     color: 'black',
     price: 58.99,
     category: 'womens',
     type: 'leggings',
+    isTrending: false,
     stock: {
       XS: 0,
       S: 0,
@@ -140,6 +152,7 @@ const trendingData = [
     price: 34.99,
     category: 'mens',
     type: 'shirt',
+    isTrending: false,
     stock: {
       XS: 5,
       S: 10,
@@ -156,6 +169,7 @@ const trendingData = [
     price: 87.99,
     category: 'mens',
     type: 'suits',
+    isTrending: true,
     stock: {
       XS: 5,
       S: 10,
@@ -172,6 +186,7 @@ const trendingData = [
     price: 26.99,
     category: 'mens',
     type: 'shirts',
+    isTrending: false,
     stock: {
       XS: 5,
       S: 10,
@@ -198,6 +213,7 @@ const trendingData = [
     price: 23.99,
     category: 'womens',
     type: 'shorts',
+    isTrending: true,
     stock: {
       XS: 5,
       S: 10,
@@ -214,6 +230,7 @@ const trendingData = [
     price: 39.99,
     category: 'mens',
     type: 'shirt',
+    isTrending: true,
     stock: {
       XS: 5,
       S: 10,
@@ -230,6 +247,7 @@ const trendingData = [
     price: 25.99,
     category: 'mens',
     type: 'shorts',
+    isTrending: true,
     stock: {
       XS: 5,
       S: 10,
@@ -247,7 +265,108 @@ const trendingData = [
     category: 'mens',
     type: 'accessories',
     stock: 0
+  },
+  {
+    _id: 17,
+    name: 'joggers',
+    imgSrc: joggers,
+    color: 'black',
+    price: 55.99,
+    category: 'men',
+    type: 'pants',
+    isTrending: true,
+    stock: {
+      XS: 0,
+      S: 2,
+      M: 0,
+      L: 0,
+      XL: 3
+    }
+  },
+  {
+    _id: 18,
+    name: 'blazers',
+    imgSrc: blazers,
+    color: 'gray',
+    price: 178.99,
+    category: 'men',
+    type: 'jackets',
+    isTrending: true,
+    stock: {
+      XS: 0,
+      S: 2,
+      M: 0,
+      L: 0,
+      XL: 3
+    }
+  },
+  {
+    _id: 19,
+    name: 'long sleeve',
+    imgSrc: longSleeve,
+    color: 'navy blue',
+    price: 42.99,
+    category: 'men',
+    type: 'shirt',
+    isTrending: false,
+    stock: {
+      XS: 0,
+      S: 2,
+      M: 0,
+      L: 0,
+      XL: 3
+    }
+  },
+  {
+    _id: 20,
+    name: 'body suit',
+    imgSrc: bodySuit,
+    color: 'blue green',
+    price: 55.99,
+    category: 'women',
+    type: 'bodysuit',
+    isTrending: true,
+    stock: {
+      XS: 5,
+      S: 2,
+      M: 8,
+      L: 20,
+      XL: 3
+    }
+  },
+  {
+    _id: 21,
+    name: 'leggings',
+    imgSrc: leggings,
+    color: 'black',
+    price: 78.99,
+    category: 'women',
+    type: 'leggings',
+    isTrending: true,
+    stock: {
+      XS: 18,
+      S: 2,
+      M: 5,
+      L: 3,
+      XL: 3
+    }
+  },
+  {
+    _id: 22,
+    name: 'sports bra',
+    imgSrc: sportBra,
+    color: 'black',
+    price: 55.99,
+    category: 'women',
+    type: 'sports bra',
+    isTrending: false,
+    stock: {
+      XS: 45,
+      S: 23,
+      M: 18,
+      L: 32,
+      XL: 32
+    }
   }
 ]
-
-export default trendingData
+export default products

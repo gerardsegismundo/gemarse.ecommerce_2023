@@ -1,9 +1,9 @@
 import React from 'react'
 import CarouselItem from './CarouselItem'
-import trendingData from '../assets/data/trendingData'
+import products from '../assets/data/products'
 
 const RecentlyViewed = () => {
-  const fourItems = trendingData.slice(0, 4)
+  const fourItems = products.slice(5, 9)
 
   return (
     <div className='recently-viewed'>

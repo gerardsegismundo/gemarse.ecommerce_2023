@@ -1,0 +1,218 @@
+[
+  {
+    "name": "black jeans",
+    "imgSrc": "blackJeans",
+    "color": "black",
+    "price": 78.99,
+    "category": "men",
+    "type": "pants",
+    "stock": {
+      "XS": 0,
+      "S": 2,
+      "M": 0,
+      "L": 0,
+      "XL": 3
+    }
+  },
+  {
+    "name": "plane black shirt",
+    "imgSrc": "blackShirt",
+    "color": "black",
+    "price": 24.99,
+    "category": "men",
+    "type": "shirt",
+    "stock": {
+      "XS": 5,
+      "S": 10,
+      "M": 0,
+      "L": 15,
+      "XL": 30
+    }
+  },
+  {
+    "name": "black wallet",
+    "imgSrc": "blackWallet",
+    "color": "black",
+    "price": 56.99,
+    "category": "men",
+    "type": "accessories",
+    "stock": 1
+  },
+  {
+    "name": "brown leather bag",
+    "imgSrc": "brownLeatherBag",
+    "color": "brown",
+    "price": 243.99,
+    "category": "women",
+    "type": "accessories",
+    "stock": 5
+  },
+  {
+    "name": "chinos stretch",
+    "imgSrc": "chinosStretch",
+    "color": "white",
+    "price": 67.99,
+    "category": "men",
+    "type": "pants",
+    "stock": {
+      "XS": 0,
+      "S": 0,
+      "M": 0,
+      "L": 0,
+      "XL": 8
+    }
+  },
+  {
+    "name": "gray dress pants",
+    "imgSrc": "dressPants",
+    "color": "gray",
+    "price": 78.99,
+    "category": "men",
+    "type": "pants",
+    "stock": {
+      "XS": 0,
+      "S": 0,
+      "M": 0,
+      "L": 0,
+      "XL": 0
+    }
+  },
+  {
+    "name": "black leather jacket",
+    "imgSrc": "leatherJacket",
+    "color": "black",
+    "price": 154.99,
+    "category": "mens",
+    "type": "jackets",
+    "stock": {
+      "XS": 5,
+      "S": 10,
+      "M": 0,
+      "L": 15,
+      "XL": 30
+    }
+  },
+  {
+    "name": "black leggings",
+    "imgSrc": "leggings",
+    "color": "black",
+    "price": 58.99,
+    "category": "womens",
+    "type": "leggings",
+    "stock": {
+      "XS": 0,
+      "S": 0,
+      "M": 0,
+      "L": 0,
+      "XL": 0
+    }
+  },
+  {
+    "name": "navy polo",
+    "imgSrc": "navyPolo",
+    "color": "navy",
+    "price": 34.99,
+    "category": "mens",
+    "type": "shirt",
+    "stock": {
+      "XS": 5,
+      "S": 10,
+      "M": 0,
+      "L": 15,
+      "XL": 30
+    }
+  },
+  {
+    "name": "navy suit",
+    "imgSrc": "navySuit",
+    "color": "navy",
+    "price": 87.99,
+    "category": "mens",
+    "type": "suits",
+    "stock": {
+      "XS": 5,
+      "S": 10,
+      "M": 0,
+      "L": 15,
+      "XL": 30
+    }
+  },
+  {
+    "name": "blue polo",
+    "imgSrc": "polo",
+    "color": "blue",
+    "price": 26.99,
+    "category": "mens",
+    "type": "shirts",
+    "stock": {
+      "XS": 5,
+      "S": 10,
+      "M": 0,
+      "L": 15,
+      "XL": 30
+    }
+  },
+  {
+    "name": "purple tie",
+    "imgSrc": "purpleGoldTie",
+    "color": "purple",
+    "price": 12.99,
+    "category": "mens",
+    "type": "accessories",
+    "stock": 0
+  },
+  {
+    "name": "Sport shorts",
+    "imgSrc": "sportShorts",
+    "color": "pink",
+    "price": 23.99,
+    "category": "womens",
+    "type": "shorts",
+    "stock": {
+      "XS": 5,
+      "S": 10,
+      "M": 0,
+      "L": 15,
+      "XL": 30
+    }
+  },
+  {
+    "name": "black stripe shirt",
+    "imgSrc": "stripeShirt",
+    "color": "black",
+    "price": 39.99,
+    "category": "mens",
+    "type": "shirt",
+    "stock": {
+      "XS": 5,
+      "S": 10,
+      "M": 0,
+      "L": 15,
+      "XL": 30
+    }
+  },
+  {
+    "name": "summer short",
+    "imgSrc": "summerShort",
+    "color": "navy",
+    "price": 25.99,
+    "category": "mens",
+    "type": "shorts",
+    "stock": {
+      "XS": 5,
+      "S": 10,
+      "M": 0,
+      "L": 15,
+      "XL": 30
+    }
+  },
+  {
+    "name": "wedding bow tie",
+    "imgSrc": "weddingBowTie",
+    "color": "black",
+    "price": 17.99,
+    "category": "mens",
+    "type": "accessories",
+    "stock": 0
+  }
+]

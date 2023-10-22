@@ -8,7 +8,7 @@ import sportBra from '../images/featured/sport-bra.jpg'
 const featuredItems = {
   mens: [
     {
-      id: 17,
+      _id: 17,
       name: 'joggers',
       imgSrc: joggers,
       color: 'black',
@@ -24,7 +24,7 @@ const featuredItems = {
       }
     },
     {
-      id: 18,
+      _id: 18,
       name: 'blazers',
       imgSrc: blazers,
       color: 'gray',
@@ -40,7 +40,7 @@ const featuredItems = {
       }
     },
     {
-      id: 19,
+      _id: 19,
       name: 'long sleeve',
       imgSrc: longSleeve,
       color: 'navy blue',
@@ -58,7 +58,7 @@ const featuredItems = {
   ],
   womens: [
     {
-      id: 20,
+      _id: 20,
       name: 'body suit',
       imgSrc: bodySuit,
       color: 'blue green',
@@ -74,7 +74,7 @@ const featuredItems = {
       }
     },
     {
-      id: 21,
+      _id: 21,
       name: 'leggings',
       imgSrc: leggings,
       color: 'black',
@@ -90,7 +90,7 @@ const featuredItems = {
       }
     },
     {
-      id: 22,
+      _id: 22,
       name: 'sports bra',
       imgSrc: sportBra,
       color: 'black',

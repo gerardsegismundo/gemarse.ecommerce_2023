@@ -1,7 +1,7 @@
 [
   {
     "name": "black jeans",
-    "imgSrc": "../images/trending_items/black-jeans.jpg",
+    "imgSrc": "blackJeans",
     "color": "black",
     "price": 78.99,
     "category": "men",
@@ -16,7 +16,7 @@
   },
   {
     "name": "plane black shirt",
-    "imgSrc": "../images/trending_items/black-shirt.jpg",
+    "imgSrc": "blackShirt",
     "color": "black",
     "price": 24.99,
     "category": "men",
@@ -31,7 +31,7 @@
   },
   {
     "name": "black wallet",
-    "imgSrc": "../images/trending_items/black-wallet.jpg",
+    "imgSrc": "blackWallet",
     "color": "black",
     "price": 56.99,
     "category": "men",
@@ -40,7 +40,7 @@
   },
   {
     "name": "brown leather bag",
-    "imgSrc": "../images/trending_items/brown-leather-bag.jpg",
+    "imgSrc": "brownLeatherBag",
     "color": "brown",
     "price": 243.99,
     "category": "women",
@@ -49,7 +49,7 @@
   },
   {
     "name": "chinos stretch",
-    "imgSrc": "../images/trending_items/chinos-stretch.jpg",
+    "imgSrc": "chinosStretch",
     "color": "white",
     "price": 67.99,
     "category": "men",
@@ -64,7 +64,7 @@
   },
   {
     "name": "gray dress pants",
-    "imgSrc": "../images/trending_items/dress-pants.jpg",
+    "imgSrc": "dressPants",
     "color": "gray",
     "price": 78.99,
     "category": "men",
@@ -79,7 +79,7 @@
   },
   {
     "name": "black leather jacket",
-    "imgSrc": "../images/trending_items/leather-jacket.jpg",
+    "imgSrc": "leatherJacket",
     "color": "black",
     "price": 154.99,
     "category": "mens",
@@ -94,7 +94,7 @@
   },
   {
     "name": "black leggings",
-    "imgSrc": "../images/trending_items/leggings.jpg",
+    "imgSrc": "leggings",
     "color": "black",
     "price": 58.99,
     "category": "womens",
@@ -109,7 +109,7 @@
   },
   {
     "name": "navy polo",
-    "imgSrc": "../images/trending_items/navy-polo.jpg",
+    "imgSrc": "navyPolo",
     "color": "navy",
     "price": 34.99,
     "category": "mens",
@@ -124,7 +124,7 @@
   },
   {
     "name": "navy suit",
-    "imgSrc": "../images/trending_items/navy-suit.jpg",
+    "imgSrc": "navySuit",
     "color": "navy",
     "price": 87.99,
     "category": "mens",
@@ -139,7 +139,7 @@
   },
   {
     "name": "blue polo",
-    "imgSrc": "../images/trending_items/polo.jpg",
+    "imgSrc": "polo",
     "color": "blue",
     "price": 26.99,
     "category": "mens",
@@ -154,7 +154,7 @@
   },
   {
     "name": "purple tie",
-    "imgSrc": "../images/trending_items/purple-gold-tie.jpg",
+    "imgSrc": "purpleGoldTie",
     "color": "purple",
     "price": 12.99,
     "category": "mens",
@@ -163,7 +163,7 @@
   },
   {
     "name": "Sport shorts",
-    "imgSrc": "../images/trending_items/sport-shorts.jpg",
+    "imgSrc": "sportShorts",
     "color": "pink",
     "price": 23.99,
     "category": "womens",
@@ -178,7 +178,7 @@
   },
   {
     "name": "black stripe shirt",
-    "imgSrc": "../images/trending_items/stripe-shirt.jpg",
+    "imgSrc": "stripeShirt",
     "color": "black",
     "price": 39.99,
     "category": "mens",
@@ -193,7 +193,7 @@
   },
   {
     "name": "summer short",
-    "imgSrc": "../images/trending_items/summer-short.jpg",
+    "imgSrc": "summerShort",
     "color": "navy",
     "price": 25.99,
     "category": "mens",
@@ -208,7 +208,7 @@
   },
   {
     "name": "wedding bow tie",
-    "imgSrc": "../images/trending_items/wedding-bow-tie.jpg",
+    "imgSrc": "weddingBowTie",
     "color": "black",
     "price": 17.99,
     "category": "mens",

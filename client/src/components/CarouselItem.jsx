@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import { addToCart, setCartDrawerIsOpen } from '../redux/actions'
 
 const CarouselItem = ({ props }) => {
-  const { id, name, imgSrc, color, price, type, stock } = props
+  const { _id, name, imgSrc, color, price, type, stock } = props
   const dispatch = useDispatch()
   const [isHovered, setIsHovered] = useState(false)
   const [selectedSize, setSelectedSize] = useState(null)
@@ -23,12 +23,12 @@ const CarouselItem = ({ props }) => {
 
   const handleAddToCart = () => {
     if (isAccessories) {
-      dispatch(addToCart({ id, name, imgSrc, price, stock, quantity: 1 }))
+      dispatch(addToCart({ _id, name, imgSrc, price, stock, quantity: 1 }))
       dispatch(setCartDrawerIsOpen(true))
     } else if (selectedSize) {
       dispatch(
         addToCart({
-          id: id + selectedSize,
+          _id: _id + selectedSize,
           name,
           imgSrc,
           price,

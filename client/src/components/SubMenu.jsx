@@ -96,7 +96,7 @@ const SubMenu = () => {
             <div className='flex'>
               {gender &&
                 featuredItems[gender].map(item => (
-                  <div key={item.id} className='featured-item'>
+                  <div key={item.id + item.name} className='featured-item'>
                     <div className='details'>
                       <p className='name'>{item.name}</p>
                       <p className='price'>${item.price}</p>

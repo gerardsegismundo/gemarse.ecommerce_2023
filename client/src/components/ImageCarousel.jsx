@@ -5,6 +5,7 @@ import { ReactComponent as ChevRight } from '../assets/svg/chev-right.svg'
 import CarouselItem from './CarouselItem'
 import useResponsiveSlideAmount from '../utils/hooks/useResponsiveSlideAmount'
 import axios from 'axios'
+import trendingData from '../assets/data/trendingData'
 
 const ImageCarousel = () => {
   const slideAmount = useResponsiveSlideAmount()
@@ -17,16 +18,20 @@ const ImageCarousel = () => {
     enableFreeScrollDrag: true,
     draggingSlideTreshold: 35,
     withLoop: true,
-    items: trendingItems.map(data => ({
-      id: data.id,
-      renderItem: <CarouselItem props={data} />
-    }))
+    items: trendingItems.length
+      ? trendingItems.map(data => ({
+          id: data._id,
+          renderItem: <CarouselItem props={data} />
+        }))
+      : [{ id: 1, renderItem: <></> }]
   })
 
   const fetchTrendingProducts = async () => {
     try {
       const response = await axios.get('http://localhost:5000/api/v1/products/trending-products')
       setTrendingItems(response.data)
+      console.log(response.data)
+      console.log(trendingData)
     } catch (error) {
       console.log(error)
     }
@@ -41,7 +46,7 @@ const ImageCarousel = () => {
       <div className='container'>
         <h3 className='trending'>Trending</h3>
       </div>
-      {/* {trendingItems.length > 0 && <div className='container'>{carouselFragment}</div>} */}
+      <div className='container'>{carouselFragment}</div>
       <button className='prev-btn' onClick={slideToPrevItem}>
         <ChevLeft />
       </button>

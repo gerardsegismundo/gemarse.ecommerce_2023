@@ -1,4 +1,3 @@
-import React from 'react'
 import { ImageSlider, ImageCarousel, NewsLetterBanner } from '../components'
 import Story from '../components/Story'
 

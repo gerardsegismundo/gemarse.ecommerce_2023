@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { addToCart, setCartDrawerIsOpen } from '../redux/actions'
@@ -6,11 +6,14 @@ import SizeButton from './SizeButton'
 
 const ProductCard = ({ props }) => {
   const { _id, name, color, price, imgSrc, type, stock } = props
+  const [isClickPending, setIsClickPending] = useState(false)
+  const timerRef = useRef()
+
+  const [isHovered, setIsHovered] = useState(false)
+  const [selectedSize, setSelectedSize] = useState(null)
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const [isHovered, setIsHovered] = useState(false)
-  const [selectedSize, setSelectedSize] = useState(null)
 
   const sizes = ['XS', 'S', 'M', 'L', 'XL']
   const isAccessories = type === 'accessories'
@@ -45,12 +48,27 @@ const ProductCard = ({ props }) => {
   }
 
   const handleOnClick = e => {
-    const isQuickAddClicked = e.target.classList.contains('quick-add') || e.target.closest('.quick-add') !== null
+    if (!isClickPending) {
+      const isQuickAddClicked = e.target.classList.contains('quick-add') || e.target.closest('.quick-add') !== null
 
-    if (!isQuickAddClicked) {
-      const slugifiedName = name.replace(/ /g, '-')
-      navigate(`/product/${slugifiedName}`)
+      if (!isQuickAddClicked) {
+        const slugifiedName = name.replace(/ /g, '-')
+        navigate(`/product/${slugifiedName}`)
+      }
     }
+  }
+
+  const handleMouseUp = () => {
+    clearTimeout(timerRef.current)
+    setTimeout(() => {
+      setIsClickPending(false)
+    })
+  }
+
+  const handleMouseDown = () => {
+    timerRef.current = setTimeout(() => {
+      setIsClickPending(true)
+    }, 200)
   }
 
   return (
@@ -59,7 +77,9 @@ const ProductCard = ({ props }) => {
       data-is-hover={isHovered}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      /* onClick={handleOnClick} */
+      onClick={handleOnClick}
+      onMouseUp={handleMouseUp}
+      onMouseDown={handleMouseDown}
     >
       {isSoldOut && <h3 className='sold-out'>SOLD OUT</h3>}
       <img src={imgSrc} alt={name} draggable='false' />

@@ -1,3 +1,9 @@
+@mixin quickAddHoverEffect {
+  transform: translateY(0%);
+  opacity: 1;
+  transition: all 0.8s $cubic-bezier;
+}
+
 .product-card {
   cursor: pointer;
   position: relative;
@@ -9,9 +15,7 @@
     &[data-is-hover='true'] {
       .quick-add-wrapper {
         .quick-add {
-          transform: translateY(0%);
-          opacity: 1;
-          transition: all 0.8s $cubic-bezier;
+          @include quickAddHoverEffect;
         }
       }
 
@@ -78,10 +82,10 @@
       width: 100%;
       background-color: rgba($white, 0.5);
 
-      &:hover {
-        transform: translateY(0%);
-        opacity: 1;
-        transition: all 0.8s cubic-bezier(0.075, 0.82, 0.165, 1);
+      @include media('>=desktop') {
+        &:hover {
+          @include quickAddHoverEffect;
+        }
       }
 
       p.message {

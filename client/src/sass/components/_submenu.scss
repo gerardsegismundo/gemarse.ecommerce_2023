@@ -3,7 +3,7 @@
   height: 50rem;
   z-index: 9999;
   background-color: $white;
-  transition: all 0.8s $cubic-bezier;
+  transition: transform 0.8s $cubic-bezier, opacity 0.8s $cubic-bezier;
   box-shadow: $box-shadow-0;
   position: fixed;
   opacity: 0;

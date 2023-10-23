@@ -1,3 +1,76 @@
 .product-page {
-  padding-top: 5.9rem;
+  display: flex;
+  justify-content: center;
+  padding: 12.5rem 0 10rem 0;
+
+  .container {
+    max-width: 100rem;
+    width: 100%;
+    display: flex;
+    gap: 4rem;
+    justify-content: center;
+
+    @include media('<desktop') {
+      justify-content: flex-start;
+    }
+
+    @include media('<tablet') {
+      flex-direction: column;
+    }
+
+    img {
+      object-fit: cover;
+      width: 50%;
+
+      @include media('<tablet') {
+        width: 100%;
+        align-self: center;
+      }
+    }
+
+    .details {
+      h2.name {
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        &.price {
+          font-weight: 600;
+          margin-bottom: 2rem;
+        }
+
+        &.color {
+          font-size: $font-small;
+          font-weight: 600;
+          color: rgba($dark-gray, 0.7);
+          margin-bottom: 1rem;
+
+          span {
+            font-weight: 600;
+            color: rgba($dark-gray, 1);
+            text-transform: capitalize;
+          }
+        }
+
+        &.size {
+          font-size: $font-small;
+          color: rgba($dark-gray, 0.7);
+          margin-bottom: 1rem;
+        }
+      }
+
+      p.color {
+        color: rgba($dark-gray, 0.5);
+      }
+
+      span.size-btn {
+        margin-bottom: 2rem;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  }
 }

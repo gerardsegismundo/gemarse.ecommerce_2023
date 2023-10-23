@@ -23,7 +23,7 @@ import sportBra from '../images/products/sport-bra.jpg'
 
 const products = [
   {
-    id: 1,
+    _id: 1,
     name: 'black jeans',
     imgSrc: blackJeans,
     color: 'black',
@@ -40,7 +40,7 @@ const products = [
     }
   },
   {
-    id: 2,
+    _id: 2,
     name: 'plane black shirt',
     imgSrc: blackShirt,
     color: 'black',
@@ -57,7 +57,7 @@ const products = [
     }
   },
   {
-    id: 3,
+    _id: 3,
     name: 'black wallet',
     imgSrc: blackWallet,
     color: 'black',
@@ -67,7 +67,7 @@ const products = [
     stock: 1
   },
   {
-    id: 4,
+    _id: 4,
     name: 'brown leather bag',
     imgSrc: brownLeatherBag,
     color: 'brown',
@@ -77,7 +77,7 @@ const products = [
     stock: 5
   },
   {
-    id: 5,
+    _id: 5,
     name: 'chinos stretch',
     imgSrc: chinosStretch,
     color: 'white',
@@ -94,7 +94,7 @@ const products = [
     }
   },
   {
-    id: 6,
+    _id: 6,
     name: 'gray dress pants',
     imgSrc: dressPants,
     color: 'gray',
@@ -111,7 +111,7 @@ const products = [
     }
   },
   {
-    id: 7,
+    _id: 7,
     name: 'black leather jacket',
     imgSrc: leatherJacket,
     color: 'black',
@@ -128,7 +128,7 @@ const products = [
     }
   },
   {
-    id: 8,
+    _id: 8,
     name: 'black leggings',
     imgSrc: leggings2,
     color: 'black',
@@ -145,7 +145,7 @@ const products = [
     }
   },
   {
-    id: 9,
+    _id: 9,
     name: 'navy polo',
     imgSrc: navyPolo,
     color: 'navy',
@@ -162,7 +162,7 @@ const products = [
     }
   },
   {
-    id: 10,
+    _id: 10,
     name: 'navy suit',
     imgSrc: navySuit,
     color: 'navy',
@@ -179,7 +179,7 @@ const products = [
     }
   },
   {
-    id: 11,
+    _id: 11,
     name: 'blue polo',
     imgSrc: polo,
     color: 'blue',
@@ -196,7 +196,7 @@ const products = [
     }
   },
   {
-    id: 12,
+    _id: 12,
     name: 'purple tie',
     imgSrc: purpleGoldTie,
     color: 'purple',
@@ -206,7 +206,7 @@ const products = [
     stock: 0
   },
   {
-    id: 13,
+    _id: 13,
     name: 'Sport shorts',
     imgSrc: sportShorts,
     color: 'pink',
@@ -223,7 +223,7 @@ const products = [
     }
   },
   {
-    id: 14,
+    _id: 14,
     name: 'black stripe shirt',
     imgSrc: stripeShirt,
     color: 'black',
@@ -240,7 +240,7 @@ const products = [
     }
   },
   {
-    id: 15,
+    _id: 15,
     name: 'summer short',
     imgSrc: summerShort,
     color: 'navy',
@@ -257,7 +257,7 @@ const products = [
     }
   },
   {
-    id: 16,
+    _id: 16,
     name: 'wedding bow tie',
     imgSrc: weddingBowTie,
     color: 'black',

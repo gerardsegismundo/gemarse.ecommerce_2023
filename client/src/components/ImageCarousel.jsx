@@ -1,7 +1,7 @@
 import { useSpringCarousel } from 'react-spring-carousel'
 import { ReactComponent as ChevLeft } from '../assets/svg/chev-left.svg'
 import { ReactComponent as ChevRight } from '../assets/svg/chev-right.svg'
-import CarouselItem from './CarouselItem'
+import ProductCard from './ProductCard'
 import useResponsiveSlideAmount from '../utils/hooks/useResponsiveSlideAmount'
 
 import products from '../assets/data/products'
@@ -20,7 +20,7 @@ const ImageCarousel = () => {
     withLoop: true,
     items: trendingProducts.map(data => ({
       id: data._id,
-      renderItem: <CarouselItem props={data} />
+      renderItem: <ProductCard props={data} />
     }))
   })
 

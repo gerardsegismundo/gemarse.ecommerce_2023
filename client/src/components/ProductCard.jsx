@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import SizeButton from './SizeButton'
+import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { addToCart, setCartDrawerIsOpen } from '../redux/actions'
-import { useNavigate } from 'react-router-dom'
+import SizeButton from './SizeButton'
 
-const CarouselItem = ({ props }) => {
+const ProductCard = ({ props }) => {
   const { _id, name, color, price, imgSrc, type, stock } = props
 
   const navigate = useNavigate()
@@ -44,9 +44,13 @@ const CarouselItem = ({ props }) => {
     }
   }
 
-  const handleOnClick = () => {
-    const formattedName = name.replace(/ /g, '-')
-    navigate(`/product/${formattedName}`)
+  const handleOnClick = e => {
+    const isQuickAddClicked = e.target.classList.contains('quick-add') || e.target.closest('.quick-add') !== null
+
+    if (!isQuickAddClicked) {
+      const slugifiedName = name.replace(/ /g, '-')
+      navigate(`/product/${slugifiedName}`)
+    }
   }
 
   return (
@@ -89,4 +93,4 @@ const CarouselItem = ({ props }) => {
   )
 }
 
-export default CarouselItem
+export default ProductCard

@@ -20,7 +20,7 @@
 
     img {
       object-fit: cover;
-      width: 50%;
+      width: 65%;
 
       @include media('<tablet') {
         width: 100%;

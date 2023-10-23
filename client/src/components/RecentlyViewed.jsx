@@ -1,5 +1,5 @@
 import React from 'react'
-import CarouselItem from './CarouselItem'
+import ProductCard from './ProductCard'
 import products from '../assets/data/products'
 
 const RecentlyViewed = () => {
@@ -11,9 +11,7 @@ const RecentlyViewed = () => {
         <h3 className='title'>Recently Viewed</h3>
         <div className='grid'>
           {fourItems.map(data => (
-            <div key={data.id}>
-              <CarouselItem props={data} />
-            </div>
+            <ProductCard key={data._id} props={data} />
           ))}
         </div>
       </div>

@@ -1,9 +1,25 @@
-.carousel-item {
+.product-card {
   cursor: pointer;
   position: relative;
   overflow: hidden;
   margin-right: 30px;
   user-select: none;
+
+  @include media('>=desktop') {
+    &[data-is-hover='true'] {
+      .quick-add-wrapper {
+        .quick-add {
+          transform: translateY(0%);
+          opacity: 1;
+          transition: all 0.8s $cubic-bezier;
+        }
+      }
+
+      .content {
+        opacity: 0;
+      }
+    }
+  }
 
   @include media('<desktop') {
     margin-right: 22.5px;
@@ -11,20 +27,6 @@
 
   @include media('<tablet') {
     margin-right: 15px;
-  }
-
-  &[data-is-hover='true'] {
-    .quick-add-wrapper {
-      .quick-add {
-        transform: translateY(0%);
-        opacity: 1;
-        transition: all 0.8s $cubic-bezier;
-      }
-    }
-
-    .content {
-      opacity: 0;
-    }
   }
 
   h3.sold-out {

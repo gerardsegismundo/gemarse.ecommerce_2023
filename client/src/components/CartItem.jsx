@@ -7,7 +7,7 @@ const CartItem = ({ item, onRemove }) => {
   const itemTotalPrice = round(item.price * item.quantity, 2)
 
   return (
-    <div className='item' key={item.id}>
+    <div className='item' key={item._id}>
       <img src={item.imgSrc} alt={item.imgSrc} loading='lazy' />
       <div className='item-details'>
         <p className='name'>{item.name}</p>
@@ -15,7 +15,7 @@ const CartItem = ({ item, onRemove }) => {
         <p className='price'>${itemTotalPrice.toFixed(2)}</p>
         <div className='d-flex'>
           <CustomInputNumber max={item.stock} itemId={item.id} value={item.quantity} />
-          <button onClick={() => onRemove(item.id, itemTotalPrice, item.quantity)}>Remove</button>
+          <button onClick={() => onRemove(item._id, itemTotalPrice, item.quantity)}>Remove</button>
         </div>
       </div>
     </div>

@@ -55,11 +55,11 @@ const ProductCard = ({ props }) => {
 
   return (
     <div
-      className='carousel-item'
+      className='product-card'
       data-is-hover={isHovered}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      onClick={handleOnClick}
+      /* onClick={handleOnClick} */
     >
       {isSoldOut && <h3 className='sold-out'>SOLD OUT</h3>}
       <img src={imgSrc} alt={name} draggable='false' />

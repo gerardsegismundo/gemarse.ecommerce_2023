@@ -31,7 +31,7 @@ const CartDrawer = () => {
           {cartItems.length === 0 ? (
             <p className='is-empty'>Cart is empty</p>
           ) : (
-            cartItems.map(item => <CartItem key={item.id + item.name} item={item} onRemove={handleRemove} />)
+            cartItems.map(item => <CartItem key={item._id + item.name} item={item} onRemove={handleRemove} />)
           )}
         </div>
 

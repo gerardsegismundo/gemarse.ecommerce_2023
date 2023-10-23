@@ -25,7 +25,7 @@ const Product = () => {
       // @TODO -> 404 Page
       console.log('NOT FOUND')
     }
-  }, [product_name])
+  }, [unslugProductName])
 
   const handleAddToCart = () => {
     const { _id, name, imgSrc, price, stock, isAccessories } = product

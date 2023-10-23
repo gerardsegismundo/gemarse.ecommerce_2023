@@ -4,10 +4,10 @@ import Story from '../components/Story'
 const Home = () => {
   return (
     <div className='home-page'>
-      <ImageSlider />
+      {/* <ImageSlider />
       <ImageCarousel />
       <NewsLetterBanner />
-      <Story />
+      <Story /> */}
     </div>
   )
 }

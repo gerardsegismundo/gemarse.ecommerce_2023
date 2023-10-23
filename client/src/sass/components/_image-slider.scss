@@ -48,8 +48,8 @@
         gap: 1rem;
         position: absolute;
         left: 50%;
-        top: calc(93vh + -5rem);
-        transform: translate(-50%, -50vh);
+        top: 50%;
+        transform: translate(-50%, -50%);
 
         @include media('<tablet') {
           display: flex;

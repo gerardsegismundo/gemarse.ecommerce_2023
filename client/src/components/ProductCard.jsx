@@ -53,6 +53,7 @@ const ProductCard = ({ props }) => {
 
       if (!isQuickAddClicked) {
         const slugifiedName = name.replace(/ /g, '-')
+        window.scrollTo(0, 0)
         navigate(`/product/${slugifiedName}`)
       }
     }

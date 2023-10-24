@@ -4,11 +4,11 @@
   padding: 12.5rem 0 10rem 0;
 
   .container {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
     max-width: 100rem;
     width: 100%;
-    display: flex;
-    gap: 4rem;
-    justify-content: center;
 
     @include media('<desktop') {
       justify-content: flex-start;
@@ -20,11 +20,12 @@
 
     img {
       object-fit: cover;
+      height: 50rem;
       width: 65%;
 
       @include media('<tablet') {
-        width: 100%;
         align-self: center;
+        width: 100%;
       }
     }
 
@@ -41,10 +42,10 @@
         }
 
         &.color {
+          margin-bottom: 1rem;
           font-size: $font-small;
           font-weight: 600;
           color: rgba($dark-gray, 0.7);
-          margin-bottom: 1rem;
 
           span {
             font-weight: 600;
@@ -54,9 +55,9 @@
         }
 
         &.size {
+          margin-bottom: 1rem;
           font-size: $font-small;
           color: rgba($dark-gray, 0.7);
-          margin-bottom: 1rem;
         }
       }
 
@@ -68,8 +69,21 @@
         margin-bottom: 2rem;
       }
 
-      button {
+      button.btn-dark {
+        margin-bottom: 2rem;
         width: 100%;
+      }
+
+      .accordion {
+        ul {
+          li {
+            line-height: 1.65rem;
+            opacity: 0.9;
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+          }
+        }
       }
     }
   }

@@ -4,10 +4,16 @@ import { useDispatch } from 'react-redux'
 import { addToCart, setCartDrawerIsOpen } from '../redux/actions'
 import SizeButton from './SizeButton'
 import products from '../assets/data/products'
+import { ReactComponent as InfoIcon } from '../assets/svg/info.svg'
+import { ReactComponent as ShirtIcon } from '../assets/svg/shirt.svg'
+import { ReactComponent as TruckIcon } from '../assets/svg/truck.svg'
+
+import Accordion from './Accordion'
 
 const Product = () => {
   const [product, setProduct] = useState(null)
   const [selectedSize, setSelectedSize] = useState(null)
+
   const dispatch = useDispatch()
 
   const { product_name } = useParams()
@@ -75,6 +81,53 @@ const Product = () => {
               <button className='btn-dark' onClick={handleAddToCart}>
                 {product.isSoldOut ? 'Email me when back in stock' : 'Add to Cart'}
               </button>
+              <Accordion title='description & sizing' icon={InfoIcon}>
+                <h4>{product.name}</h4>
+                <p className='description'>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis quo magnam dicta delectus deserunt
+                  esse debitis corporis distinctio laboriosam ea, error ullam sit sunt optio eius nobis. Perferendis,
+                  voluptatum illum!
+                </p>
+              </Accordion>
+              <Accordion title='materials & care' icon={ShirtIcon}>
+                <ul>
+                  <li>
+                    <span>- </span> <p>95% Cotton, 5% Elastane</p>
+                  </li>
+                  <li>
+                    <span>- </span> <p>Wash inside out at 30 degrees</p>
+                  </li>
+                  <li>
+                    <span>- </span> <p>Iron inside out with a cool iron</p>
+                  </li>
+                  <li>
+                    <span>- </span> <p>Do not tumble dry</p>
+                  </li>
+                  <li>
+                    <span>- </span> <p>Do not Bleach</p>
+                  </li>
+                </ul>
+              </Accordion>
+
+              <Accordion title='deliveries & returns' icon={TruckIcon}>
+                <ul>
+                  <li>
+                    <span>- </span> <p>All orders sent via DHL Express (2-4 Working Days) tracked services</p>
+                  </li>
+                  <li>
+                    <span>- </span> <p>Orders over $199 - Free Shipping</p>
+                  </li>
+                  <li>
+                    <span>- </span> <p>Orders under $199 - $9.99 USD</p>
+                  </li>
+                  <li>
+                    <span>- </span> <p>Returns are available - see Returns Policy</p>
+                  </li>
+                  <li>
+                    <span>- </span> <p>No additional import duty or tax fees applicable, pay once only.</p>
+                  </li>
+                </ul>
+              </Accordion>
             </div>
           </>
         )}

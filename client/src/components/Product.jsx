@@ -8,6 +8,8 @@ import { ReactComponent as InfoIcon } from '../assets/svg/info.svg'
 import { ReactComponent as ShirtIcon } from '../assets/svg/shirt.svg'
 import { ReactComponent as TruckIcon } from '../assets/svg/truck.svg'
 
+import { materialsAndCare, deliveriesAndReturns } from '../assets/data/accordionData'
+
 import Accordion from './Accordion'
 
 const Product = () => {
@@ -21,22 +23,19 @@ const Product = () => {
 
   const handleSizeClick = size => setSelectedSize(size)
 
-  const isSoldOut = (() => {
-    if (product) {
-      if (product.isAccessories) {
-        return product.stock === 0
-      } else {
-        return Object.values(product.stock).every(s => s === 0)
-      }
-    }
-  })()
+  const isSoldOut = product
+    ? product.isAccessories
+      ? product.stock === 0
+      : Object.values(product.stock).every(s => s === 0)
+    : false
 
   const sizes = ['XS', 'S', 'M', 'L', 'XL']
 
   useEffect(() => {
-    const chosenProduct = products.filter(product => product.name === unslugProductName)
-    if (chosenProduct[0]) {
-      setProduct(chosenProduct[0])
+    const chosenProduct = products.find(product => product.name === unslugProductName)
+
+    if (chosenProduct) {
+      setProduct(chosenProduct)
     } else {
       // @TODO -> 404 Page
       console.log('NOT FOUND')
@@ -50,7 +49,6 @@ const Product = () => {
       dispatch(addToCart({ _id, name, imgSrc, price, stock, quantity: 1 }))
       dispatch(setCartDrawerIsOpen(true))
     } else if (selectedSize) {
-      // @TODO fix size to cart
       dispatch(
         addToCart({
           _id: _id + selectedSize,
@@ -106,41 +104,21 @@ const Product = () => {
               </Accordion>
               <Accordion title='materials & care' icon={ShirtIcon}>
                 <ul>
-                  <li>
-                    <span>- </span> <p>95% Cotton, 5% Elastane</p>
-                  </li>
-                  <li>
-                    <span>- </span> <p>Wash inside out at 30 degrees</p>
-                  </li>
-                  <li>
-                    <span>- </span> <p>Iron inside out with a cool iron</p>
-                  </li>
-                  <li>
-                    <span>- </span> <p>Do not tumble dry</p>
-                  </li>
-                  <li>
-                    <span>- </span> <p>Do not Bleach</p>
-                  </li>
+                  {materialsAndCare.map((material, index) => (
+                    <li key={index}>
+                      <span>- </span> <p>{material}</p>
+                    </li>
+                  ))}
                 </ul>
               </Accordion>
 
               <Accordion title='deliveries & returns' icon={TruckIcon}>
                 <ul>
-                  <li>
-                    <span>- </span> <p>All orders sent via DHL Express (2-4 Working Days) tracked services</p>
-                  </li>
-                  <li>
-                    <span>- </span> <p>Orders over $199 - Free Shipping</p>
-                  </li>
-                  <li>
-                    <span>- </span> <p>Orders under $199 - $9.99 USD</p>
-                  </li>
-                  <li>
-                    <span>- </span> <p>Returns are available - see Returns Policy</p>
-                  </li>
-                  <li>
-                    <span>- </span> <p>No additional import duty or tax fees applicable, pay once only.</p>
-                  </li>
+                  {deliveriesAndReturns.map((item, index) => (
+                    <li key={index}>
+                      <span>- </span> <p>{item}</p>
+                    </li>
+                  ))}
                 </ul>
               </Accordion>
             </div>

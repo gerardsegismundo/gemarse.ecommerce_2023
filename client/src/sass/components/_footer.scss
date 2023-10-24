@@ -105,23 +105,25 @@ footer {
             width: 100%;
           }
 
-          &:after {
-            content: '';
-            width: 100%;
-            height: 2px;
-            left: 0;
-            opacity: 0;
-            background-color: rgba($white, 0.5);
-            position: absolute;
-            transform: translateX(-100%);
-            transition: all 0.3s ease-in;
-            bottom: 5px;
-          }
-
-          &:hover {
+          @include media('>=desktop') {
             &:after {
-              opacity: 1;
-              transform: translateX(0%);
+              content: '';
+              width: 100%;
+              height: 2px;
+              left: 0;
+              opacity: 0;
+              background-color: rgba($white, 0.5);
+              position: absolute;
+              transform: translateX(-100%);
+              transition: all 0.3s ease-in;
+              bottom: 5px;
+            }
+
+            &:hover {
+              &:after {
+                opacity: 1;
+                transform: translateX(0%);
+              }
             }
           }
 

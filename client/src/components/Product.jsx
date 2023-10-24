@@ -21,6 +21,16 @@ const Product = () => {
 
   const handleSizeClick = size => setSelectedSize(size)
 
+  const isSoldOut = (() => {
+    if (product) {
+      if (product.isAccessories) {
+        return product.stock === 0
+      } else {
+        return Object.values(product.stock).every(s => s === 0)
+      }
+    }
+  })()
+
   const sizes = ['XS', 'S', 'M', 'L', 'XL']
 
   useEffect(() => {
@@ -68,18 +78,23 @@ const Product = () => {
               <p className='color'>
                 Color: <span>{product.color}</span>
               </p>
-              <p className='size'>Size:</p>
-              {sizes.map(size => (
-                <SizeButton
-                  key={size}
-                  size={size}
-                  isSelected={selectedSize === size}
-                  isOutOfStock={product.stock[size] === 0}
-                  onClick={handleSizeClick}
-                />
-              ))}
+              {!product.isAccessories && (
+                <>
+                  <p className='size'>Size:</p>
+                  {sizes.map(size => (
+                    <SizeButton
+                      key={size}
+                      size={size}
+                      isSelected={selectedSize === size}
+                      isOutOfStock={product.stock[size] === 0}
+                      onClick={handleSizeClick}
+                    />
+                  ))}
+                </>
+              )}
+
               <button className='btn-dark' onClick={handleAddToCart}>
-                {product.isSoldOut ? 'Email me when back in stock' : 'Add to Cart'}
+                {product && isSoldOut ? 'Email me when back in stock' : 'Add to Cart'}
               </button>
               <Accordion title='description & sizing' icon={InfoIcon}>
                 <h4>{product.name}</h4>

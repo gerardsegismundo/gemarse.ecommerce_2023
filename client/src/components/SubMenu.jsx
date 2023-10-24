@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { ReactComponent as SearchIcon } from '../assets/svg/search.svg'
 import { setSubMenu } from '../redux/actions'
 import { useSelector, useDispatch } from 'react-redux'
@@ -9,6 +10,7 @@ const SubMenu = () => {
   const { isOpen, gender } = useSelector(state => state.ui.subMenu)
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const [searchVal, setSearchVal] = useState('')
 
   const featuredMens = products.filter(product => product.category === 'men').slice(0, 3)
   const featuredWomens = products.filter(product => product.category === 'women').slice(0, 3)
@@ -25,14 +27,28 @@ const SubMenu = () => {
     dispatch(setSubMenu({ isOpen: false, gender: null }))
   }
 
+  const handleOnChange = e => {
+    console.log(e.target.value)
+    setSearchVal(e.target.value)
+  }
+  const handleOnSearch = e => {
+    e.preventDefault()
+  }
+
   return (
     <div className={`submenu ${isOpen ? ' open' : ''}`} onMouseLeave={hadleOnLeave}>
       <div className='container'>
         <form className='search-group'>
-          <button>
+          <button onClick={handleOnSearch}>
             <SearchIcon />
           </button>
-          <input type='search' name='search' placeholder='Search for products, categories and color' />
+          <input
+            type='search'
+            name='search'
+            value={searchVal}
+            onChange={handleOnChange}
+            placeholder='Search for products, categories and color'
+          />
         </form>
 
         <div className='row'>

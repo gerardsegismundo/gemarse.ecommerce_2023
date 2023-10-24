@@ -3,7 +3,6 @@ import sliderData from '../assets/data/sliderData'
 import SliderItem from './SliderItem'
 
 import debounce from '../utils/helpers/debounce'
-const SliderItemMemo = React.memo(SliderItem)
 
 const ImageSlider = () => {
   const [sliderIndex, setSliderIndex] = useState(0)
@@ -47,7 +46,7 @@ const ImageSlider = () => {
 
   return (
     <div className='image-slider' onMouseDown={handleMouseDown} onMouseMove={handleMouseMove} onMouseUp={handleMouseUp}>
-      <SliderItemMemo sliderData={sliderData} sliderIndex={sliderIndex} currentSlideData={sliderData[sliderIndex]} />
+      <SliderItem sliderData={sliderData} sliderIndex={sliderIndex} currentSlideData={sliderData[sliderIndex]} />
 
       <div className='slider-dots'>
         {sliderData.map((_, index) => (

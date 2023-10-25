@@ -32,7 +32,7 @@ const SubMenu = () => {
     if (e.key === 'Enter') handleOnSearch()
   }
 
-  const handleOnSearch = useCallback(() => {
+  const handleOnSearch = () => {
     const sluggifiedSearchVal = searchVal.replace(/ /g, '-')
     closeSubMenu()
 
@@ -41,7 +41,7 @@ const SubMenu = () => {
     setTimeout(() => {
       setSearchVal('')
     }, 100)
-  }, [searchVal, navigate, closeSubMenu])
+  }
 
   return (
     <div className={`submenu ${isOpen ? ' open' : ''}`} onMouseLeave={closeSubMenu}>

@@ -44,7 +44,7 @@ const Search = () => {
       setSearchVal(searchQuery)
       handleOnSearch()
     }
-  }, [searchQuery])
+  }, [searchQuery, handleOnSearch])
 
   return (
     <div className='search-page'>

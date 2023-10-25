@@ -1,17 +1,15 @@
 import React, { useState } from 'react'
-import sliderData from '../assets/data/sliderData'
 import SliderItem from './SliderItem'
-
 import debounce from '../utils/helpers/debounce'
 
-const ImageSlider = () => {
-  const [sliderIndex, setSliderIndex] = useState(0)
+const ImageSlider = ({ sliderData }) => {
+  const [currentIndex, setCurrentIndex] = useState(0)
 
   const [isDragging, setIsDragging] = useState(false)
   const [startX, setStartX] = useState(0)
 
   const handleDotClick = index => {
-    setSliderIndex(index)
+    setCurrentIndex(index)
   }
 
   const handleMouseDown = e => {
@@ -24,16 +22,16 @@ const ImageSlider = () => {
       const deltaX = e.clientX - startX
 
       if (deltaX < 0) {
-        if (sliderIndex === 4) {
-          return setSliderIndex(0)
+        if (currentIndex === 4) {
+          return setCurrentIndex(0)
         }
 
-        setSliderIndex(sliderIndex + 1)
+        setCurrentIndex(currentIndex + 1)
       } else if (deltaX > 0) {
-        if (sliderIndex === 0) {
-          return setSliderIndex(4)
+        if (currentIndex === 0) {
+          return setCurrentIndex(4)
         }
-        setSliderIndex(sliderIndex - 1)
+        setCurrentIndex(currentIndex - 1)
       }
     }
   }, 100)
@@ -46,12 +44,12 @@ const ImageSlider = () => {
 
   return (
     <div className='image-slider' onMouseDown={handleMouseDown} onMouseMove={handleMouseMove} onMouseUp={handleMouseUp}>
-      <SliderItem sliderData={sliderData} sliderIndex={sliderIndex} currentSlideData={sliderData[sliderIndex]} />
+      <SliderItem sliderData={sliderData} currentIndex={currentIndex} />
 
       <div className='slider-dots'>
         {sliderData.map((_, index) => (
           <span
-            className={`dot${index === sliderIndex ? ' active' : ''}`}
+            className={`dot${index === currentIndex ? ' active' : ''}`}
             onClick={() => handleDotClick(index)}
             key={index}
           />

@@ -1,33 +1,33 @@
 import React from 'react'
 import { animated } from 'react-spring'
-import sliderData from '../assets/data/sliderData'
 import { useTransition } from 'react-spring'
+import { Link } from 'react-router-dom'
 
-const SliderItem = ({ sliderIndex, currentSlideData }) => {
-  const labelTransitions = useTransition(sliderIndex, {
+const SliderItem = ({ sliderData, currentIndex }) => {
+  const labelTransitions = useTransition(currentIndex, {
     from: { opacity: 0, transform: 'translateY(-50px)' },
     enter: { opacity: 1, transform: 'translateY(0px)' },
     config: { duration: 500, delay: 500 }
   })
 
-  const overlayTransitions = useTransition(sliderIndex, {
+  const overlayTransitions = useTransition(currentIndex, {
     from: { backgroundColor: 'rgba(23, 23, 23, 1)' },
     enter: { backgroundColor: 'rgba(23, 23, 23, 0.3)' },
     config: { duration: 500, delay: 500 }
   })
 
   return (
-    <div className='slider-item' key={sliderIndex}>
+    <div className='slider-item' key={currentIndex}>
       <div className='image-wrapper'>
         {sliderData.map((data, index) => {
           return (
             <img
               src={
-                sliderIndex === 3 ? (window.innerWidth > 768 ? data.imgSrc.desktop : data.imgSrc.mobile) : data.imgSrc
+                currentIndex === 3 ? (window.innerWidth > 768 ? data.imgSrc.desktop : data.imgSrc.mobile) : data.imgSrc
               }
               alt={data.imgSrc.label}
               key={index}
-              className={index === sliderIndex ? 'is-active' : ''}
+              className={index === currentIndex ? 'is-active' : ''}
             />
           )
         })}
@@ -49,12 +49,15 @@ const SliderItem = ({ sliderIndex, currentSlideData }) => {
                     transform: labelStyles.transform
                   }}
                 >
-                  {currentSlideData.label}
+                  {sliderData[currentIndex].label}
                 </animated.h2>
               ))}
             </div>
-            <button className='mens-btn btn-light no-border'>Shop Mens</button>
-            <button className='womens-btn btn-transparent'>Shop Womens</button>
+            {sliderData[currentIndex].buttons.map((button, i) => (
+              <Link to={button.link} key={i}>
+                {button.title}
+              </Link>
+            ))}
           </div>
         </animated.div>
       ))}

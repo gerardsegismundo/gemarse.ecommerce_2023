@@ -19,7 +19,7 @@
       width: 100%;
       gap: 2rem;
 
-      @include media('<desktop') {
+      @include media('<=1813px') {
         grid-template: 1fr 1fr / 1fr 1fr;
       }
 

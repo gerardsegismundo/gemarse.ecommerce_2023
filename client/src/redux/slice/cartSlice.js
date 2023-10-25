@@ -16,10 +16,8 @@ export const cartSlice = createSlice({
       const newItem = action.payload
       const itemId = newItem._id
 
-      console.log({ newItem })
       const itemIndex = findItemIndexById(state.cartItems, itemId)
 
-      console.log(itemIndex)
       if (itemIndex >= 0) {
         state.cartItems[itemIndex].quantity += 1
       } else {

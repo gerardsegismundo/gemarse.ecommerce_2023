@@ -46,7 +46,7 @@ const Search = () => {
       handleOnSearch(searchQuery)
       setCurrentSearchTerm(searchQuery)
     }
-  }, [searchQuery])
+  }, [searchQuery, handleOnSearch])
 
   return (
     <div className='search-page'>

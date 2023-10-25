@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useLocation } from 'react-router-dom'
 import { ReactComponent as SearchIcon } from '../assets/svg/search.svg'
 import products from '../assets/data/products'
@@ -9,11 +9,12 @@ const Search = () => {
   const queryParams = new URLSearchParams(search)
   const searchQuery = queryParams.get('q')
   const [searchResult, setSearchResult] = useState('')
+  const [currentSearchTerm, setCurrentSearchTerm] = useState('')
 
   const [searchVal, setSearchVal] = useState('')
 
-  const handleOnSearch = () => {
-    const productWithoutSpaces = searchVal.replace(/\s/g, '') // Remove spaces
+  const handleOnSearch = useCallback(product => {
+    const productWithoutSpaces = product.replace(/\s/g, '')
     const regex = new RegExp(productWithoutSpaces, 'gi')
 
     const matchingProducts = products.filter(product => {
@@ -30,21 +31,22 @@ const Search = () => {
     })
 
     if (matchingProducts.length > 0) {
-      console.log({ matchingProducts })
       setSearchResult(matchingProducts)
     } else {
       setSearchResult(null)
     }
-  }
+
+    setCurrentSearchTerm(product)
+  }, [])
 
   const handleOnChange = e => setSearchVal(e.target.value)
 
   useEffect(() => {
     if (searchQuery) {
-      setSearchVal(searchQuery)
-      handleOnSearch()
+      handleOnSearch(searchQuery)
+      setCurrentSearchTerm(searchQuery)
     }
-  }, [searchQuery, handleOnSearch])
+  }, [searchQuery])
 
   return (
     <div className='search-page'>
@@ -52,11 +54,11 @@ const Search = () => {
         <div className='header-group'>
           <h1>
             {searchResult
-              ? `Your search for "${searchQuery}" revealed the following:`
-              : `Your search for "${searchQuery}" did not yield any results.`}
+              ? `Your search for "${currentSearchTerm}" revealed the following:`
+              : `Your search for "${currentSearchTerm}" did not yield any results.`}
           </h1>
           <form className='search-group' onSubmit={e => e.preventDefault()}>
-            <button onClick={handleOnSearch}>
+            <button onClick={() => handleOnSearch(searchVal)}>
               <SearchIcon />
             </button>
             <input

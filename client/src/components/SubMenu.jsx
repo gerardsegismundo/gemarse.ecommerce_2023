@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react'
+import { useState } from 'react'
 import { ReactComponent as SearchIcon } from '../assets/svg/search.svg'
 import { setSubMenu } from '../redux/actions'
 import { useSelector, useDispatch } from 'react-redux'

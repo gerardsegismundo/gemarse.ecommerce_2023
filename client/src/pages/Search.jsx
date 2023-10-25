@@ -12,8 +12,8 @@ const Search = () => {
 
   const [searchVal, setSearchVal] = useState('')
 
-  const handleOnSearch = product => {
-    const productWithoutSpaces = product.replace(/\s/g, '') // Remove spaces
+  const handleOnSearch = () => {
+    const productWithoutSpaces = searchVal.replace(/\s/g, '') // Remove spaces
     const regex = new RegExp(productWithoutSpaces, 'gi')
 
     const matchingProducts = products.filter(product => {
@@ -33,19 +33,16 @@ const Search = () => {
       console.log({ matchingProducts })
       setSearchResult(matchingProducts)
     } else {
-      console.log('NOT FOUND')
+      setSearchResult(null)
     }
   }
 
   const handleOnChange = e => setSearchVal(e.target.value)
 
-  const handleKeyDown = e => {
-    if (e.key === 'Enter') handleOnSearch()
-  }
-
   useEffect(() => {
     if (searchQuery) {
-      handleOnSearch(searchQuery)
+      setSearchVal(searchQuery)
+      handleOnSearch()
     }
   }, [searchQuery])
 
@@ -60,19 +57,23 @@ const Search = () => {
           </h1>
           <form className='search-group' onSubmit={e => e.preventDefault()}>
             <button onClick={handleOnSearch}>
-              <SearchIcon onClick={() => console.log('CLICKED!')} />
+              <SearchIcon />
             </button>
             <input
               type='search'
               name='search'
               value={searchVal}
               onChange={handleOnChange}
-              onKeyDown={handleKeyDown}
               placeholder='Search for products, categories and color'
             />
           </form>
         </div>
-        {searchResult && searchResult.map(data => <ProductCard props={data} key={data._id} />)}
+
+        {searchResult && (
+          <div className='search-results'>
+            {searchResult && searchResult.map(data => <ProductCard props={data} key={data._id} />)}
+          </div>
+        )}
       </div>
     </div>
   )

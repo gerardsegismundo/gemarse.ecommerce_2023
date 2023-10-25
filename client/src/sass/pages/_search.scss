@@ -57,7 +57,7 @@
     .search-results {
       margin-top: 5rem;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(20vw, 1fr));
+      grid-template-columns: repeat(4, minmax(25rem, 1fr));
       width: 100%;
 
       @include media('<desktop') {
@@ -67,17 +67,14 @@
       .product-card {
         margin-bottom: 8rem;
 
-        .quick-add-wrapper {
-          .quick-add {
-            transform: translateY(-8rem);
-            opacity: 1;
-          }
-        }
-
         @include media('>=desktop') {
           &[data-is-hover='true'] {
-            //TO FIX transform translateY
-
+            .quick-add-wrapper {
+              .quick-add {
+                transform: translateY(-6rem);
+                opacity: 1;
+              }
+            }
             .content {
               opacity: 1;
             }

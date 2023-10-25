@@ -96,6 +96,9 @@
 
       .sizes {
         margin-bottom: 2rem;
+        display: flex;
+        flex-wrap: nowrap;
+        flex-shrink: 1;
       }
     }
   }

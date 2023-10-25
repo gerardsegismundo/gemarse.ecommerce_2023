@@ -10,6 +10,7 @@
   overflow: hidden;
   margin-right: 30px;
   user-select: none;
+  display: flex;
 
   @include media('>=desktop') {
     &[data-is-hover='true'] {
@@ -42,7 +43,7 @@
 
   img {
     pointer-events: none;
-    z-index: -1;
+    // z-index: -1;
     cursor: pointer;
     object-fit: cover;
     height: 50rem;

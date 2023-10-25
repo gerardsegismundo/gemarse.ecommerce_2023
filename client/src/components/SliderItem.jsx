@@ -16,6 +16,12 @@ const SliderItem = ({ sliderData, currentIndex }) => {
     config: { duration: 500, delay: 500 }
   })
 
+  const slideLinks = sliderData[currentIndex].buttons.map((button, i) => (
+    <Link to={button.link} key={i}>
+      {button.title}
+    </Link>
+  ))
+
   return (
     <div className='slider-item' key={currentIndex}>
       <div className='image-wrapper'>
@@ -53,11 +59,12 @@ const SliderItem = ({ sliderData, currentIndex }) => {
                 </animated.h2>
               ))}
             </div>
-            {sliderData[currentIndex].buttons.map((button, i) => (
-              <Link to={button.link} key={i}>
-                {button.title}
-              </Link>
-            ))}
+
+            {sliderData[currentIndex].buttons.length >= 2 ? (
+              <div className='button-group'>{slideLinks}</div>
+            ) : (
+              <>{slideLinks}</>
+            )}
           </div>
         </animated.div>
       ))}

@@ -38,11 +38,11 @@
       transform: translate(-50%, -50%);
       width: 100vw;
       height: 100%;
-      background-color: rgba($dark-gray, 0.3);
+      background-color: rgba($dark-gray, 0.5);
 
       .banner-content {
-        display: grid;
-        grid-template: 1fr 1fr / 1fr 1fr;
+        display: flex;
+        flex-direction: column;
         justify-items: center;
         align-items: center;
         gap: 1rem;
@@ -51,35 +51,72 @@
         top: 50%;
         transform: translate(-50%, -50%);
 
-        @include media('<tablet') {
-          display: flex;
-          flex-direction: column;
-        }
-
         .label-wrapper {
           overflow: hidden;
-          grid-column: 1 / span 2;
           height: fit-content;
+          margin-bottom: 1rem;
 
           .label {
-            font-size: 5rem;
+            font-size: 6rem;
             text-align: center;
             text-transform: uppercase;
-            color: $white;
+            color: rgba($white, 0.8);
+
+            @include media('<desktop') {
+              font-size: 5rem;
+            }
+
+            @include media('<=tablet') {
+              font-size: 4rem;
+            }
           }
         }
 
-        button {
-          width: 12rem;
-          height: 3rem;
+        .button-group {
+          display: flex;
+          gap: 1rem;
 
-          &.mens-btn {
-            grid-column-start: 1;
-            justify-self: end;
+          @include media('<tablet') {
+            flex-direction: column;
+          }
+        }
+
+        a {
+          display: flex;
+          align-items: center;
+          height: 3rem;
+          justify-content: center;
+          font-weight: 400;
+          width: 12rem;
+          font-weight: 400;
+          text-align: center;
+          text-decoration: none;
+          border: none;
+          border-radius: 50px;
+          cursor: pointer;
+          transition: all 0.35s ease;
+
+          &:first-of-type {
+            background-color: $dark-gray;
+            color: white;
+            border: 1px solid rgba($white, 0.1);
+
+            &:hover {
+              background-color: white;
+              color: $dark-gray;
+              border: 1px solid $dark-gray;
+            }
           }
 
-          &.womens-btn {
-            justify-self: baseline;
+          &:nth-of-type(2) {
+            background-color: transparent;
+            color: white;
+            border: 1px solid rgba(white, 0.5);
+
+            &:hover {
+              background-color: white;
+              color: $dark-gray;
+            }
           }
         }
       }

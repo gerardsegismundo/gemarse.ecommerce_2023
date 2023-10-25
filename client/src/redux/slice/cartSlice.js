@@ -49,11 +49,9 @@ export const cartSlice = createSlice({
     },
 
     removeFromCart: (state, action) => {
-      const { id, itemTotalPrice, itemQuantity } = action.payload
+      const { _id, itemTotalPrice, itemQuantity } = action.payload
 
-      console.log({ itemTotalPrice })
-
-      state.cartItems = state.cartItems.filter(item => item.id !== id)
+      state.cartItems = state.cartItems.filter(item => item._id !== _id)
       state.totalPrice = round(state.totalPrice - itemTotalPrice, 2)
       state.itemsInCart = state.itemsInCart - itemQuantity
     }

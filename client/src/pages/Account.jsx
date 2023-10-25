@@ -35,6 +35,7 @@ const Account = () => {
                 onChange={handleOnChange}
                 value={formData.password}
                 data-filled={formData.password.length > 0}
+                autoComplete='off'
               />
               <label htmlFor='password'>Password</label>
             </div>

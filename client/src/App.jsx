@@ -1,9 +1,14 @@
 import { Route, Routes } from 'react-router'
-import { Home, Mens, Womens, Accessories, Account } from './pages'
+import { Home, Mens, Womens, Accessories, Account, Search } from './pages'
 import Header from './components/Headers'
 import { CartDrawer, Footer, SubMenu, RecentlyViewed, Product } from './components'
+import { useLocation } from 'react-router-dom'
 
 const App = () => {
+  const location = useLocation()
+
+  const isOnSearchPage = location.pathname === '/search'
+
   return (
     <>
       <Header />
@@ -16,10 +21,11 @@ const App = () => {
         <Route exact={true} path='/mens' element={<Mens />} />
         <Route exact={true} path='/womens' element={<Womens />} />
         <Route exact={true} path='/accessories' element={<Accessories />} />
+        <Route exact={true} path='/search' element={<Search />} />
         <Route exact={true} path='/product/:product_name' element={<Product />} />
       </Routes>
 
-      <RecentlyViewed />
+      {!isOnSearchPage && <RecentlyViewed />}
       <Footer />
     </>
   )

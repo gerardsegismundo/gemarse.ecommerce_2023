@@ -1,10 +1,11 @@
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import { ReactComponent as SearchIcon } from '../assets/svg/search.svg'
 import { setSubMenu } from '../redux/actions'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
 import products from '../assets/data/products'
+import slugify from '../utils/helpers/slugify'
 
 const SubMenu = () => {
   const { isOpen, gender } = useSelector(state => state.ui.subMenu)
@@ -17,28 +18,35 @@ const SubMenu = () => {
 
   const featuredProducts = gender === 'mens' ? featuredMens : featuredWomens
 
-  const hadleOnLeave = () => {
-    dispatch(setSubMenu({ isOpen: false, gender: null }))
-  }
+  const closeSubMenu = () => dispatch(setSubMenu({ isOpen: false, gender: null }))
 
   const handleOnNavigate = name => {
-    const formattedName = name.replace(/ /g, '-')
-    navigate(`/product/${formattedName}`)
-    dispatch(setSubMenu({ isOpen: false, gender: null }))
+    const sluggifiedName = slugify(name)
+    navigate(`/product/${sluggifiedName}`)
+    closeSubMenu()
   }
 
-  const handleOnChange = e => {
-    console.log(e.target.value)
-    setSearchVal(e.target.value)
+  const handleOnChange = e => setSearchVal(e.target.value)
+
+  const handleKeyDown = e => {
+    if (e.key === 'Enter') handleOnSearch()
   }
-  const handleOnSearch = e => {
-    e.preventDefault()
-  }
+
+  const handleOnSearch = useCallback(() => {
+    const sluggifiedSearchVal = searchVal.replace(/ /g, '-')
+    closeSubMenu()
+
+    navigate(`/search?q=${sluggifiedSearchVal}`)
+
+    setTimeout(() => {
+      setSearchVal('')
+    }, 100)
+  }, [searchVal, navigate, closeSubMenu])
 
   return (
-    <div className={`submenu ${isOpen ? ' open' : ''}`} onMouseLeave={hadleOnLeave}>
+    <div className={`submenu ${isOpen ? ' open' : ''}`} onMouseLeave={closeSubMenu}>
       <div className='container'>
-        <form className='search-group'>
+        <form className='search-group' onSubmit={e => e.preventDefault()}>
           <button onClick={handleOnSearch}>
             <SearchIcon />
           </button>
@@ -47,6 +55,8 @@ const SubMenu = () => {
             name='search'
             value={searchVal}
             onChange={handleOnChange}
+            onKeyDown={handleKeyDown}
+            autoComplete='off'
             placeholder='Search for products, categories and color'
           />
         </form>

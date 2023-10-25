@@ -69,7 +69,7 @@ const ProductCard = ({ props }) => {
   const handleMouseDown = () => {
     timerRef.current = setTimeout(() => {
       setIsClickPending(true)
-    }, 200)
+    }, 50)
   }
 
   return (

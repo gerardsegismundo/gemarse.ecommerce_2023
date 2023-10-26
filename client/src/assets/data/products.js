@@ -1,6 +1,8 @@
 import blackJeans from '../images/products/black-jeans.jpg'
 import blackShirt from '../images/products/black-shirt.jpg'
 import blackWallet from '../images/products/black-wallet.jpg'
+import blazers from '../images/products/blazers.jpg'
+import bodySuit from '../images/products/body-suit.jpg'
 import brownLeatherBag from '../images/products/brown-leather-bag.jpg'
 import chinosStretch from '../images/products/chinos-stretch.jpg'
 import dressPants from '../images/products/dress-pants.jpg'
@@ -14,12 +16,12 @@ import sportShorts from '../images/products/sport-shorts.jpg'
 import stripeShirt from '../images/products/stripe-shirt.jpg'
 import summerShort from '../images/products/summer-short.jpg'
 import weddingBowTie from '../images/products/wedding-bow-tie.jpg'
-import blazers from '../images/products/blazers.jpg'
-import bodySuit from '../images/products/body-suit.jpg'
 import joggers from '../images/products/joggers.jpg'
 import leggings from '../images/products/leggings.jpg'
 import longSleeve from '../images/products/long-sleeve.jpg'
+import muscleFitSweater from '../images/products/muscle-fit-sweater.jpg'
 import sportBra from '../images/products/sport-bra.jpg'
+import tacticalJogger from '../images/products/tactical-jogger.jpg'
 
 const products = [
   {
@@ -46,7 +48,7 @@ const products = [
     color: 'black',
     price: 24.99,
     category: 'men',
-    type: 'shirt',
+    type: 'shirts',
     isTrending: false,
     stock: {
       XS: 5,
@@ -116,7 +118,7 @@ const products = [
     imgSrc: leatherJacket,
     color: 'black',
     price: 154.99,
-    category: 'mens',
+    category: 'men',
     type: 'jackets',
     isTrending: true,
     stock: {
@@ -133,7 +135,7 @@ const products = [
     imgSrc: leggings2,
     color: 'black',
     price: 58.99,
-    category: 'womens',
+    category: 'women',
     type: 'leggings',
     isTrending: false,
     stock: {
@@ -150,8 +152,8 @@ const products = [
     imgSrc: navyPolo,
     color: 'navy',
     price: 34.99,
-    category: 'mens',
-    type: 'shirt',
+    category: 'men',
+    type: 'shirts',
     isTrending: false,
     stock: {
       XS: 5,
@@ -167,7 +169,7 @@ const products = [
     imgSrc: navySuit,
     color: 'navy',
     price: 87.99,
-    category: 'mens',
+    category: 'men',
     type: 'suits',
     isTrending: true,
     stock: {
@@ -184,7 +186,7 @@ const products = [
     imgSrc: polo,
     color: 'blue',
     price: 26.99,
-    category: 'mens',
+    category: 'men',
     type: 'shirts',
     isTrending: false,
     stock: {
@@ -201,7 +203,7 @@ const products = [
     imgSrc: purpleGoldTie,
     color: 'purple',
     price: 12.99,
-    category: 'mens',
+    category: 'men',
     type: 'accessories',
     stock: 0
   },
@@ -211,7 +213,7 @@ const products = [
     imgSrc: sportShorts,
     color: 'pink',
     price: 23.99,
-    category: 'womens',
+    category: 'women',
     type: 'shorts',
     isTrending: true,
     stock: {
@@ -228,8 +230,8 @@ const products = [
     imgSrc: stripeShirt,
     color: 'black',
     price: 39.99,
-    category: 'mens',
-    type: 'shirt',
+    category: 'women',
+    type: 'shirts',
     isTrending: true,
     stock: {
       XS: 5,
@@ -245,7 +247,7 @@ const products = [
     imgSrc: summerShort,
     color: 'navy',
     price: 25.99,
-    category: 'mens',
+    category: 'men',
     type: 'shorts',
     isTrending: true,
     stock: {
@@ -262,7 +264,7 @@ const products = [
     imgSrc: weddingBowTie,
     color: 'black',
     price: 17.99,
-    category: 'mens',
+    category: 'men',
     type: 'accessories',
     stock: 0
   },
@@ -307,7 +309,7 @@ const products = [
     color: 'navy blue',
     price: 42.99,
     category: 'men',
-    type: 'shirt',
+    type: 'shirts',
     isTrending: false,
     stock: {
       XS: 0,
@@ -366,6 +368,40 @@ const products = [
       M: 18,
       L: 32,
       XL: 32
+    }
+  },
+  {
+    _id: 23,
+    name: 'tactical jogger',
+    imgSrc: tacticalJogger,
+    color: 'green',
+    price: 83.99,
+    category: 'men',
+    type: 'pants',
+    isTrending: true,
+    stock: {
+      XS: 45,
+      S: 23,
+      M: 18,
+      L: 32,
+      XL: 76
+    }
+  },
+  {
+    _id: 24,
+    name: 'Muscle fit Sweater Stripe Sleeve Pullover',
+    imgSrc: muscleFitSweater,
+    color: 'stone',
+    price: 33.75,
+    category: 'men',
+    type: 'jackets',
+    isTrending: true,
+    stock: {
+      XS: 0,
+      S: 23,
+      M: 118,
+      L: 32,
+      XL: 76
     }
   }
 ]

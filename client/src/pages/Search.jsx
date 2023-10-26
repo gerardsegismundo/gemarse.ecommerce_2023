@@ -21,12 +21,9 @@ const Search = () => {
       return (
         regex.test(product.name.replace(/\s/g, '')) ||
         regex.test(product.name) ||
-        regex.test(product.type.replace(/\s/g, '')) ||
         regex.test(product.type) ||
-        regex.test(product.category.replace(/\s/g, '')) ||
-        regex.test(product.category) ||
-        regex.test(product.color.replace(/\s/g, '')) ||
-        regex.test(product.color)
+        regex.test(product.color) ||
+        product.category === productWithoutSpaces
       )
     })
 

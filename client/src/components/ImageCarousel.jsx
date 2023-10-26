@@ -4,12 +4,8 @@ import { ReactComponent as ChevRight } from '../assets/svg/chev-right.svg'
 import ProductCard from './ProductCard'
 import useResponsiveSlideAmount from '../utils/hooks/useResponsiveSlideAmount'
 
-import products from '../assets/data/products'
-
-const ImageCarousel = () => {
+const ImageCarousel = ({ carouselItems }) => {
   const slideAmount = useResponsiveSlideAmount()
-
-  const trendingProducts = products.filter(product => product.isTrending)
 
   const { carouselFragment, slideToPrevItem, slideToNextItem } = useSpringCarousel({
     initialActiveItem: 1,
@@ -18,9 +14,9 @@ const ImageCarousel = () => {
     enableFreeScrollDrag: true,
     draggingSlideTreshold: 35,
     withLoop: true,
-    items: trendingProducts.map(data => ({
-      id: data._id,
-      renderItem: <ProductCard props={data} isOnSlider={true} />
+    items: carouselItems.map(item => ({
+      id: item._id,
+      renderItem: <ProductCard props={item} isOnSlider={true} />
     }))
   })
 

@@ -107,7 +107,7 @@ button {
     padding-left: 3rem;
     padding-right: 3rem;
     height: 3rem;
-    font-weight: 600;
+    font-weight: 400;
     text-align: center;
     text-decoration: none;
     border: none;
@@ -124,7 +124,6 @@ button {
     &:hover {
       background-color: white;
       color: $dark-gray;
-      border: 1px solid $dark-gray /* rgba($dark-gray, 0.1) */;
     }
   }
 
@@ -142,7 +141,6 @@ button {
   &-light {
     background-color: white;
     color: $dark-gray;
-    border: 1px solid $dark-gray;
 
     &:hover {
       background-color: $dark-gray;

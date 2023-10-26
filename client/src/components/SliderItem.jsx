@@ -29,7 +29,13 @@ const SliderItem = ({ sliderData, currentIndex }) => {
           return (
             <img
               src={
-                currentIndex === 3 ? (window.innerWidth > 768 ? data.imgSrc.desktop : data.imgSrc.mobile) : data.imgSrc
+                sliderData.label === 'Suits'
+                  ? currentIndex === 3
+                    ? window.innerWidth > 768
+                      ? data.imgSrc.desktop
+                      : data.imgSrc.mobile
+                    : data.imgSrc
+                  : data.imgSrc
               }
               alt={data.imgSrc.label}
               key={index}

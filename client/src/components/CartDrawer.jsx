@@ -38,7 +38,7 @@ const CartDrawer = () => {
         <div className='cart-footer'>
           <div className='d-flex'>
             <h4>Total</h4>
-            <p>{totalPrice > 0 && totalPrice.toFixed(2)}</p>
+            <p>{totalPrice > 0 && '$' + totalPrice.toFixed(2)}</p>
           </div>
           <button className='btn-dark'>Proceed to Checkout</button>
           <button className='btn-light'>Your Cart</button>

@@ -22,14 +22,14 @@ const ImageSlider = ({ sliderData }) => {
       const deltaX = e.clientX - startX
 
       if (deltaX < 0) {
-        if (currentIndex === 4) {
+        if (currentIndex === sliderData.length - 1) {
           return setCurrentIndex(0)
         }
 
         setCurrentIndex(currentIndex + 1)
       } else if (deltaX > 0) {
         if (currentIndex === 0) {
-          return setCurrentIndex(4)
+          return setCurrentIndex(sliderData.length - 1)
         }
         setCurrentIndex(currentIndex - 1)
       }

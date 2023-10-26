@@ -20,7 +20,7 @@ const ImageCarousel = () => {
     withLoop: true,
     items: trendingProducts.map(data => ({
       id: data._id,
-      renderItem: <ProductCard props={data} />
+      renderItem: <ProductCard props={data} isOnSlider={true} />
     }))
   })
 

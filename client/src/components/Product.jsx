@@ -23,8 +23,10 @@ const Product = () => {
 
   const handleSizeClick = size => setSelectedSize(size)
 
+  const isAccessories = product && product.type === 'accessories'
+
   const isSoldOut = product
-    ? product.isAccessories
+    ? isAccessories
       ? product.stock === 0
       : Object.values(product.stock).every(s => s === 0)
     : false
@@ -43,7 +45,7 @@ const Product = () => {
   }, [unslugProductName])
 
   const handleAddToCart = () => {
-    const { _id, name, imgSrc, price, stock, isAccessories } = product
+    const { _id, name, imgSrc, price, stock } = product
 
     if (isAccessories) {
       dispatch(addToCart({ _id, name, imgSrc, price, stock, quantity: 1 }))
@@ -76,7 +78,7 @@ const Product = () => {
               <p className='color'>
                 Color: <span>{product.color}</span>
               </p>
-              {!product.isAccessories && (
+              {!isAccessories && (
                 <>
                   <p className='size'>Size:</p>
                   {sizes.map(size => (

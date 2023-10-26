@@ -6,7 +6,7 @@ header {
   padding: 1.5rem 0;
   color: white;
   background-color: rgba($dark-gray, 0);
-  transition: background-color 0.3s ease;
+  transition: background-color 0.5s ease;
 
   &.active {
     background-color: rgba($dark-gray, 0.9);

@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import { addToCart, setCartDrawerIsOpen } from '../redux/actions'
 import SizeButton from './SizeButton'
 
-const ProductCard = ({ props }) => {
+const ProductCard = ({ props, isOnSlider = false }) => {
   const { _id, name, color, price, imgSrc, type, stock } = props
   const [isClickPending, setIsClickPending] = useState(false)
   const timerRef = useRef()
@@ -48,7 +48,7 @@ const ProductCard = ({ props }) => {
   }
 
   const handleOnClick = e => {
-    if (!isClickPending) {
+    if (!isClickPending || !isOnSlider) {
       const isQuickAddClicked = e.target.classList.contains('quick-add') || e.target.closest('.quick-add') !== null
 
       if (!isQuickAddClicked) {
@@ -67,9 +67,10 @@ const ProductCard = ({ props }) => {
   }
 
   const handleMouseDown = () => {
+    // @ TODO improve the current solution
     timerRef.current = setTimeout(() => {
       setIsClickPending(true)
-    }, 50)
+    }, 150)
   }
 
   return (

@@ -1,13 +1,11 @@
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { addToCart, setCartDrawerIsOpen } from '../redux/actions'
 import SizeButton from './SizeButton'
 
-const ProductCard = ({ props, isOnSlider = false }) => {
+const ProductCard = ({ props, isClickEnabled, isOnSlider = false }) => {
   const { _id, name, color, price, imgSrc, type, stock } = props
-  const [isClickPending, setIsClickPending] = useState(false)
-  const timerRef = useRef()
 
   const [isHovered, setIsHovered] = useState(false)
   const [selectedSize, setSelectedSize] = useState(null)
@@ -48,7 +46,7 @@ const ProductCard = ({ props, isOnSlider = false }) => {
   }
 
   const handleOnClick = e => {
-    if (!isClickPending || !isOnSlider) {
+    if (isClickEnabled || !isOnSlider) {
       const isQuickAddClicked = e.target.classList.contains('quick-add') || e.target.closest('.quick-add') !== null
 
       if (!isQuickAddClicked) {
@@ -59,20 +57,6 @@ const ProductCard = ({ props, isOnSlider = false }) => {
     }
   }
 
-  const handleMouseUp = () => {
-    clearTimeout(timerRef.current)
-    setTimeout(() => {
-      setIsClickPending(false)
-    })
-  }
-
-  const handleMouseDown = () => {
-    // @ TODO improve the current solution
-    timerRef.current = setTimeout(() => {
-      setIsClickPending(true)
-    }, 150)
-  }
-
   return (
     <div
       className='product-card'
@@ -80,8 +64,6 @@ const ProductCard = ({ props, isOnSlider = false }) => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={handleOnClick}
-      onMouseUp={handleMouseUp}
-      onMouseDown={handleMouseDown}
     >
       {isSoldOut && <h3 className='sold-out'>SOLD OUT</h3>}
       <img src={imgSrc} alt={name} draggable='false' />

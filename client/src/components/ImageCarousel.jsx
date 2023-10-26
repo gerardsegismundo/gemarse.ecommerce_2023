@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useSpringCarousel } from 'react-spring-carousel'
 import { ReactComponent as ChevLeft } from '../assets/svg/chev-left.svg'
 import { ReactComponent as ChevRight } from '../assets/svg/chev-right.svg'
@@ -5,9 +6,10 @@ import ProductCard from './ProductCard'
 import useResponsiveSlideAmount from '../utils/hooks/useResponsiveSlideAmount'
 
 const ImageCarousel = ({ carouselItems }) => {
+  const [isClickEnabled, setClickEnabled] = useState(true)
   const slideAmount = useResponsiveSlideAmount()
 
-  const { carouselFragment, slideToPrevItem, slideToNextItem } = useSpringCarousel({
+  const { carouselFragment, slideToPrevItem, slideToNextItem, useListenToCustomEvent } = useSpringCarousel({
     initialActiveItem: 1,
     slideType: 'fluid',
     slideAmount,
@@ -16,8 +18,16 @@ const ImageCarousel = ({ carouselItems }) => {
     withLoop: true,
     items: carouselItems.map(item => ({
       id: item._id,
-      renderItem: <ProductCard props={item} isOnSlider={true} />
+      renderItem: <ProductCard props={item} isOnSlider={true} isClickEnabled={isClickEnabled} />
     }))
+  })
+
+  useListenToCustomEvent(event => {
+    if (event.eventName === 'onDrag') {
+      setClickEnabled(false)
+    } else if (event.eventName === 'onSlideChange') {
+      setClickEnabled(true)
+    }
   })
 
   return (

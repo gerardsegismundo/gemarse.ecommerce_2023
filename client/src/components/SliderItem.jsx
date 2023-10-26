@@ -1,4 +1,4 @@
-import React from 'react'
+import { memo } from 'react'
 import { animated } from 'react-spring'
 import { useTransition } from 'react-spring'
 import { Link } from 'react-router-dom'
@@ -29,7 +29,7 @@ const SliderItem = ({ sliderData, currentIndex }) => {
           return (
             <img
               src={
-                sliderData.label === 'Suits'
+                data.label === 'Suits'
                   ? currentIndex === 3
                     ? window.innerWidth > 768
                       ? data.imgSrc.desktop
@@ -78,4 +78,4 @@ const SliderItem = ({ sliderData, currentIndex }) => {
   )
 }
 
-export default SliderItem
+export default memo(SliderItem)

@@ -4,7 +4,6 @@ import debounce from '../utils/helpers/debounce'
 
 const ImageSlider = ({ sliderData }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
-
   const [isDragging, setIsDragging] = useState(false)
   const [startX, setStartX] = useState(0)
 
@@ -12,14 +11,14 @@ const ImageSlider = ({ sliderData }) => {
     setCurrentIndex(index)
   }
 
-  const handleMouseDown = e => {
+  const handleStart = clientX => {
     setIsDragging(true)
-    setStartX(e.clientX)
+    setStartX(clientX)
   }
 
-  const handleMouseMove = debounce(e => {
+  const handleMove = debounce(clientX => {
     if (isDragging) {
-      const deltaX = e.clientX - startX
+      const deltaX = clientX - startX
 
       if (deltaX < 0) {
         if (currentIndex === sliderData.length - 1) {
@@ -34,16 +33,24 @@ const ImageSlider = ({ sliderData }) => {
         setCurrentIndex(currentIndex - 1)
       }
     }
-  }, 100)
+  }, 200)
 
-  const handleMouseUp = () => {
+  const handleEnd = () => {
     if (isDragging) {
       setIsDragging(false)
     }
   }
 
   return (
-    <div className='image-slider' onMouseDown={handleMouseDown} onMouseMove={handleMouseMove} onMouseUp={handleMouseUp}>
+    <div
+      className='image-slider'
+      onMouseDown={e => handleStart(e.clientX)}
+      onMouseMove={e => handleMove(e.clientX)}
+      onMouseUp={handleEnd}
+      onTouchStart={e => handleStart(e.touches[0].clientX)}
+      onTouchMove={e => handleMove(e.touches[0].clientX)}
+      onTouchEnd={handleEnd}
+    >
       <SliderItem sliderData={sliderData} currentIndex={currentIndex} />
 
       <div className='slider-dots'>

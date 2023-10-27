@@ -103,19 +103,17 @@
             padding: 0 3rem;
             background-color: $dark-gray;
             color: white;
-            border: 1px solid rgba($white, 0.1);
 
             &:hover {
               background-color: white;
               color: $dark-gray;
-              border: 1px solid $dark-gray;
             }
           }
 
           &:nth-of-type(2) {
             background-color: transparent;
             color: white;
-            border: 1px solid rgba(white, 0.5);
+            border: 1px solid $white;
 
             &:hover {
               background-color: white;

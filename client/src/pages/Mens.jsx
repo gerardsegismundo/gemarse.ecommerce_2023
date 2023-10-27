@@ -8,6 +8,12 @@ import { mensShopSections } from '../assets/data/shopSecions'
 const Mens = () => {
   const trendingProducts = products.filter(product => product.isTrending && product.category === 'men')
 
+  const menCategories = [
+    ...new Set(products.filter(product => product.category === 'men').map(product => product.type))
+  ]
+
+  // CATEGORIES
+  // [ 'pants', 'shirts', 'accessories', 'jackets', 'suits', 'shorts' ]
   return (
     <div className='mens-page'>
       <ImageSlider sliderData={mensSliderData} />

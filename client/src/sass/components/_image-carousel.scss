@@ -1,15 +1,15 @@
 .image-carousel {
   position: relative;
   padding-top: 7rem;
-  background-color: $dark-gray;
+  background-color: rgba($dark-gray, 0.01);
   width: 100%;
   padding-bottom: 14rem;
   overflow: hidden;
 
   .container {
-    h3.trending {
+    h3.title {
       text-transform: uppercase;
-      color: $white;
+      color: $dark-gray;
       margin-bottom: 5rem;
     }
   }

@@ -5,7 +5,7 @@ import { ReactComponent as ChevRight } from '../assets/svg/chev-right.svg'
 import ProductCard from './ProductCard'
 import useResponsiveSlideAmount from '../utils/hooks/useResponsiveSlideAmount'
 
-const ImageCarousel = ({ carouselItems }) => {
+const ImageCarousel = ({ carouselItems, title = 'trending' }) => {
   const [isClickEnabled, setClickEnabled] = useState(true)
   const slideAmount = useResponsiveSlideAmount()
 
@@ -33,7 +33,7 @@ const ImageCarousel = ({ carouselItems }) => {
   return (
     <div className='image-carousel'>
       <div className='container'>
-        <h3 className='trending'>Trending</h3>
+        <h3 className='title'>trending</h3>
       </div>
       <div className='container'>{carouselFragment}</div>
       <button className='prev-btn' onClick={slideToPrevItem}>

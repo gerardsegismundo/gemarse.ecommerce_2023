@@ -18,9 +18,10 @@ const Header = () => {
   const location = useLocation()
 
   const isOnAccountPage = location.pathname === '/account'
+  const isOnCartPage = location.pathname === '/cart'
   const isOnSearchPage = location.pathname === '/search'
   const isOnProductPage = useMatch('/product/:product_name')
-  const isOnLightPage = isOnAccountPage || isOnProductPage || isOnSearchPage
+  const isOnLightPage = isOnAccountPage || isOnProductPage || isOnSearchPage || isOnCartPage
 
   const handleOpenCart = () => dispatch(setCartDrawerIsOpen(true))
 

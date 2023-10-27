@@ -8,9 +8,7 @@ import { womensShopSections } from '../assets/data/shopSecions'
 const Womens = () => {
   const trendingProducts = products.filter(product => product.isTrending && product.category === 'women')
 
-  const types = [...new Set(products.filter(products => products.category === 'women').map(product => product.type))]
-
-  console.log(types)
+  // const types = [...new Set(products.filter(products => products.category === 'women').map(product => product.type))]
 
   return (
     <div className='womens-page'>

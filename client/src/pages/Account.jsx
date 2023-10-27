@@ -41,7 +41,7 @@ const Account = () => {
             </div>
           </form>
           <Link>Forgot password?</Link>
-          <button className='sign-in-btn btn-light '>Sign In</button>
+          <button className='sign-in-btn btn-dark '>Sign In</button>
           <p>If you have not created an account yet, please register here:</p>
           <button className='sign-up-btn btn-dark'>Create An Account</button>
         </div>

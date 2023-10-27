@@ -32,6 +32,8 @@ const ImageSlider = ({ sliderData }) => {
         }
         setCurrentIndex(currentIndex - 1)
       }
+
+      setStartX(0)
     }
   }, 200)
 

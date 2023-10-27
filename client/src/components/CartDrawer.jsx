@@ -1,6 +1,7 @@
 import { ReactComponent as CloseIcon } from '../assets/svg/close.svg'
 import { useSelector, useDispatch } from 'react-redux'
 import CartItem from './CartItem'
+import { Link } from 'react-router-dom'
 
 import { setCartDrawerIsOpen, removeFromCart } from '../redux/actions'
 
@@ -40,8 +41,12 @@ const CartDrawer = () => {
             <h4>Total</h4>
             <p>{totalPrice > 0 && '$' + totalPrice.toFixed(2)}</p>
           </div>
-          <button className='btn-dark'>Proceed to Checkout</button>
-          <button className='btn-light'>Your Cart</button>
+          <Link to='/checkout' className='btn-dark bordered' onClick={handleClose}>
+            Proceed to Checkout
+          </Link>
+          <Link to='/cart' className='btn-light bordered' onClick={handleClose}>
+            Your Cart
+          </Link>
         </div>
       </div>
       <div className='dark-overlay' onClick={handleClose}></div>

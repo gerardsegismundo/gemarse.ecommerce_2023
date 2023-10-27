@@ -1,0 +1,19 @@
+.cart-page {
+  padding-top: 6rem;
+
+  .container {
+    ul.cart-items {
+      margin: 5rem 0;
+
+      li.item {
+        overflow: hidden;
+        height: 15rem;
+
+        img {
+          height: 10rem;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}

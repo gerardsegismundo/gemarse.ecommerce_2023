@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router'
-import { Home, Mens, Womens, Accessories, Account, Search } from './pages'
+import { Home, Mens, Womens, Accessories, Account, Search, Cart } from './pages'
 import Header from './components/Headers'
 import { CartDrawer, Footer, SubMenu, RecentlyViewed, Product } from './components'
 import { useLocation } from 'react-router-dom'
@@ -22,6 +22,7 @@ const App = () => {
         <Route exact={true} path='/womens' element={<Womens />} />
         <Route exact={true} path='/accessories' element={<Accessories />} />
         <Route exact={true} path='/search' element={<Search />} />
+        <Route exact={true} path='/cart' element={<Cart />} />
         <Route exact={true} path='/product/:product_name' element={<Product />} />
       </Routes>
 

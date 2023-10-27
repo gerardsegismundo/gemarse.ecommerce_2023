@@ -6,7 +6,6 @@ import { removeFromCart } from '../redux/actions'
 import { useDispatch } from 'react-redux'
 
 const CartItem = ({ item }) => {
-  console.log('CART ITEM RENDER')
   const itemTotalPrice = round(item.price * item.quantity, 2)
   const dispatch = useDispatch()
 

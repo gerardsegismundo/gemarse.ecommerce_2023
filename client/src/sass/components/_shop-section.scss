@@ -1,9 +1,17 @@
 .shop-section {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-
+  // display: grid;
+  display: flex;
+  // grid-template-columns: repeat(3, 1fr);
+  flex-wrap: nowrap;
+  width: 100vw;
   position: relative;
   height: 70vh;
+
+  @include media('<desktop') {
+    height: 50vh;
+    flex-direction: column;
+    height: fit-content;
+  }
 
   .shop-tile {
     position: relative;
@@ -30,6 +38,11 @@
       object-fit: cover;
       position: relative;
       transition: transform 0.3s ease-in;
+
+      @include media('<desktop') {
+        height: 50vh;
+        width: 100%;
+      }
     }
 
     .details {

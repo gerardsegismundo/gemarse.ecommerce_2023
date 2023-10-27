@@ -3,7 +3,7 @@
   grid-template-columns: repeat(3, 1fr);
 
   position: relative;
-  height: 60vh;
+  height: 70vh;
 
   .shop-tile {
     position: relative;
@@ -26,7 +26,7 @@
       top: 0;
       left: 0;
       width: 33.333vw;
-      height: 60vh;
+      height: 70vh;
       object-fit: cover;
       position: relative;
       transition: transform 0.3s ease-in;

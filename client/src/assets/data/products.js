@@ -21,7 +21,12 @@ import leggings from '../images/products/leggings.jpg'
 import longSleeve from '../images/products/long-sleeve.jpg'
 import muscleFitSweater from '../images/products/muscle-fit-sweater.jpg'
 import sportBra from '../images/products/sport-bra.jpg'
+import sportBra2 from '../images/products/sport-bra-2.jpg'
+import sportBra3 from '../images/products/sport-bra-3.jpg'
 import tacticalJogger from '../images/products/tactical-jogger.jpg'
+import woolCoat from '../images/products/wool-coat.jpg'
+import flareLeggings from '../images/products/flare-leggings.jpg'
+import vneck from '../images/products/vneck-shirt.jpg'
 
 const products = [
   {
@@ -403,6 +408,92 @@ const products = [
       L: 32,
       XL: 76
     }
+  },
+  {
+    _id: 25,
+    name: 'Wool Coat',
+    imgSrc: woolCoat,
+    color: 'Green',
+    price: 69.75,
+    category: 'women',
+    type: 'jackets',
+    isTrending: true,
+    stock: {
+      XS: 5,
+      S: 23,
+      M: 118,
+      L: 0,
+      XL: 76
+    }
+  },
+  {
+    _id: 26,
+    name: 'Flare Leggings',
+    imgSrc: flareLeggings,
+    color: 'Light Blue',
+    price: 69.75,
+    category: 'women',
+    type: 'jackets',
+    isTrending: true,
+    stock: {
+      XS: 5,
+      S: 23,
+      M: 118,
+      L: 0,
+      XL: 76
+    }
+  },
+  {
+    _id: 27,
+    name: 'sports bra',
+    imgSrc: sportBra2,
+    color: 'antique golden',
+    price: 55.99,
+    category: 'women',
+    type: 'sports bra',
+    isTrending: true,
+    stock: {
+      XS: 45,
+      S: 23,
+      M: 18,
+      L: 32,
+      XL: 32
+    }
+  },
+  {
+    _id: 28,
+    name: 'sports bra',
+    imgSrc: sportBra3,
+    color: 'navy blue',
+    price: 55.99,
+    category: 'women',
+    type: 'sports bra',
+    isTrending: true,
+    stock: {
+      XS: 45,
+      S: 23,
+      M: 18,
+      L: 32,
+      XL: 32
+    }
+  },
+  {
+    _id: 29,
+    name: 'v neck shirt',
+    imgSrc: vneck,
+    color: 'dark gray',
+    price: 55.99,
+    category: 'women',
+    type: 'shirt',
+    isTrending: true,
+    stock: {
+      XS: 45,
+      S: 23,
+      M: 18,
+      L: 32,
+      XL: 32
+    }
   }
 ]
+
 export default products

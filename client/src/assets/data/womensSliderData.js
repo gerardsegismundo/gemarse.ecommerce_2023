@@ -2,6 +2,7 @@ import leggings from '../images/womens_slider/leggings.jpg'
 import shirts from '../images/womens_slider/shirts.jpg'
 import sportsBra from '../images/womens_slider/sports-bra.jpg'
 import shorts from '../images/womens_slider/shorts.jpg'
+import jackets from '../images/womens_slider/jackets.jpg'
 
 const womensSliderDta = [
   {
@@ -40,6 +41,16 @@ const womensSliderDta = [
     buttons: [
       {
         title: 'shop sports bra',
+        link: ''
+      }
+    ]
+  },
+  {
+    label: 'jackets',
+    imgSrc: jackets,
+    buttons: [
+      {
+        title: 'shop jackets',
         link: ''
       }
     ]

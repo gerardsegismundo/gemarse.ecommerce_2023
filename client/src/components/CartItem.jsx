@@ -1,10 +1,18 @@
-import React from 'react'
+import { memo } from 'react'
 import { round } from 'lodash'
 import CustomInputNumber from './CustomInputNumber'
 import translateSize from '../utils/helpers/translateSizes'
+import { removeFromCart } from '../redux/actions'
+import { useDispatch } from 'react-redux'
 
-const CartItem = ({ item, onRemove }) => {
+const CartItem = ({ item }) => {
+  console.log('CART ITEM RENDER')
   const itemTotalPrice = round(item.price * item.quantity, 2)
+  const dispatch = useDispatch()
+
+  const handleRemove = () => {
+    dispatch(removeFromCart({ _id: item._id, itemTotalPrice, itemQuantity: item.quantity }))
+  }
 
   return (
     <div className='item' key={item._id}>
@@ -15,11 +23,11 @@ const CartItem = ({ item, onRemove }) => {
         <p className='price'>${itemTotalPrice.toFixed(2)}</p>
         <div className='d-flex'>
           <CustomInputNumber max={item.stock} itemId={item._id} value={item.quantity} />
-          <button onClick={() => onRemove(item._id, itemTotalPrice, item.quantity)}>Remove</button>
+          <button onClick={handleRemove}>Remove</button>
         </div>
       </div>
     </div>
   )
 }
 
-export default CartItem
+export default memo(CartItem)

@@ -3,8 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import CartItem from './CartItem'
 import { Link } from 'react-router-dom'
 
-import { setCartDrawerIsOpen, removeFromCart } from '../redux/actions'
-
+import { setCartDrawerIsOpen } from '../redux/actions'
 import useDisableScroll from '../utils/hooks/useDisableScroll'
 
 const CartDrawer = () => {
@@ -15,9 +14,6 @@ const CartDrawer = () => {
   const dispatch = useDispatch()
 
   const handleClose = () => dispatch(setCartDrawerIsOpen(false))
-  const handleRemove = (_id, itemTotalPrice, itemQuantity) => {
-    dispatch(removeFromCart({ _id, itemTotalPrice, itemQuantity }))
-  }
 
   useDisableScroll(cartDrawerIsOpen)
 
@@ -32,7 +28,7 @@ const CartDrawer = () => {
           {cartItems.length === 0 ? (
             <p className='is-empty'>Cart is empty</p>
           ) : (
-            cartItems.map(item => <CartItem key={item._id + item.name} item={item} onRemove={handleRemove} />)
+            cartItems.map(item => <CartItem key={item._id + item.name} item={item} />)
           )}
         </div>
 

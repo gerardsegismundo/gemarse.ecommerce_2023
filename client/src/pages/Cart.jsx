@@ -8,9 +8,11 @@ const Cart = () => {
   return (
     <div className='cart-page'>
       <div className='container'>
-        <ul className='cart-items'>
-          {cartItems &&
-            cartItems.map(item => (
+        {cartItems.length === 0 ? (
+          <p className='is-empty'>Cart is empty</p>
+        ) : (
+          <ul className='cart-items'>
+            {cartItems.map(item => (
               <>
                 <li key={item._id} className='item'>
                   <img src={item.imgSrc} alt={item.name} />
@@ -18,7 +20,8 @@ const Cart = () => {
                 </li>
               </>
             ))}
-        </ul>
+          </ul>
+        )}
       </div>
     </div>
   )

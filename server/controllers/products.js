@@ -1,13 +1,9 @@
-import TrendingProduct from '../models/TrendingProduct.js'
+import Product from '../models/Product.model.js'
 import asyncHandler from '../middleware/async.js'
 
-const getTrendingProducts = asyncHandler(async (req, res, next) => {
-  try {
-    const products = await TrendingProduct.find()
-    res.json(products)
-  } catch (error) {
-    res.status(500).json({ error: 'Internal Server Error.' })
-  }
+const getProducts = asyncHandler(async (req, res, next) => {
+  const products = await Product.find()
+  res.json(products)
 })
 
-export { getTrendingProducts }
+export { getProducts }

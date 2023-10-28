@@ -51,7 +51,6 @@ const ProductCard = ({ props, isClickEnabled, isOnSlider = false }) => {
 
       if (!isQuickAddClicked) {
         const slugifiedName = name.replace(/ /g, '-')
-        window.scrollTo(0, 0)
         navigate(`/product/${slugifiedName}`)
       }
     }

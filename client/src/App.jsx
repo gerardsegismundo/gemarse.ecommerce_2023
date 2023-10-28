@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Route, Routes } from 'react-router'
 import { Home, Mens, Womens, Accessories, Account, Search, Cart } from './pages'
 import Header from './components/Headers'
@@ -8,6 +9,10 @@ const App = () => {
   const location = useLocation()
 
   const isOnSearchPage = location.pathname === '/search'
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [location])
 
   return (
     <>

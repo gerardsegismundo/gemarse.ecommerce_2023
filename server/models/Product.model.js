@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-const trendingProductSchema = new mongoose.Schema({
+const ProductSchema = new mongoose.Schema({
   name: {
     type: String,
     required: [true, 'Please add a name.']
@@ -21,6 +21,10 @@ const trendingProductSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Please add a category.']
   },
+  isTrending: {
+    type: Boolean,
+    required: [true, 'Please add isTrending.']
+  },
   type: {
     type: String,
     required: [true, 'Please add a type.']
@@ -31,6 +35,6 @@ const trendingProductSchema = new mongoose.Schema({
   }
 })
 
-const TrendingProduct = mongoose.model('TrendingProduct', trendingProductSchema)
+const ProductModel = mongoose.model('TrendingProduct', ProductSchema)
 
-export default TrendingProduct
+export default ProductModel

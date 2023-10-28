@@ -1,8 +1,8 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { ReactComponent as SearchIcon } from '../assets/svg/search.svg'
 import { setSubMenu } from '../redux/actions'
 import { useSelector, useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 
 import products from '../assets/data/products'
 import slugify from '../utils/helpers/slugify'
@@ -11,6 +11,9 @@ const SubMenu = () => {
   const { isOpen, gender } = useSelector(state => state.ui.subMenu)
   const dispatch = useDispatch()
   const navigate = useNavigate()
+
+  const location = useLocation()
+
   const [searchVal, setSearchVal] = useState('')
 
   const featuredMens = products.filter(product => product.category === 'men').slice(0, 3)
@@ -42,6 +45,10 @@ const SubMenu = () => {
       setSearchVal('')
     }, 100)
   }
+
+  useEffect(() => {
+    closeSubMenu()
+  }, [location])
 
   return (
     <div className={`submenu ${isOpen ? ' open' : ''}`} onMouseLeave={closeSubMenu}>

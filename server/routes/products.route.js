@@ -1,8 +1,8 @@
 import express from 'express'
-import { getTrendingProducts } from '../controllers/products.js'
+import { getProducts } from '../controllers/products.js'
 
-const router = express.Router({ mergeParams: true })
+const router = express.Router()
 
-router.route('/trending-products').get(getTrendingProducts)
+router.route('/products').get(getProducts)
 
 export default router

@@ -3,35 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import findItemIndexById from '../../utils/helpers/findItemByIndex'
 
 const initialState = {
-  cartItems: [
-    {
-      _id: '9XS',
-      name: 'navy polo',
-      imgSrc: '/static/media/navy-polo.19ba410144b83bca212b.jpg',
-      price: 34.99,
-      stock: 5,
-      size: 'XS',
-      quantity: 1
-    },
-    {
-      _id: '7XL',
-      name: 'black leather jacket',
-      imgSrc: '/static/media/leather-jacket.8c22ebd36bd2386beb8d.jpg',
-      price: 154.99,
-      stock: 30,
-      size: 'XL',
-      quantity: 1
-    },
-    {
-      _id: '7L',
-      name: 'black leather jacket',
-      imgSrc: '/static/media/leather-jacket.8c22ebd36bd2386beb8d.jpg',
-      price: 154.99,
-      stock: 15,
-      size: 'L',
-      quantity: 1
-    }
-  ],
+  cartItems: [],
   totalPrice: 0,
   itemsInCart: 0
 }

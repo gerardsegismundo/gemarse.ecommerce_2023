@@ -116,6 +116,8 @@ button {
       border-radius: 50px;
       cursor: pointer;
       transition: all 0.35s ease;
+      display: flex;
+      align-items: center;
     }
 
     &-dark {

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 
 import { setCartDrawerIsOpen } from '../redux/actions'
 import useDisableScroll from '../utils/hooks/useDisableScroll'
+import PaymentButton from './PaymentButton'
 
 const CartDrawer = () => {
   const { cartDrawerIsOpen } = useSelector(state => state.ui)
@@ -37,15 +38,13 @@ const CartDrawer = () => {
             <h4>Total</h4>
             <p>{totalPrice > 0 && '$' + totalPrice.toFixed(2)}</p>
           </div>
-          <Link to='/checkout' className='btn-dark bordered' onClick={handleClose}>
-            Proceed to Checkout
-          </Link>
+          <PaymentButton />
           <Link to='/cart' className='btn-light bordered' onClick={handleClose}>
             Your Cart
           </Link>
         </div>
       </div>
-      <div className='dark-overlay' onClick={handleClose}></div>
+      <div className='dark-overlay' onClick={handleClose} />
     </div>
   )
 }

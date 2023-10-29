@@ -17,7 +17,7 @@ app.use(express.json())
 connectDB()
 
 app.use('/api/v1/products', productsRoute)
-app.use('/api/v1/stripem', stripeRoute)
+app.use('/api/v1/stripe', stripeRoute)
 
 if (process.env.NODE_ENV === 'production') {
   const __dirname = path.dirname(new URL(import.meta.url).pathname)

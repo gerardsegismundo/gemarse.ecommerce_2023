@@ -48,7 +48,7 @@ const SubMenu = () => {
 
   useEffect(() => {
     closeSubMenu()
-  }, [location])
+  }, [location, closeSubMenu])
 
   return (
     <div className={`submenu ${isOpen ? ' open' : ''}`} onMouseLeave={closeSubMenu}>

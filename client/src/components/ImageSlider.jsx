@@ -20,17 +20,21 @@ const ImageSlider = ({ sliderData }) => {
     if (isDragging) {
       const deltaX = clientX - startX
 
-      if (deltaX < 0) {
-        if (currentIndex === sliderData.length - 1) {
-          return setCurrentIndex(0)
-        }
+      const threshold = 100
 
-        setCurrentIndex(currentIndex + 1)
-      } else if (deltaX > 0) {
-        if (currentIndex === 0) {
-          return setCurrentIndex(sliderData.length - 1)
+      if (Math.abs(deltaX) > threshold) {
+        if (deltaX < 0) {
+          if (currentIndex === sliderData.length - 1) {
+            return setCurrentIndex(0)
+          }
+
+          setCurrentIndex(currentIndex + 1)
+        } else if (deltaX > 0) {
+          if (currentIndex === 0) {
+            return setCurrentIndex(sliderData.length - 1)
+          }
+          setCurrentIndex(currentIndex - 1)
         }
-        setCurrentIndex(currentIndex - 1)
       }
 
       setStartX(0)

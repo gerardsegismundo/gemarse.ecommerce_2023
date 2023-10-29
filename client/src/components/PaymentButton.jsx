@@ -8,7 +8,7 @@ const PaymentButton = () => {
     console.log(process.env)
     console.log(process.env.REACT_APP_API)
     try {
-      const response = await axios.post(`${process.env.REACT_APP_API}/stripe/create-checkout-session`, {
+      const response = await axios.post(`${process.env.REACT_APP_API}/api/v1/stripe/create-checkout-session`, {
         cartItems
       })
       console.log(response)

@@ -64,6 +64,10 @@ html {
   @include media('>LGdesktop') {
     font-size: 100%;
   }
+
+  &.disable-scrollbar {
+    overflow-y: hidden;
+  }
 }
 
 body {
@@ -75,10 +79,6 @@ body {
 
   scrollbar-width: auto;
   scrollbar-color: #efefef;
-
-  &.disable-scrollbar {
-    overflow-y: hidden;
-  }
 
   &::-webkit-scrollbar {
     width: 0.75rem;

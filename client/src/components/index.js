@@ -5,6 +5,17 @@ import Footer from './Footer'
 import NewsLetterBanner from './NewsLetterBanner'
 import SubMenu from './SubMenu'
 import RecentlyViewed from './RecentlyViewed'
-import Product from './Product'
+import SizeButton from './SizeButton'
+import Accordion from './Accordion'
 
-export { CartDrawer, ImageSlider, ImageCarousel, Footer, NewsLetterBanner, SubMenu, RecentlyViewed, Product }
+export {
+  CartDrawer,
+  ImageSlider,
+  ImageCarousel,
+  Footer,
+  NewsLetterBanner,
+  SubMenu,
+  RecentlyViewed,
+  SizeButton,
+  Accordion
+}

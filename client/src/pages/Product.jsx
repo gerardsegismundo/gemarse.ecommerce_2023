@@ -2,15 +2,13 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { addToCart, setCartDrawerIsOpen } from '../redux/actions'
-import SizeButton from './SizeButton'
+import { SizeButton, Accordion } from '../components/'
 import products from '../assets/data/products'
 import { ReactComponent as InfoIcon } from '../assets/svg/info.svg'
 import { ReactComponent as ShirtIcon } from '../assets/svg/shirt.svg'
 import { ReactComponent as TruckIcon } from '../assets/svg/truck.svg'
 
 import { materialsAndCare, deliveriesAndReturns } from '../assets/data/accordionData'
-
-import Accordion from './Accordion'
 
 const Product = () => {
   const [product, setProduct] = useState(null)
@@ -81,19 +79,21 @@ const Product = () => {
               {!isAccessories && (
                 <>
                   <p className='size'>Size:</p>
-                  {sizes.map(size => (
-                    <SizeButton
-                      key={size}
-                      size={size}
-                      isSelected={selectedSize === size}
-                      isOutOfStock={product.stock[size] === 0}
-                      onClick={handleSizeClick}
-                    />
-                  ))}
+                  <div className='sizes'>
+                    {sizes.map(size => (
+                      <SizeButton
+                        key={size}
+                        size={size}
+                        isSelected={selectedSize === size}
+                        isOutOfStock={product.stock[size] === 0}
+                        onClick={handleSizeClick}
+                      />
+                    ))}
+                  </div>
                 </>
               )}
 
-              <button className='btn-dark' onClick={handleAddToCart}>
+              <button className='btn-dark bordered' onClick={handleAddToCart}>
                 {product && isSoldOut ? 'Email me when back in stock' : 'Add to Cart'}
               </button>
               <Accordion title='description & sizing' icon={InfoIcon}>

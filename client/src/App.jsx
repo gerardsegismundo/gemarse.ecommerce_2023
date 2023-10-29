@@ -1,9 +1,10 @@
 import { useEffect } from 'react'
 import { Route, Routes } from 'react-router'
-import { Home, Mens, Womens, Accessories, Account, Search, Cart, CheckoutSuccess } from './pages'
+import { Home, Mens, Womens, Accessories, Account, Search, Cart, CheckoutSuccess, Product } from './pages'
 import Header from './components/Headers'
-import { CartDrawer, Footer, SubMenu, RecentlyViewed, Product } from './components'
+import { CartDrawer, Footer, SubMenu, RecentlyViewed } from './components'
 import { useLocation } from 'react-router-dom'
+import useViewportHeightVariable from './utils/hooks/useViewportHeightVariable '
 
 const App = () => {
   const location = useLocation()
@@ -13,6 +14,8 @@ const App = () => {
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [location])
+
+  useViewportHeightVariable()
 
   return (
     <>

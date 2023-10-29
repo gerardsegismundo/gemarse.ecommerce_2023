@@ -5,10 +5,22 @@ import findItemIndexById from '../../utils/helpers/findItemByIndex'
 const initialState = {
   cartItems: [],
   totalPrice: 0,
-  itemsInCart: 0
+  totalItemsInCart: 0
 }
 
-export const cartSlice = createSlice({
+if (localStorage.cartState) {
+  const { cartItems, totalPrice, totalItemsInCart } = JSON.parse(localStorage.getItem('cartState'))
+
+  initialState.cartItems = cartItems
+  initialState.totalPrice = parseFloat(totalPrice)
+  initialState.totalItemsInCart = parseInt(totalItemsInCart)
+}
+
+const updateLocalStorage = ({ cartItems, totalPrice, totalItemsInCart }) => {
+  localStorage.setItem('cartState', JSON.stringify({ cartItems, totalPrice, totalItemsInCart }))
+}
+
+const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
@@ -25,7 +37,9 @@ export const cartSlice = createSlice({
       }
 
       state.totalPrice = round(state.totalPrice + newItem.price, 2)
-      state.itemsInCart++
+      state.totalItemsInCart++
+
+      updateLocalStorage(state)
     },
 
     incrementItem: (state, action) => {
@@ -35,7 +49,9 @@ export const cartSlice = createSlice({
 
       state.cartItems[itemIndex].quantity += 1
       state.totalPrice = round(state.totalPrice + state.cartItems[itemIndex].price, 2)
-      state.itemsInCart++
+      state.totalItemsInCart++
+
+      updateLocalStorage(state)
     },
 
     decrementItem: (state, action) => {
@@ -45,7 +61,9 @@ export const cartSlice = createSlice({
 
       state.cartItems[itemIndex].quantity -= 1
       state.totalPrice = round(state.totalPrice - state.cartItems[itemIndex].price, 2)
-      state.itemsInCart--
+      state.totalItemsInCart--
+
+      updateLocalStorage(state)
     },
 
     removeFromCart: (state, action) => {
@@ -53,7 +71,9 @@ export const cartSlice = createSlice({
 
       state.cartItems = state.cartItems.filter(item => item._id !== _id)
       state.totalPrice = round(state.totalPrice - itemTotalPrice, 2)
-      state.itemsInCart = state.itemsInCart - itemQuantity
+      state.totalItemsInCart = state.totalItemsInCart - itemQuantity
+
+      updateLocalStorage(state)
     }
   }
 })

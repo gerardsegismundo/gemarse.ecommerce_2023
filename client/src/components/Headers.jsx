@@ -12,7 +12,7 @@ import useScrollListener from '../utils/hooks/useScrollListener'
 const Header = () => {
   const scrolled = useScrollListener()
   const dispatch = useDispatch()
-  const { itemsInCart } = useSelector(state => state.cart)
+  const { totalItemsInCart } = useSelector(state => state.cart)
   const { isOpen: subMenuIsOpen } = useSelector(state => state.ui.subMenu)
 
   const location = useLocation()
@@ -57,7 +57,7 @@ const Header = () => {
           </Link>
           <div className='cart-group'>
             <CartIcon onClick={handleOpenCart} />
-            <i className='items-in-cart'>{itemsInCart}</i>
+            <i className='items-in-cart'>{totalItemsInCart}</i>
           </div>
         </div>
       </div>

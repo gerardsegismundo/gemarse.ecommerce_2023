@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { ReactComponent as SearchIcon } from '../assets/svg/search.svg'
 import { setSubMenu } from '../redux/actions'
 import { useSelector, useDispatch } from 'react-redux'
@@ -20,8 +20,6 @@ const SubMenu = () => {
   const featuredWomens = products.filter(product => product.category === 'women').slice(0, 3)
 
   const featuredProducts = gender === 'mens' ? featuredMens : featuredWomens
-
-  const closeSubMenu = () => dispatch(setSubMenu({ isOpen: false, gender: null }))
 
   const handleOnNavigate = name => {
     const sluggifiedName = slugify(name)
@@ -45,6 +43,10 @@ const SubMenu = () => {
       setSearchVal('')
     }, 100)
   }
+
+  const closeSubMenu = useCallback(() => {
+    dispatch(setSubMenu({ isOpen: false, gender: null }))
+  }, [dispatch])
 
   useEffect(() => {
     closeSubMenu()

@@ -17,7 +17,6 @@ const Cart = () => {
               {cartItems.map(item => (
                 <CartItem key={item._id + item.name} item={item} />
               ))}
-
               <div className='subtotal'>
                 <p>
                   Subtotal:({itemsInCart} {`${itemsInCart > 1 ? ' items' : ' item'}`})&nbsp;

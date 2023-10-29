@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux'
 import CartItem from '../components/CartItem'
 import { Link } from 'react-router-dom'
+import PaymentButton from '../components/PaymentButton'
 
 const Cart = () => {
   const { cartItems, totalPrice, itemsInCart } = useSelector(state => state.cart)
@@ -25,9 +26,7 @@ const Cart = () => {
                 <p className='total-price'>{totalPrice > 0 && '$' + totalPrice.toFixed(2)}</p>
               </div>
 
-              <Link to='/checkout' className='btn-dark bordered'>
-                Proceed to Checkout
-              </Link>
+              <PaymentButton />
             </>
           )}
         </div>

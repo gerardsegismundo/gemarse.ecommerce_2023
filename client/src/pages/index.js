@@ -5,5 +5,6 @@ import Accessories from './Accessories'
 import Account from './Account'
 import Search from './Search'
 import Cart from './Cart'
+import CheckoutSuccess from './CheckoutSuccess'
 
-export { Home, Mens, Womens, Accessories, Account, Search, Cart }
+export { Home, Mens, Womens, Accessories, Account, Search, Cart, CheckoutSuccess }

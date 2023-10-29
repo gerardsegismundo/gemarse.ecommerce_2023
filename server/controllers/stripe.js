@@ -3,14 +3,14 @@ import Stripe from 'stripe'
 
 const stripe = Stripe(process.env.STRIPE_KEY)
 
-const stripeCheckout = async (req, res) => {
+const stripeCheckout = asyncHandler(async (req, res) => {
   const line_items = req.body.cartItems.map(item => {
     return {
       price_data: {
         currency: 'usd',
         product_data: {
           name: item.name,
-          images: [item.imgSrc],
+          images: [`${process.env.CLIENT_URL + item.imgSrc}`],
           description: item.desc,
 
           metadata: {
@@ -20,7 +20,7 @@ const stripeCheckout = async (req, res) => {
 
         unit_amount: item.price * 100
       },
-      quantity: item.cartQuantity
+      quantity: item.quantity
     }
   })
 
@@ -74,15 +74,12 @@ const stripeCheckout = async (req, res) => {
       enabled: true
     },
     line_items,
-    mode: 'payment'
-
-    // success_url: `${process.env.CLIENT_URL}/checkout-success`,
-    // cancel_url: `${process.env.CLIENT_URL}/`
+    mode: 'payment',
+    success_url: `${process.env.CLIENT_URL}/checkout-success`,
+    cancel_url: `${process.env.CLIENT_URL}/cart`
   })
 
-  window.location.href = process.env.CLIENT_URL
-
-  res.send({ paymentSuccessful: true })
-}
+  res.send({ url: session.url })
+})
 
 export { stripeCheckout }

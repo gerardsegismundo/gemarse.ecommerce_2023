@@ -9,7 +9,9 @@ const PaymentButton = () => {
       const response = await axios.post(`${process.env.REACT_APP_API}/stripe/create-checkout-session`, {
         cartItems
       })
-      console.log({ response })
+      if (response.data.url) {
+        window.location.href = response.data.url
+      }
     } catch (error) {
       console.log(error)
     }

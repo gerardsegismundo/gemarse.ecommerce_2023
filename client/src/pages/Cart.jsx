@@ -3,7 +3,7 @@ import CartItem from '../components/CartItem'
 import PaymentButton from '../components/PaymentButton'
 
 const Cart = () => {
-  const { cartItems, totalPrice, itemsInCart } = useSelector(state => state.cart)
+  const { cartItems, totalPrice, totalItemsInCart } = useSelector(state => state.cart)
 
   return (
     <div className='cart-page'>
@@ -19,7 +19,7 @@ const Cart = () => {
               ))}
               <div className='subtotal'>
                 <p>
-                  Subtotal:({itemsInCart} {`${itemsInCart > 1 ? ' items' : ' item'}`})&nbsp;
+                  Subtotal:({totalItemsInCart} {`${totalItemsInCart > 1 ? ' items' : ' item'}`})&nbsp;
                 </p>
                 <p className='total-price'>{totalPrice > 0 && '$' + totalPrice.toFixed(2)}</p>
               </div>

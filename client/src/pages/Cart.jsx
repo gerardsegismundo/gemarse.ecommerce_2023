@@ -1,6 +1,5 @@
 import { useSelector } from 'react-redux'
 import CartItem from '../components/CartItem'
-import { Link } from 'react-router-dom'
 import PaymentButton from '../components/PaymentButton'
 
 const Cart = () => {

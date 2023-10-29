@@ -5,13 +5,11 @@ const PaymentButton = () => {
   const { cartItems } = useSelector(state => state.cart)
 
   const handleCheckout = async () => {
-    console.log(process.env)
-    console.log(process.env.REACT_APP_API)
     try {
       const response = await axios.post(`${process.env.REACT_APP_API}/stripe/create-checkout-session`, {
         cartItems
       })
-      console.log(response)
+      console.log({ response })
     } catch (error) {
       console.log(error)
     }

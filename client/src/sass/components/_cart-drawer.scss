@@ -45,9 +45,17 @@
       padding: 2rem;
       border-bottom: 1px solid $light-gray;
 
+      @include media('<tablet') {
+        padding: 1rem 1.5rem;
+      }
+
       h4 {
         text-transform: uppercase;
         font-size: $font-medium;
+
+        @include media('<tablet') {
+          font-size: 1rem;
+        }
       }
 
       svg {
@@ -61,6 +69,10 @@
       overflow-x: hidden;
       overflow-y: scroll;
       padding: 2rem;
+
+      @include media('<tablet') {
+        padding: 1rem 1.5rem;
+      }
 
       &::-webkit-scrollbar {
         width: 0.75rem;
@@ -89,6 +101,11 @@
         align-items: center;
         overflow: hidden;
 
+        @include media('<tablet') {
+          margin-bottom: 1rem;
+          height: 10.5rem;
+        }
+
         img {
           height: 100%;
           width: 17rem;
@@ -102,10 +119,18 @@
           p {
             line-height: 1.6rem;
 
+            @include media('<tablet') {
+              line-height: 1.4rem;
+            }
+
             &.name {
               color: $dark-gray-1;
               font-size: $font-medium;
               text-transform: capitalize;
+
+              @include media('<tablet') {
+                font-size: inherit;
+              }
             }
 
             &.size {
@@ -117,6 +142,11 @@
             &.price {
               font-weight: 600;
               margin-bottom: 1rem;
+
+              @include media('<tablet') {
+                margin-bottom: 0.5rem;
+                font-size: 1rem;
+              }
             }
           }
 
@@ -124,7 +154,8 @@
             margin-left: auto;
             background-color: transparent;
             text-decoration: underline;
-            opacity: 0.8;
+            opacity: 0.7;
+            font-size: $font-small;
 
             &:hover {
               opacity: 1;
@@ -141,16 +172,28 @@
       margin-top: auto;
       border-top: 1px solid $light-gray;
 
+      @include media('<tablet') {
+        padding: 1rem 1.5rem 1.5rem 1rem;
+      }
+
       .d-flex {
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
 
         h4 {
           text-transform: uppercase;
+
+          @include media('<tablet') {
+            font-size: 1rem;
+          }
         }
 
         p {
           margin-left: auto;
           font-weight: 600;
+
+          @include media('<tablet') {
+            font-size: 1rem;
+          }
         }
       }
 
@@ -162,8 +205,12 @@
         justify-content: center;
         font-size: 1rem;
 
-        &:first-of-type {
+        &.btn-dark {
           margin-bottom: 1rem;
+        }
+
+        @include media('<phone') {
+          height: 2.5rem;
         }
       }
     }

@@ -25,24 +25,24 @@ const Header = () => {
   return (
     <header className={scrolled || subMenuIsOpen || isOnLightPage ? 'active' : ''}>
       <div className='header-container'>
-        {IsSmallerThanDesktop && (
-          <>
-            <MobileMenu />
-            <nav>
-              <ul>
-                <li className='mens' onMouseEnter={() => handleOnHover('mens')}>
-                  <Link to='/mens'>Mens</Link>
-                </li>
-                <li className='womens' onMouseEnter={() => handleOnHover('womens')}>
-                  <Link to='/womens'>Womens</Link>
-                </li>
-                <li className='accessories'>
-                  <Link to='/accessories'>Accessories</Link>
-                </li>
-              </ul>
-            </nav>
-          </>
+        {IsSmallerThanDesktop ? (
+          <MobileMenu />
+        ) : (
+          <nav>
+            <ul>
+              <li className='mens' onMouseEnter={() => handleOnHover('mens')}>
+                <Link to='/mens'>Mens</Link>
+              </li>
+              <li className='womens' onMouseEnter={() => handleOnHover('womens')}>
+                <Link to='/womens'>Womens</Link>
+              </li>
+              <li className='accessories'>
+                <Link to='/accessories'>Accessories</Link>
+              </li>
+            </ul>
+          </nav>
         )}
+
         <h1 className='brand'>
           <Link to='/' aria-label='Gemarse Homepage'>
             Gemarse

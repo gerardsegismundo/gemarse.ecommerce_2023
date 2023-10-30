@@ -1,14 +1,10 @@
 import { Link } from 'react-router-dom'
-
-import MobileMenu from './MobileMenu'
-
 import { ReactComponent as CartIcon } from '../assets/svg/cart.svg'
 import { ReactComponent as UserIcon } from '../assets/svg/user.svg'
-
 import { useDispatch, useSelector } from 'react-redux'
 import { setCartDrawerIsOpen, setSubMenu } from '../redux/actions'
-
 import { useScrollListener, useIsSmallerThanDesktop, useIsLightPage } from '../utils/hooks'
+import MobileMenu from './MobileMenu'
 
 const Header = () => {
   const dispatch = useDispatch()
@@ -29,20 +25,24 @@ const Header = () => {
   return (
     <header className={scrolled || subMenuIsOpen || isOnLightPage ? 'active' : ''}>
       <div className='header-container'>
-        {IsSmallerThanDesktop && <MobileMenu />}
-        <nav>
-          <ul>
-            <li className='mens' onMouseEnter={() => handleOnHover('mens')}>
-              <Link to='/mens'>Mens</Link>
-            </li>
-            <li className='womens' onMouseEnter={() => handleOnHover('womens')}>
-              <Link to='/womens'>Womens</Link>
-            </li>
-            <li className='accessories'>
-              <Link to='/accessories'>Accessories</Link>
-            </li>
-          </ul>
-        </nav>
+        {IsSmallerThanDesktop && (
+          <>
+            <MobileMenu />
+            <nav>
+              <ul>
+                <li className='mens' onMouseEnter={() => handleOnHover('mens')}>
+                  <Link to='/mens'>Mens</Link>
+                </li>
+                <li className='womens' onMouseEnter={() => handleOnHover('womens')}>
+                  <Link to='/womens'>Womens</Link>
+                </li>
+                <li className='accessories'>
+                  <Link to='/accessories'>Accessories</Link>
+                </li>
+              </ul>
+            </nav>
+          </>
+        )}
         <h1 className='brand'>
           <Link to='/' aria-label='Gemarse Homepage'>
             Gemarse

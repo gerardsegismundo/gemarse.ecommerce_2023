@@ -35,6 +35,6 @@ const ProductSchema = new mongoose.Schema({
   }
 })
 
-const ProductModel = mongoose.model('TrendingProduct', ProductSchema)
+const ProductModel = mongoose.model('Product', ProductSchema)
 
 export default ProductModel

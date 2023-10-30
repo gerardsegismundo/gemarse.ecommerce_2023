@@ -66,7 +66,6 @@
           width: 100%;
           object-fit: cover;
           position: relative;
-          filter: grayscale(0.75);
           transition: filter 0.5s ease;
         }
 
@@ -78,28 +77,37 @@
 
         h4 {
           margin-top: 0.5rem;
-          transform: translateX(-1.25rem);
           transition: all 0.5s ease;
 
           svg {
-            opacity: 0;
             margin-right: 0.25rem;
           }
-
-          // &:hover {
-          // }
         }
 
-        &:hover {
+        @include media('>=desktop') {
           img {
-            filter: grayscale(0);
+            filter: grayscale(0.75);
           }
 
           h4 {
-            transform: translateX(0rem);
+            transform: translateX(-1.25rem);
+          }
 
-            svg {
-              opacity: 1;
+          svg {
+            opacity: 0;
+          }
+
+          &:hover {
+            img {
+              filter: grayscale(0);
+            }
+
+            h4 {
+              transform: translateX(0rem);
+
+              svg {
+                opacity: 1;
+              }
             }
           }
         }

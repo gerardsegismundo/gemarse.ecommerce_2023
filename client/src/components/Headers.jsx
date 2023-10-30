@@ -1,27 +1,24 @@
-import React from 'react'
-import { Link, useLocation } from 'react-router-dom'
-import { useMatch } from 'react-router'
+import { Link } from 'react-router-dom'
+
 import MobileMenu from './MobileMenu'
+
 import { ReactComponent as CartIcon } from '../assets/svg/cart.svg'
 import { ReactComponent as UserIcon } from '../assets/svg/user.svg'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { setCartDrawerIsOpen, setSubMenu } from '../redux/actions'
-import useScrollListener from '../utils/hooks/useScrollListener'
+
+import { useScrollListener, useIsSmallerThanDesktop, useIsLightPage } from '../utils/hooks'
 
 const Header = () => {
-  const scrolled = useScrollListener()
   const dispatch = useDispatch()
+
+  const IsSmallerThanDesktop = useIsSmallerThanDesktop()
+  const isOnLightPage = useIsLightPage()
+  const scrolled = useScrollListener()
+
   const { totalItemsInCart } = useSelector(state => state.cart)
   const { isOpen: subMenuIsOpen } = useSelector(state => state.ui.subMenu)
-
-  const location = useLocation()
-
-  const isOnAccountPage = location.pathname === '/account'
-  const isOnCartPage = location.pathname === '/cart'
-  const isOnSearchPage = location.pathname === '/search'
-  const isOnProductPage = useMatch('/product/:product_name')
-  const isOnLightPage = isOnAccountPage || isOnProductPage || isOnSearchPage || isOnCartPage
 
   const handleOpenCart = () => dispatch(setCartDrawerIsOpen(true))
 
@@ -32,7 +29,7 @@ const Header = () => {
   return (
     <header className={scrolled || subMenuIsOpen || isOnLightPage ? 'active' : ''}>
       <div className='header-container'>
-        <MobileMenu />
+        {IsSmallerThanDesktop && <MobileMenu />}
         <nav>
           <ul>
             <li className='mens' onMouseEnter={() => handleOnHover('mens')}>

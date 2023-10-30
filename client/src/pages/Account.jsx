@@ -1,8 +1,14 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { InputGroup } from '../components/'
 
 const Account = () => {
   const [formData, setFormData] = useState({
+    email: '',
+    password: ''
+  })
+
+  const [error, setError] = useState({
     email: '',
     password: ''
   })
@@ -18,29 +24,27 @@ const Account = () => {
         <div className='sign-in'>
           <h2>Welcome back</h2>
           <form className='sign-in-form'>
-            <div className='md-input-group'>
-              <input
-                type='text'
-                name='email'
-                value={formData.email}
-                onChange={handleOnChange}
-                data-filled={formData.email.length > 0}
-              />
-              <label htmlFor='email'>Email</label>
-            </div>
-            <div className='md-input-group'>
-              <input
-                type='password'
-                name='password'
-                onChange={handleOnChange}
-                value={formData.password}
-                data-filled={formData.password.length > 0}
-                autoComplete='off'
-              />
-              <label htmlFor='password'>Password</label>
-            </div>
+            <InputGroup
+              type='email'
+              name='email'
+              label='email'
+              value={formData.email}
+              onChange={handleOnChange}
+              dataIsFilled={formData.email.length > 0}
+              error={error.email}
+            />
+
+            <InputGroup
+              type='password'
+              name='password'
+              label='password'
+              value={formData.password}
+              onChange={handleOnChange}
+              dataIsFilled={formData.password.length > 0}
+              error={error.password}
+            />
           </form>
-          <Link>Forgot password?</Link>
+          <Link to='/forgot-password'>Forgot password?</Link>
           <button className='sign-in-btn btn-dark '>Sign In</button>
           <p>If you have not created an account yet, please register here:</p>
           <button className='sign-up-btn btn-dark'>Create An Account</button>

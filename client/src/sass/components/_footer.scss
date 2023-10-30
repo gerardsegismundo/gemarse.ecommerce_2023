@@ -165,19 +165,19 @@ footer {
           align-items: center;
         }
 
-        .md-input-group {
+        .input-group {
           width: 35rem;
-          border-bottom: 1px solid $white;
-          background-color: transparent;
+          // border-bottom: 1px solid $white;
+          // background-color: transparent;
 
           @include media('<desktop') {
             max-width: 80vw;
           }
 
           input {
-            caret-color: $white;
-            color: $white;
-            background-color: transparent;
+            // caret-color: $white;
+            // color: $white;
+            // background-color: transparent;
 
             :-webkit-autofill,
             :-webkit-autofill:hover,
@@ -188,11 +188,11 @@ footer {
             }
           }
 
-          label {
-            color: $white;
-            z-index: 99999;
-            pointer-events: none;
-          }
+          // label {
+          //   color: $white;
+          //   z-index: 99999;
+          //   pointer-events: none;
+          // }
         }
 
         .radio-group {

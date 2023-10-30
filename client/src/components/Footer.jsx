@@ -52,7 +52,7 @@ const Footer = () => {
         <div className='subscribe'>
           <h4>Subscribe to our newsletter</h4>
 
-          <SubscriptionForm />
+          <SubscriptionForm onFooter />
         </div>
 
         <div className='bottom-group'>

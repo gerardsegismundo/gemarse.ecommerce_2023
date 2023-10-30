@@ -7,6 +7,7 @@ import SubMenu from './SubMenu'
 import RecentlyViewed from './RecentlyViewed'
 import SizeButton from './SizeButton'
 import Accordion from './Accordion'
+import InputGroup from './InputGroup'
 
 export {
   CartDrawer,
@@ -17,5 +18,6 @@ export {
   SubMenu,
   RecentlyViewed,
   SizeButton,
-  Accordion
+  Accordion,
+  InputGroup
 }

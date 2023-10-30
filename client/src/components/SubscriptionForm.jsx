@@ -1,8 +1,14 @@
 import React, { useState } from 'react'
 import InputRadioGroup from './InputRadioGroup'
+import InputGroup from './InputGroup'
 
-const SubscriptionForm = () => {
+const SubscriptionForm = ({ onFooter }) => {
   const [formData, setFormData] = useState({
+    email: '',
+    gender: ''
+  })
+
+  const [error, setError] = useState({
     email: '',
     gender: ''
   })
@@ -14,23 +20,21 @@ const SubscriptionForm = () => {
 
   const handleOnSubmit = e => {
     e.preventDefault()
-
-    console.log(formData)
   }
 
   return (
     <div className='subscription-form'>
-      <div className='md-input-group'>
-        <input
-          type='email'
-          name='email'
-          value={formData.email}
-          onChange={handleOnChange}
-          data-filled={formData.email.length > 0}
-          autoComplete='off'
-        />
-        <label htmlFor='email'>Enter your email</label>
-      </div>
+      <InputGroup
+        type='email'
+        name='email'
+        label='email'
+        value={formData.email}
+        onChange={handleOnChange}
+        dataIsFilled={formData.email.length > 0}
+        error={error.email}
+        light={onFooter}
+      />
+
       <div className='radio-group'>
         <p>Which products are you interested in?</p>
         <div className='flex-wrapper'>

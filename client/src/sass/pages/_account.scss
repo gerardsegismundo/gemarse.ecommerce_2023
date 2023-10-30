@@ -20,34 +20,24 @@
       form.sign-in-form {
         width: 100%;
 
-        .md-input-group {
-          display: flex;
-          flex-direction: column;
-          align-self: flex-start;
-          border-bottom: 1px solid rgba($dark-gray, 0.9);
-
+        .input-group {
           &:first-of-type {
             margin-bottom: 2rem;
-          }
-
-          input {
-            background-color: transparent;
-            border-radius: 1px;
-
-            &:focus,
-            &:active {
-              + label {
-                opacity: 0;
-              }
-            }
           }
         }
       }
 
       a {
-        margin: 0.5rem 0 7rem 0;
+        margin-bottom: 7rem;
         font-size: $font-small;
         align-self: flex-end;
+        transform: translateY(-1rem);
+        opacity: 0.6;
+        z-index: 1;
+
+        &:hover {
+          opacity: 1;
+        }
       }
 
       button {

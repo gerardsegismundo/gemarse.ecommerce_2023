@@ -24,9 +24,9 @@ const InputGroup = props => {
         onChange={onChange}
         disabled={disabled}
         autoComplete={autoComplete}
-        className={`${error ? 'input-error' : ''}${dataIsFilled ? ' is-filled' : ''}`}
+        className={dataIsFilled ? 'is-filled' : ''}
       />
-      <div className='input-line' />
+      <div className={`${error ? 'input-error ' : ''}input-line`} />
       <label htmlFor={label}>{label}</label>
       {error && <span>{error}</span>}
     </div>

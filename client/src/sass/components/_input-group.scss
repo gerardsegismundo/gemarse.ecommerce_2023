@@ -59,6 +59,14 @@
       transform: translateX(-101%);
       transition: transform 0.3s $cubic-bezier;
     }
+
+    &.input-error {
+      border-top: 2px solid rgba($dark-red, 0.1);
+
+      &:before {
+        background-color: rgba($dark-red, 0.7);
+      }
+    }
   }
 
   label {
@@ -90,6 +98,14 @@
 
     &:before {
       background-color: rgba($white, 0.7);
+    }
+
+    &.input-error {
+      border-top: 2px solid rgba($light-red, 0.1);
+
+      &:before {
+        background-color: rgba($light-red, 0.7);
+      }
     }
   }
 

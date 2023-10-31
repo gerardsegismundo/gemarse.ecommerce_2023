@@ -1,0 +1,56 @@
+.register-page {
+  padding: 15vh 0rem;
+
+  .container {
+    display: flex;
+    justify-content: center;
+
+    .sign-up {
+      padding: 5rem 0;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      width: 100%;
+      max-width: 40rem;
+
+      h2 {
+        text-align: center;
+        text-transform: capitalize;
+        margin-bottom: 7rem;
+      }
+
+      form.sign-up-form {
+        width: 100%;
+
+        .input-group {
+          &:not(:last-child) {
+            margin-bottom: 1rem;
+          }
+        }
+      }
+
+      a {
+        margin-bottom: 7rem;
+        font-size: $font-small;
+        align-self: flex-end;
+        transform: translateY(-1rem);
+        opacity: 0.6;
+        z-index: 1;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+
+      button {
+        &.sign-up-btn {
+          margin-bottom: 7rem;
+        }
+
+        &.sign-up-btn {
+          margin-top: 3rem;
+        }
+      }
+    }
+  }
+}

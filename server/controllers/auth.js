@@ -7,7 +7,7 @@ async function register(req, res) {
     const userExists = await User.findOne({ email })
 
     if (userExists) {
-      return res.status(409).json({ message: 'User already exists' })
+      return res.status(409).json({ name: 'email', message: 'User already exists.' })
     }
 
     const newUser = new User({ email, password })
@@ -17,7 +17,9 @@ async function register(req, res) {
     res.status(201).json({ message: 'User created successfully' })
   } catch (error) {
     console.error(error)
-    res.status(500).json({ message: 'Registration failed' })
+    res.status(500).json({
+      message: 'Registration failed'
+    })
   }
 }
 

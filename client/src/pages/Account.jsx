@@ -2,11 +2,12 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { InputGroup } from '../components/'
 import axios from 'axios'
+import { validateLogin } from '../utils/helpers/validations'
 
 const Account = () => {
   const [formData, setFormData] = useState({
-    email: '',
-    password: ''
+    email: 'gerardmartinsegismundo@protonmail.com',
+    password: 'Putanginamo123!!'
   })
 
   const [error, setError] = useState({
@@ -19,8 +20,11 @@ const Account = () => {
   }
 
   const handleSignIn = async e => {
+    const errors = validateLogin(formData)
+    if (errors) return setError(errors)
+
     try {
-      const response = await axios.post(`${process.env.REACT_APP_API}/auth/sign-in`, {
+      const response = await axios.post(`${process.env.REACT_APP_API}/auth/login`, {
         ...formData
       })
 

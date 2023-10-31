@@ -37,7 +37,7 @@ const Register = () => {
       console.log(response)
       // @TODO to my account page logged in account
     } catch (error) {
-      if (error.response.status === 409) {
+      if (error.response.data.name) {
         setError({ ...error, [error.response.data.name]: error.response.data.message })
       }
       console.log(error)

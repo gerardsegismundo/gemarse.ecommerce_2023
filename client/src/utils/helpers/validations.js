@@ -6,10 +6,10 @@ function validateEmail(email) {
 function validateRegister({ email, password, confirmPassword }) {
   let errors = {}
 
-  if (!password) errors.password = 'Password is required.'
-  if (!confirmPassword) errors.confirmPassword = 'Confirm password is required.'
-  if (!validateEmail(email)) errors.email = 'Invalid email.'
   if (!email) errors.email = 'Email is required.'
+  if (!password) errors.password = 'Password is required.'
+  if (!validateEmail(email)) errors.email = 'Invalid email.'
+  if (!confirmPassword) errors.confirmPassword = 'Confirm password is required.'
 
   if (password && confirmPassword && password !== confirmPassword) {
     errors.password = 'Password and confirm password did not match.'
@@ -19,4 +19,13 @@ function validateRegister({ email, password, confirmPassword }) {
   return Object.keys(errors).length === 0 ? false : errors
 }
 
-export { validateRegister }
+function validateLogin({ email, password }) {
+  let errors = {}
+
+  if (!email) errors.email = 'Email is required.'
+  if (!password) errors.password = 'Password is required.'
+
+  return Object.keys(errors).length === 0 ? false : errors
+}
+
+export { validateRegister, validateLogin }

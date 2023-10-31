@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { InputGroup } from '../components/'
+import axios from 'axios'
 
 const Account = () => {
   const [formData, setFormData] = useState({
@@ -15,15 +16,26 @@ const Account = () => {
 
   const handleOnChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
-    console.log(formData)
+  }
+
+  const handleSignIn = async e => {
+    try {
+      const response = await axios.post(`${process.env.REACT_APP_API}/auth/sign-in`, {
+        ...formData
+      })
+
+      console.log(response)
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
     <div className='account-page'>
       <div className='container'>
-        <div className='sign-in'>
+        <div className='sign-up'>
           <h2>Welcome back</h2>
-          <form className='sign-in-form'>
+          <form className='sign-up-form'>
             <InputGroup
               type='email'
               name='email'
@@ -45,7 +57,9 @@ const Account = () => {
             />
           </form>
           <Link to='/forgot-password'>Forgot password?</Link>
-          <button className='sign-in-btn btn-dark '>Sign In</button>
+          <button className='sign-up-btn btn-dark' onClick={handleSignIn}>
+            Sign In
+          </button>
           <p>If you have not created an account yet, please register here:</p>
           <button className='sign-up-btn btn-dark'>Create An Account</button>
         </div>

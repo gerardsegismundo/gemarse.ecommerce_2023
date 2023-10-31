@@ -1,5 +1,5 @@
-import axios from 'axios'
 import { useSelector } from 'react-redux'
+import axios from 'axios'
 
 const PaymentButton = () => {
   const { cartItems } = useSelector(state => state.cart)

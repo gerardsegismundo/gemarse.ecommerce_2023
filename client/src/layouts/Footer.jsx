@@ -2,7 +2,7 @@ import { ReactComponent as TwitterIcon } from '../assets/svg/twitter.svg'
 import { ReactComponent as FacebookIcon } from '../assets/svg/facebook.svg'
 import { ReactComponent as InstagramIcon } from '../assets/svg/instagram.svg'
 import FooterPayment from './FooterPayment'
-import SubscriptionForm from './SubscriptionForm'
+import SubscriptionForm from '../components/SubscriptionForm'
 
 const Footer = () => {
   return (

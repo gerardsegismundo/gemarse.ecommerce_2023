@@ -1,6 +1,8 @@
 import User from '../models/User.js'
 
 async function register(req, res) {
+  const { email, password } = req.body
+
   try {
     const userExists = await User.findOne({ email })
 

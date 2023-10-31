@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import { round } from 'lodash'
 import { removeFromCart } from '../redux/actions'
 import translateSize from '../utils/helpers/translateSizes'
-import CustomInputNumber from './CustomInputNumber'
+import CustomInputNumber from '../components/CustomInputNumber'
 
 const CartItem = ({ item }) => {
   const itemTotalPrice = round(item.price * item.quantity, 2)

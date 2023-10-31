@@ -7,6 +7,7 @@ import ExpressMongoSanitize from 'express-mongo-sanitize'
 import connectDB from './config/db.js'
 import productsRoute from './routes/products.route.js'
 import stripeRoute from './routes/stripe.route.js'
+import authRoute from './routes/auth.route.js'
 
 const app = express()
 
@@ -18,6 +19,7 @@ connectDB()
 
 app.use('/api/v1/products', productsRoute)
 app.use('/api/v1/stripe', stripeRoute)
+app.use('/api/v1/auth', authRoute)
 
 if (process.env.NODE_ENV === 'production') {
   const __dirname = path.dirname(new URL(import.meta.url).pathname)

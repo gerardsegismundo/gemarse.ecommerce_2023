@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 import { setCartDrawerIsOpen } from '../redux/actions'
 import useDisableScroll from '../utils/hooks/useDisableScroll'
-import PaymentButton from './PaymentButton'
+import PaymentButton from '../components/PaymentButton'
 
 const CartDrawer = () => {
   const { cartDrawerIsOpen } = useSelector(state => state.ui)

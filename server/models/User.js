@@ -34,13 +34,13 @@ UserSchema.methods.matchPassword = async function (enteredPassword) {
 }
 
 UserSchema.methods.getAccessToken = function () {
-  return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
+  return jwt.sign({ id: this._id }, process.env.JWT_SECRET_ACCESS, {
     expiresIn: process.env.JWT_EXPIRE_ACESS
   })
 }
 
 UserSchema.methods.getRefreshToken = function () {
-  return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
+  return jwt.sign({ id: this._id }, process.env.JWT_SECRET_REFRESH, {
     expiresIn: process.env.JWT_EXPIRE_REFRESH
   })
 }

@@ -3,8 +3,23 @@ import { Home, Mens, Womens, Accessories, Login, Search, Cart, CheckoutSuccess, 
 import { Register, Dashboard } from './pages'
 
 import Layout from './layouts/Layout'
+import { useDispatch, useSelector } from 'react-redux'
+import { useEffect } from 'react'
 
 const App = () => {
+  const { accessToken } = useSelector(state => state.auth)
+
+  const getCurrentUser = () => {
+    console.log(localStorage.accessToken)
+    // dispatch(setCurrentUser(user))
+  }
+
+  useEffect(() => {
+    if (localStorage.accessToken) {
+      getCurrentUser()
+    }
+  }, [accessToken])
+
   return (
     <Layout>
       <Routes>

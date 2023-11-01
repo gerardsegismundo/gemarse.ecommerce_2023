@@ -109,4 +109,4 @@ async function logout(req, res) {
   })
 }
 
-export { register, login, getAccessToken, getCurrentUser }
+export { register, login, getAccessToken, getCurrentUser, logout }

@@ -1,17 +1,14 @@
 import jwt from 'jsonwebtoken'
-import User from '../models/User'
+import User from '../models/User.js'
 
 async function protect(req, res, next) {
   if (!req.headers.authorization && !req.headers.authorization.startsWith('Bearer')) {
     return res.status(401).json({ message: 'Unauthorized' })
   }
-
   const token = req.headers.autorization.split(' ')[1]
-
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET_ACCESS)
     req.user = await User.findById(decoded.id)
-
     next()
   } catch (error) {
     if (error.name === 'TokenExpiredError') {

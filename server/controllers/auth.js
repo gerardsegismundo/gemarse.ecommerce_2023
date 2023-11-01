@@ -16,10 +16,7 @@ async function register(req, res) {
 
   try {
     const userExists = await User.findOne({ email })
-
-    if (userExists) {
-      return res.status(409).json({ name: 'email', message: 'User already exists.' })
-    }
+    if (userExists) return res.status(409).json({ name: 'email', message: 'User already exists.' })
 
     const newUser = new User({ email, password })
 
@@ -45,6 +42,7 @@ async function login(req, res) {
       return res.status(404).json({ name: 'email', message: 'User not found.' })
     }
 
+    console.log({ user })
     const isMatch = await user.matchPassword(password)
 
     if (!isMatch) {

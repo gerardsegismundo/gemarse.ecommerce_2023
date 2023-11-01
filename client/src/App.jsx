@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router'
-import { Home, Mens, Womens, Accessories, Account, Search, Cart, CheckoutSuccess, Product, NotFound } from './pages'
-import { Register } from './pages'
+import { Home, Mens, Womens, Accessories, Login, Search, Cart, CheckoutSuccess, Product, NotFound } from './pages'
+import { Register, Dashboard } from './pages'
 
 import Layout from './layouts/Layout'
 
@@ -9,7 +9,8 @@ const App = () => {
     <Layout>
       <Routes>
         <Route exact={true} path='/' element={<Home />} />
-        <Route exact={true} path='/account' element={<Account />} />
+        <Route exact={true} path='/account/login' element={<Login />} />
+        <Route exact={true} path='/account/dashboard' element={<Dashboard />} />
         <Route exact={true} path='/account/register' element={<Register />} />
         <Route path='/checkout-success' element={<CheckoutSuccess />} />
         <Route exact={true} path='/mens' element={<Mens />} />

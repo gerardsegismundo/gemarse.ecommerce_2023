@@ -1,12 +1,16 @@
 import User from '../models/User.js'
+import jwt from 'jsonwebtoken'
+
+const { JWT_EXPIRE_COOKIE, NODE_ENV, JWT_SECRET_REFRESH, JWT_EXPIRE_REFRESH } = process.env
 
 const cookieOptions = {
   httpOnly: true,
-  path: '/api/auth/access_token',
-  expires: new Date(Date.now() + process.env.JWT_EXPIRE_COOKIE * 24 * 60 * 60 * 1000),
-  secure: process.env.NODE_ENV === 'production' ? true : false
+  path: '/api/api/v1/auth/access_token',
+  expires: new Date(Date.now() + JWT_EXPIRE_COOKIE * 24 * 60 * 60 * 1000),
+  secure: NODE_ENV === 'production' ? true : false
 }
 
+// @route   POST  /api/v1/auth/register
 async function register(req, res) {
   const { email, password } = req.body
 
@@ -30,6 +34,7 @@ async function register(req, res) {
   }
 }
 
+//  @route  POST  /api/v1/auth/login
 async function login(req, res) {
   const { email, password } = req.body
 
@@ -57,11 +62,53 @@ async function login(req, res) {
     res.json({
       refreshToken,
       accessToken,
-      expiresIn: process.env.JWT_EXPIRE_REFRESH
+      expiresIn: JWT_EXPIRE_REFRESH
     })
   } catch (error) {
     console.log(error)
   }
 }
 
-export { register, login }
+//  @route   GET  /api/v1/auth/access_token
+async function getAccessToken(req, res) {
+  const refreshToken = req.cookies.refreshToken
+
+  if (!refreshToken) res.status(401).json({ message: 'User unauthorized.' })
+
+  jwt.verify(refreshToken, JWT_SECRET_REFRESH, async (error, claims) => {
+    if (error) return res.status(401).json({ message: error.response })
+
+    try {
+      const user = await User.findById(claims.id)
+      const accessToken = user.getAccessToken()
+      res.json({ accessToken })
+    } catch (error) {
+      console.error(error)
+      res.status(500).json({ message: 'Access token retrieval failed' })
+    }
+  })
+}
+
+//  @route   GET  /api/v1/auth/current_user
+//  @access  PRIVATE
+async function getCurrentUser(req, res) {
+  try {
+    const user = await User.findById(req.user.id).select('-password')
+
+    res.json({ user })
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({ message: 'User retrieval failed' })
+  }
+}
+
+//  @route   POST   /api/v1/auth/logout
+async function logout(req, res) {
+  res.clearCookie('refreshToken', cookieOptions)
+
+  res.status(200).json({
+    message: 'User logged out.'
+  })
+}
+
+export { register, login, getAccessToken, getCurrentUser }

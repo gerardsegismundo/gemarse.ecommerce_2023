@@ -1,12 +1,12 @@
 import User from '../models/User.js'
 import jwt from 'jsonwebtoken'
 
-const { JWT_EXPIRE_COOKIE, NODE_ENV, JWT_SECRET_ACCESS, JWT_SECRET_REFRESH, JWT_EXPIRE_REFRESH, JWT_EXPIRE_ACESS } =
+const { JWT_EXPIRE_COOKIE, NODE_ENV, JWT_SECRET_ACCESS, JWT_SECRET_REFRESH, JWT_EXPIRE_REFRESH, JWT_EXPIRE_ACCESS } =
   process.env
 
 const cookieOptions = {
   httpOnly: true,
-  path: '/api/api/v1/auth/access_token',
+  path: '/api/v1/auth/access_token',
   expires: new Date(Date.now() + JWT_EXPIRE_COOKIE * 24 * 60 * 60 * 1000),
   secure: NODE_ENV === 'production' ? true : false
 }
@@ -43,7 +43,6 @@ async function login(req, res) {
       return res.status(404).json({ name: 'email', message: 'User not found.' })
     }
 
-    console.log({ user })
     const isMatch = await user.matchPassword(password)
 
     if (!isMatch) {
@@ -54,7 +53,7 @@ async function login(req, res) {
     }
 
     const refreshToken = user.getSignedToken(JWT_SECRET_REFRESH, JWT_EXPIRE_REFRESH)
-    const accessToken = user.getSignedToken(JWT_SECRET_ACCESS, JWT_EXPIRE_ACESS)
+    const accessToken = user.getSignedToken(JWT_SECRET_ACCESS, JWT_EXPIRE_ACCESS)
 
     res.cookie('refreshToken', refreshToken, cookieOptions)
 
@@ -70,6 +69,7 @@ async function login(req, res) {
 
 //  @route   GET  /api/v1/auth/access_token
 async function getAccessToken(req, res) {
+  console.log('GET ACCESSTOKEN!!')
   const refreshToken = req.cookies.refreshToken
 
   if (!refreshToken) res.status(401).json({ message: 'User unauthorized.' })
@@ -79,7 +79,7 @@ async function getAccessToken(req, res) {
 
     try {
       const user = await User.findById(claims.id)
-      const accessToken = user.getSignedToken(JWT_SECRET_ACCESS, JWT_EXPIRE_ACESS)
+      const accessToken = user.getSignedToken(JWT_SECRET_ACCESS, JWT_EXPIRE_ACCESS)
       res.json({ accessToken })
     } catch (error) {
       console.error(error)

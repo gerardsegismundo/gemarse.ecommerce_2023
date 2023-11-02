@@ -35,15 +35,9 @@ UserSchema.methods.matchPassword = async function (enteredPassword) {
 
 UserSchema.methods.getSignedToken = function (jwtSecret, expiresIn) {
   return jwt.sign({ id: this._id }, jwtSecret, {
-    expiresIn
+    expiresIn: expiresIn * 24 * 60 * 60
   })
 }
-
-// UserSchema.methods.getRefreshToken = function () {
-//   return jwt.sign({ id: this._id }, process.env.JWT_SECRET_REFRESH, {
-//     expiresIn: process.env.JWT_EXPIRE_REFRESH
-//   })
-// }
 
 const User = mongoose.model('User', UserSchema)
 

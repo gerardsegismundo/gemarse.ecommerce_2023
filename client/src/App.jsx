@@ -5,21 +5,16 @@ import { Register, Dashboard } from './pages'
 import Layout from './layouts/Layout'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
+import { getCurrentUser } from './redux/thunk/authThunk'
 
 const App = () => {
   console.log('RENDER APP')
   const { isAuthenticated } = useSelector(state => state.auth)
   const dispatch = useDispatch()
 
-  const getCurrentUser = () => {
-    console.log('APP CURRENTUSER')
-    console.log(localStorage.accessToken)
-    // dispatch(setCurrentUser())
-  }
-
   useEffect(() => {
-    if (localStorage.accessToken) {
-      getCurrentUser()
+    if (isAuthenticated && localStorage.accessToken) {
+      dispatch(getCurrentUser())
     }
   }, [isAuthenticated, localStorage.accessToken])
 

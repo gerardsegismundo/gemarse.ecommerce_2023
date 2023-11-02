@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
+import authenticatedAxios from '../../utils/helpers/authenticatedAxios'
 
 const loginAsync = createAsyncThunk('auth/login', async ({ formData, setError }) => {
   try {
@@ -18,13 +19,22 @@ const loginAsync = createAsyncThunk('auth/login', async ({ formData, setError })
 const refreshAccessToken = createAsyncThunk('auth/access_token', async () => {
   try {
     const response = await authenticatedAxios.post('/auth/access_token')
-  } catch (error) {}
+    console.log(response)
+  } catch (error) {
+    console.log(error)
+  }
 })
 
 const getCurrentUser = createAsyncThunk('auth/current_user', async () => {
-  const response = await authenticatedAxios.post('/auth/current_user')
   try {
-  } catch (error) {}
+    const response = await authenticatedAxios.post('/auth/current_user')
+    // @TODO display current user on the dashboard
+    // and add firstname to the register data
+
+    console.log({ response })
+  } catch (error) {
+    console.log(error)
+  }
 })
 
 const logoutAsync = createAsyncThunk('auth/logout', async () => {

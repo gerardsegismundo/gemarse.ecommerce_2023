@@ -2,7 +2,7 @@ import axios from 'axios'
 import { refreshAccessToken } from '../../redux/thunk/authThunk'
 
 const authenticatedAxios = axios.create({
-  baseURL: '/auth',
+  baseURL: process.env.REACT_APP_API,
   headers: {
     'Content-Type': 'application/json'
   }
@@ -24,13 +24,13 @@ authenticatedAxios.interceptors.response.use(
 
     if (error.response.status === 403 && !originalRequest._retry) {
       originalRequest._retry = true
-
       await refreshAccessToken()
       return authenticatedAxios(originalRequest)
     }
+    console.log({ error })
 
     return Promise.reject(error)
   }
 )
 
-return authenticatedAxios
+export default authenticatedAxios

@@ -16,6 +16,7 @@ const loginAsync = createAsyncThunk('auth/login', async ({ formData, setError })
 
 const logoutAsync = createAsyncThunk('auth/logout', async () => {
   const response = await axios.post('/auth/logout')
+  console.log(response)
   return response.data
 })
 

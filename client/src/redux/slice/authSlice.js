@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { loginAsync } from '../thunk/authThunk'
-impo
+import { loginAsync, logoutAsync } from '../thunk/authThunk'
 
 const initialState = {
   isAuthenticated: false,

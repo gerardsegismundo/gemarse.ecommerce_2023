@@ -1,14 +1,14 @@
 import axios from 'axios'
-import refreshAccessToken from './refreshToken'
+import { refreshAccessToken } from '../../redux/thunk/authThunk'
 
-const authAxios = axios.create({
+const authenticatedAxios = axios.create({
   baseURL: '/auth',
   headers: {
     'Content-Type': 'application/json'
   }
 })
 
-authAxios.interceptors.request.use(
+authenticatedAxios.interceptors.request.use(
   config => {
     config.headers.authorization = `Bearer ${localStorage.getItem('accessToken')}`
 
@@ -17,7 +17,7 @@ authAxios.interceptors.request.use(
   error => Promise.reject(error)
 )
 
-authAxios.interceptors.response.use(
+authenticatedAxios.interceptors.response.use(
   res => res,
   async error => {
     const originalRequest = error.config
@@ -26,11 +26,11 @@ authAxios.interceptors.response.use(
       originalRequest._retry = true
 
       await refreshAccessToken()
-      return authAxios(originalRequest)
+      return authenticatedAxios(originalRequest)
     }
 
     return Promise.reject(error)
   }
 )
 
-return authAxios
+return authenticatedAxios

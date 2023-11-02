@@ -15,9 +15,19 @@ const loginAsync = createAsyncThunk('auth/login', async ({ formData, setError })
   }
 })
 
+const refreshAccessToken = createAsyncThunk('auth/access_token', async () => {
+  try {
+  } catch (error) {}
+})
+
+const getCurrentUser = createAsyncThunk('auth/current_user', async () => {
+  try {
+  } catch (error) {}
+})
+
 const logoutAsync = createAsyncThunk('auth/logout', async () => {
   const response = await axios.post('/auth/logout')
   return response.data
 })
 
-export { loginAsync, logoutAsync }
+export { loginAsync, logoutAsync, refreshAccessToken, getCurrentUser }

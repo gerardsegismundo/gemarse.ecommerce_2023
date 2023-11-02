@@ -7,8 +7,9 @@ const initialState = {
   user: {}
 }
 
-if (localStorage.access_token) {
+if (localStorage.accessToken) {
   initialState.accessToken = localStorage.getItem('accessToken')
+  initialState.isAuthenticated = true
 }
 
 const authSlice = createSlice({

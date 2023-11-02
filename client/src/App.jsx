@@ -7,20 +7,21 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 
 const App = () => {
-  const { accessToken } = useSelector(state => state.auth)
+  console.log('RENDER APP')
+  const { isAuthenticated } = useSelector(state => state.auth)
   const dispatch = useDispatch()
 
-  // const getCurrentUser = () => {
-  //   console.log('APP CURRENTUSER')
-  //   console.log(localStorage.accessToken)
-  //   // dispatch(setCurrentUser())
-  // }
+  const getCurrentUser = () => {
+    console.log('APP CURRENTUSER')
+    console.log(localStorage.accessToken)
+    // dispatch(setCurrentUser())
+  }
 
-  // useEffect(() => {
-  //   if (localStorage.accessToken) {
-  //     getCurrentUser()
-  //   }
-  // }, [accessToken, localStorage.accessToken])
+  useEffect(() => {
+    if (localStorage.accessToken) {
+      getCurrentUser()
+    }
+  }, [isAuthenticated, localStorage.accessToken])
 
   return (
     <Layout>

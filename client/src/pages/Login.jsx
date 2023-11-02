@@ -1,15 +1,14 @@
-import { useState, useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { InputGroup } from '../components/'
 
 import { validateLogin } from '../utils/helpers/validations'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { loginAsync, logoutAsync } from '../redux/thunk/authThunk'
+import useRedirectIfAuthenticated from '../utils/hooks/useRedirectIfAuthenticated'
 
 const Login = () => {
-  const navigate = useNavigate()
   const dispatch = useDispatch()
-  const { isAuthenticated } = useSelector(state => state.auth)
 
   const [formData, setFormData] = useState({
     email: 'gerardmartinsegismundo@protonmail.com',
@@ -21,19 +20,16 @@ const Login = () => {
     password: ''
   })
 
-  // useEffect(() => {
-  //   if (isAuthenticated) navigate('/account/dashboard')
-  // }, [isAuthenticated])
+  useRedirectIfAuthenticated()
 
   const handleOnChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
   const handleSignIn = async e => {
-    // const errors = validateLogin(formData)
-    // if (errors) return setError(errors)
+    const errors = validateLogin(formData)
+    if (errors) return setError(errors)
 
-    // dispatch(loginAsync())
     dispatch(loginAsync({ formData, setError }))
   }
 

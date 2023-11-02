@@ -1,7 +1,8 @@
 import User from '../models/User.js'
 import jwt from 'jsonwebtoken'
 
-const { JWT_EXPIRE_COOKIE, NODE_ENV, JWT_SECRET_REFRESH, JWT_EXPIRE_REFRESH } = process.env
+const { JWT_EXPIRE_COOKIE, NODE_ENV, JWT_SECRET_ACCESS, JWT_SECRET_REFRESH, JWT_EXPIRE_REFRESH, JWT_EXPIRE_ACESS } =
+  process.env
 
 const cookieOptions = {
   httpOnly: true,
@@ -52,8 +53,8 @@ async function login(req, res) {
       })
     }
 
-    const refreshToken = user.getRefreshToken()
-    const accessToken = user.getAccessToken()
+    const refreshToken = user.getSignedToken(JWT_SECRET_REFRESH, JWT_EXPIRE_REFRESH)
+    const accessToken = user.getSignedToken(JWT_SECRET_ACCESS, JWT_EXPIRE_ACESS)
 
     res.cookie('refreshToken', refreshToken, cookieOptions)
 
@@ -78,7 +79,7 @@ async function getAccessToken(req, res) {
 
     try {
       const user = await User.findById(claims.id)
-      const accessToken = user.getAccessToken()
+      const accessToken = user.getSignedToken(JWT_SECRET_ACCESS, JWT_EXPIRE_ACESS)
       res.json({ accessToken })
     } catch (error) {
       console.error(error)

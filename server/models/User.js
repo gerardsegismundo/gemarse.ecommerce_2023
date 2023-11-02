@@ -33,17 +33,17 @@ UserSchema.methods.matchPassword = async function (enteredPassword) {
   return await bcrypt.compare(enteredPassword, this.password)
 }
 
-UserSchema.methods.getAccessToken = function () {
-  return jwt.sign({ id: this._id }, process.env.JWT_SECRET_ACCESS, {
-    expiresIn: process.env.JWT_EXPIRE_ACESS
+UserSchema.methods.getSignedToken = function (jwtSecret, expiresIn) {
+  return jwt.sign({ id: this._id }, jwtSecret, {
+    expiresIn
   })
 }
 
-UserSchema.methods.getRefreshToken = function () {
-  return jwt.sign({ id: this._id }, process.env.JWT_SECRET_REFRESH, {
-    expiresIn: process.env.JWT_EXPIRE_REFRESH
-  })
-}
+// UserSchema.methods.getRefreshToken = function () {
+//   return jwt.sign({ id: this._id }, process.env.JWT_SECRET_REFRESH, {
+//     expiresIn: process.env.JWT_EXPIRE_REFRESH
+//   })
+// }
 
 const User = mongoose.model('User', UserSchema)
 

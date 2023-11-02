@@ -17,10 +17,12 @@ const loginAsync = createAsyncThunk('auth/login', async ({ formData, setError })
 
 const refreshAccessToken = createAsyncThunk('auth/access_token', async () => {
   try {
+    const response = await authenticatedAxios.post('/auth/access_token')
   } catch (error) {}
 })
 
 const getCurrentUser = createAsyncThunk('auth/current_user', async () => {
+  const response = await authenticatedAxios.post('/auth/current_user')
   try {
   } catch (error) {}
 })

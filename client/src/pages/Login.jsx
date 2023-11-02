@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { InputGroup } from '../components/'
-import axios from 'axios'
+
 import { validateLogin } from '../utils/helpers/validations'
 import { useSelector, useDispatch } from 'react-redux'
-
-import { login, logout } from '../redux/actions'
+import { loginAsync, logoutAsync } from '../redux/thunk/authThunk'
 
 const Login = () => {
   const navigate = useNavigate()
@@ -22,38 +21,23 @@ const Login = () => {
     password: ''
   })
 
-  useEffect(() => {
-    if (isAuthenticated) navigate('/account/dashboard')
-  }, [isAuthenticated])
+  // useEffect(() => {
+  //   if (isAuthenticated) navigate('/account/dashboard')
+  // }, [isAuthenticated])
 
   const handleOnChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
   const handleSignIn = async e => {
-    const errors = validateLogin(formData)
-    if (errors) return setError(errors)
+    // const errors = validateLogin(formData)
+    // if (errors) return setError(errors)
 
-    try {
-      const response = await axios.post(`/auth/login`, {
-        ...formData
-      })
-
-      //   {
-      //     "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NDFmOGNiNTk2MWZjNmY4M2QzMWM1MiIsImlhdCI6MTY5ODgyMjU5MiwiZXhwIjoxNjk4ODIyNTkyfQ.RHNK74kRoo6mgl9usmN0HZdZXB2AUnfy_Z9BskbnfFo",
-      //     "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NDFmOGNiNTk2MWZjNmY4M2QzMWM1MiIsImlhdCI6MTY5ODgyMjU5MiwiZXhwIjoxNjk4ODIyNTkyfQ.RHNK74kRoo6mgl9usmN0HZdZXB2AUnfy_Z9BskbnfFo",
-      //     "expiresIn": "30"
-      // }
-
-      console.log(response)
-      dispatch(login(response.data.accessToken))
-    } catch (error) {
-      if (error.response && error.response.data) {
-        setError({ ...error, [error.response.data.name]: error.response.data.message })
-      }
-      console.log(error)
-    }
+    // dispatch(loginAsync())
+    dispatch(loginAsync({ formData, setError }))
   }
+
+  const handleLogout = () => dispatch(logoutAsync())
 
   return (
     <div className='login-page'>
@@ -87,19 +71,7 @@ const Login = () => {
           </button>
           <p>If you have not created an account yet, please register here:</p>
           <button className='sign-up-btn btn-dark bordered'>Create An Account</button>
-          <button
-            className='btn-dark bordered'
-            onClick={async () => {
-              try {
-                const response = await axios.post('/auth/logout')
-                console.log(response)
-
-                dispatch(logout())
-              } catch (error) {
-                console.log(error)
-              }
-            }}
-          >
+          <button className='btn-dark bordered' onClick={handleLogout}>
             LOgout
           </button>
         </div>

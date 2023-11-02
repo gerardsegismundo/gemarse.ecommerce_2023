@@ -9,7 +9,6 @@ const initialState = {
 
 if (localStorage.access_token) {
   initialState.accessToken = localStorage.getItem('accessToken')
-  // initialState.isAuthenticated = true
 }
 
 const authSlice = createSlice({
@@ -24,6 +23,7 @@ const authSlice = createSlice({
         state.isAuthenticated = true
         state.accessToken = action.payload
       })
+
       .addCase(logoutAsync.fulfilled, (state, action) => {
         localStorage.removeItem('accessToken')
         state.user = {}
@@ -33,5 +33,4 @@ const authSlice = createSlice({
   }
 })
 
-export const { login, logout, setCurrentUser } = authSlice.actions
 export default authSlice.reducer

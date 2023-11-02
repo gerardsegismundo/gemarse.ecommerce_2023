@@ -4,6 +4,7 @@ import axios from 'axios'
 const loginAsync = createAsyncThunk('auth/login', async ({ formData, setError }) => {
   try {
     const response = await axios.post('/auth/login', formData)
+    console.log(response)
     return response.data.accessToken
   } catch (error) {
     if (error.response && error.response.data) {
@@ -16,7 +17,6 @@ const loginAsync = createAsyncThunk('auth/login', async ({ formData, setError })
 
 const logoutAsync = createAsyncThunk('auth/logout', async () => {
   const response = await axios.post('/auth/logout')
-  console.log(response)
   return response.data
 })
 

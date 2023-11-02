@@ -5,6 +5,8 @@ import axios from 'axios'
 import { validateLogin } from '../utils/helpers/validations'
 import { useSelector, useDispatch } from 'react-redux'
 
+import { login, logout } from '../redux/actions'
+
 const Login = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -33,7 +35,7 @@ const Login = () => {
     if (errors) return setError(errors)
 
     try {
-      const response = await axios.post(`${process.env.REACT_APP_API}/auth/login`, {
+      const response = await axios.post(`/auth/login`, {
         ...formData
       })
 
@@ -44,8 +46,11 @@ const Login = () => {
       // }
 
       console.log(response)
-      // dispatch(login())
+      dispatch(login(response.data.accessToken))
     } catch (error) {
+      if (error.response && error.response.data) {
+        setError({ ...error, [error.response.data.name]: error.response.data.message })
+      }
       console.log(error)
     }
   }
@@ -82,6 +87,21 @@ const Login = () => {
           </button>
           <p>If you have not created an account yet, please register here:</p>
           <button className='sign-up-btn btn-dark bordered'>Create An Account</button>
+          <button
+            className='btn-dark bordered'
+            onClick={async () => {
+              try {
+                const response = await axios.post('/auth/logout')
+                console.log(response)
+
+                dispatch(logout())
+              } catch (error) {
+                console.log(error)
+              }
+            }}
+          >
+            LOgout
+          </button>
         </div>
       </div>
     </div>

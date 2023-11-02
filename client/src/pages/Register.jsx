@@ -32,10 +32,11 @@ const Register = () => {
         password: formData.password
       }
 
-      const response = await axios.post(`${process.env.REACT_APP_API}/auth/register`, payload)
+      const response = await axios.post(`/auth/register`, payload)
 
       console.log(response)
       // @TODO to my account page logged in account
+      // notify user account created
     } catch (error) {
       if (error.response.data.name) {
         setError({ ...error, [error.response.data.name]: error.response.data.message })

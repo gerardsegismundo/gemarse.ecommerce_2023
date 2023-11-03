@@ -8,10 +8,10 @@ const SubscriptionForm = ({ onFooter }) => {
     gender: ''
   })
 
-  const [error, setError] = useState({
-    email: '',
-    gender: ''
-  })
+  // const [error, setError] = useState({
+  //   email: '',
+  //   gender: ''
+  // })
 
   const handleOnChange = e => {
     const { name, value } = e.target
@@ -31,7 +31,7 @@ const SubscriptionForm = ({ onFooter }) => {
         value={formData.email}
         onChange={handleOnChange}
         dataIsFilled={formData.email.length > 0}
-        error={error.email}
+        /*    error={error.email} */
         light={onFooter}
       />
 

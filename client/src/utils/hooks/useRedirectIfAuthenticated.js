@@ -8,7 +8,7 @@ function useRedirectIfAuthenticated() {
 
   useEffect(() => {
     if (isAuthenticated) navigate('/account/dashboard')
-  }, [isAuthenticated])
+  }, [isAuthenticated, navigate])
 }
 
 export default useRedirectIfAuthenticated

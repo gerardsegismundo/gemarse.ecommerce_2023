@@ -16,7 +16,7 @@ const App = () => {
     if (isAuthenticated && localStorage.accessToken) {
       dispatch(getCurrentUser())
     }
-  }, [isAuthenticated, localStorage.accessToken])
+  }, [isAuthenticated])
 
   return (
     <Layout>

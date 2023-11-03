@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
 import { InputGroup } from '../components/'
 import axios from 'axios'
 import { validateRegister } from '../utils/helpers/validations'

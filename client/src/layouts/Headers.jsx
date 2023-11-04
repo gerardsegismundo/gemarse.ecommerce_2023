@@ -49,7 +49,7 @@ const Header = () => {
           </Link>
         </h1>
         <div className='actions'>
-          <Link to='/account' aria-label='Account'>
+          <Link to='/account/login' aria-label='Account'>
             <UserIcon />
           </Link>
           <div className='cart-group'>

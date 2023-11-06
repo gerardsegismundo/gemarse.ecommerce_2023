@@ -3,7 +3,8 @@
   position: fixed;
   top: 0;
   right: 0;
-  height: 100vh;
+  // height: 100vh;
+  height: 100svh;
   width: 100vw;
 
   &[data-is-open='true'] {

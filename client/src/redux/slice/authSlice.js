@@ -19,10 +19,12 @@ const authSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(loginAsync.fulfilled, (state, action) => {
-        localStorage.setItem('accessToken', action.payload)
+        if (action.payload) {
+          localStorage.setItem('accessToken', action.payload)
 
-        state.isAuthenticated = true
-        state.accessToken = action.payload
+          state.isAuthenticated = true
+          state.accessToken = action.payload
+        }
       })
 
       .addCase(logoutAsync.fulfilled, (state, action) => {

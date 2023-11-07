@@ -221,5 +221,6 @@
     width: 100vw;
     background-color: rgba($dark-gray, 0.75);
     opacity: 1;
+    touch-action: none;
   }
 }

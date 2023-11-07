@@ -5,7 +5,7 @@ import authenticatedAxios from '../../utils/helpers/authenticatedAxios'
 const loginAsync = createAsyncThunk('auth/login', async ({ formData, setError }) => {
   try {
     const response = await axios.post('/auth/login', formData)
-    console.log(response)
+
     return response.data.accessToken
   } catch (error) {
     if (error.response && error.response.data) {

@@ -33,8 +33,6 @@ const Login = () => {
     dispatch(loginAsync({ formData, setError }))
   }
 
-  const handleLogout = () => dispatch(logoutAsync())
-
   return (
     <div className='login-page'>
       <div className='container'>
@@ -67,9 +65,6 @@ const Login = () => {
           </button>
           <p>If you have not created an account yet, please register here:</p>
           <button className='sign-up-btn btn-dark bordered'>Create An Account</button>
-          <button className='btn-dark bordered' onClick={handleLogout}>
-            LOgout
-          </button>
         </div>
       </div>
     </div>

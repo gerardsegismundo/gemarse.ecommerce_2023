@@ -4,7 +4,7 @@ import { InputGroup } from '../components/'
 
 import { validateLogin } from '../utils/helpers/validations'
 import { useDispatch } from 'react-redux'
-import { loginAsync, logoutAsync } from '../redux/thunk/authThunk'
+import { loginAsync } from '../redux/thunk/authThunk'
 import useRedirectIfAuthenticated from '../utils/hooks/useRedirectIfAuthenticated'
 
 const Login = () => {

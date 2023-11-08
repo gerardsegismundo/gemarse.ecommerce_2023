@@ -135,6 +135,8 @@ button {
       }
 
       &.bordered {
+        border: 1px solid $dark-gray;
+
         &:hover {
           border: 1px solid $dark-gray;
         }

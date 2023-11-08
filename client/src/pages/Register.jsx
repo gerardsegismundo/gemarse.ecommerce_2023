@@ -5,9 +5,9 @@ import { validateRegister } from '../utils/helpers/validations'
 
 const Register = () => {
   const [formData, setFormData] = useState({
-    email: 'gerardmartinsegismundo@protonmail.com',
-    password: 'Putanginamo123!!',
-    confirmPassword: 'Putanginamo123!!'
+    email: 'whoever@yahoo.com',
+    password: 'ohmygfoo!123!',
+    confirmPassword: 'ohmygfoo!123!'
   })
 
   const [error, setError] = useState({

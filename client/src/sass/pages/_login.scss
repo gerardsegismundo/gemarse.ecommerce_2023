@@ -27,7 +27,7 @@
         }
       }
 
-      a {
+      a:first-of-type {
         margin-bottom: 7rem;
         font-size: $font-small;
         align-self: flex-end;
@@ -40,7 +40,13 @@
         }
       }
 
+      a,
       button {
+        height: fit-content;
+        line-height: 3rem;
+        white-space: nowrap;
+        font-size: 1.15rem;
+
         &.sign-up-btn {
           margin-bottom: 7rem;
         }

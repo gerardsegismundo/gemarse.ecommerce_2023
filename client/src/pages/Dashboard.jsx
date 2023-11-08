@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
 const Dashboard = () => {
-  const { isAuthenticated } = useSelector(state => state.auth)
+  const { isAuthenticated, user } = useSelector(state => state.auth)
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
@@ -19,6 +19,7 @@ const Dashboard = () => {
     <div className='dashboard-page'>
       <div className='container'>
         <h1>Welcome to Dashboard</h1>
+        {user && user.email}
         <button className='btn-dark bordered' onClick={handleLogout}>
           Logout
         </button>

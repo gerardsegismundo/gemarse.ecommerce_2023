@@ -31,7 +31,7 @@ const getCurrentUser = createAsyncThunk('auth/current_user', async () => {
     // @TODO display current user on the dashboard
     // and add firstname to the register data
 
-    console.log({ response })
+    return response.data.user
   } catch (error) {
     console.log(error)
   }

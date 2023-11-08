@@ -11,8 +11,8 @@ const Login = () => {
   const dispatch = useDispatch()
 
   const [formData, setFormData] = useState({
-    email: 'gerardmartinsegismundo@protonmail.com',
-    password: 'Putanginamo123!!'
+    email: 'whoever@yahoo.com',
+    password: 'ohmygfoo!123!'
   })
 
   const [error, setError] = useState({
@@ -64,7 +64,9 @@ const Login = () => {
             Sign In
           </button>
           <p>If you have not created an account yet, please register here:</p>
-          <button className='sign-up-btn btn-dark bordered'>Create An Account</button>
+          <Link to='/account/register' className='sign-up-btn btn-dark bordered'>
+            Create An Account
+          </Link>
         </div>
       </div>
     </div>

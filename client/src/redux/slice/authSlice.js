@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { loginAsync, logoutAsync } from '../thunk/authThunk'
+import { getCurrentUser, loginAsync, logoutAsync } from '../thunk/authThunk'
 
 const initialState = {
   isAuthenticated: false,
@@ -25,6 +25,9 @@ const authSlice = createSlice({
           state.isAuthenticated = true
           state.accessToken = action.payload
         }
+      })
+      .addCase(getCurrentUser.fulfilled, (state, action) => {
+        state.user = action.payload
       })
 
       .addCase(logoutAsync.fulfilled, (state, action) => {

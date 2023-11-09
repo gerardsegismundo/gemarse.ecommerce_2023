@@ -1,7 +1,6 @@
 .input-group {
   height: 4rem;
   position: relative;
-  overflow: hidden;
 
   input:focus,
   input.is-filled {
@@ -12,12 +11,12 @@
         width: 100%;
         height: 2px;
         z-index: 100;
-        transform: translateX(0%);
+        transform: scaleX(100%);
       }
       + label {
-        opacity: 0;
-        font-size: 1rem;
-        transition: opacity 0.3s ease;
+        transform: translateY(-1.5rem) scale(0.65);
+        transform-origin: left;
+        transition: transform 0.3s ease;
       }
     }
   }
@@ -56,7 +55,8 @@
       top: -0.1rem;
       left: 0;
       z-index: 100;
-      transform: translateX(-101%);
+      transform: scaleX(0%);
+      transform-origin: 0%;
       transition: transform 0.3s $cubic-bezier;
     }
 
@@ -66,10 +66,15 @@
       &:before {
         background-color: rgba($dark-red, 0.7);
       }
+
+      + label {
+        color: $light-red;
+      }
     }
   }
 
   label {
+    text-align: left;
     position: absolute;
     left: 0;
     bottom: 2rem;

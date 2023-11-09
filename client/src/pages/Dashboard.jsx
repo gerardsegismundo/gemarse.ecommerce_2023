@@ -9,7 +9,10 @@ const Dashboard = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  const handleLogout = () => dispatch(logoutAsync())
+  const handleLogout = () => {
+    dispatch(logoutAsync())
+    navigate('/account/login')
+  }
 
   useEffect(() => {
     if (!isAuthenticated) navigate('/account/login')

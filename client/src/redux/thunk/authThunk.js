@@ -12,7 +12,7 @@ const loginAsync = createAsyncThunk('auth/login', async ({ formData, setError })
       setError({ ...error, [error.response.data.name]: error.response.data.message })
     }
 
-    console.log(error)
+    console.log({ loginError: error })
   }
 })
 

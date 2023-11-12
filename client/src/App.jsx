@@ -7,8 +7,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { getCurrentUser } from './redux/thunk/authThunk'
 
-import axios from 'axios'
-
 const App = () => {
   const { isAuthenticated } = useSelector(state => state.auth)
   const dispatch = useDispatch()
@@ -18,19 +16,6 @@ const App = () => {
       dispatch(getCurrentUser())
     }
   }, [isAuthenticated, dispatch])
-
-  const backend = async () => {
-    try {
-      const res = await axios.get('/')
-      console.log(res)
-    } catch (error) {
-      console.log('TAENAMO')
-    }
-  }
-
-  useEffect(() => {
-    backend()
-  })
 
   return (
     <Layout>

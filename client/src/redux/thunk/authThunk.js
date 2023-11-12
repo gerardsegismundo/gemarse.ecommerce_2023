@@ -6,6 +6,7 @@ const loginAsync = createAsyncThunk('auth/login', async ({ formData, setError })
   try {
     const response = await axios.post('/auth/login', formData)
 
+    console.log({ login: response })
     return response.data.accessToken
   } catch (error) {
     if (error.response && error.response.data) {
@@ -17,10 +18,10 @@ const loginAsync = createAsyncThunk('auth/login', async ({ formData, setError })
 })
 
 const refreshAccessToken = createAsyncThunk('auth/access_token', async () => {
+  console.log('REFRESH_TOKEN!')
   try {
     const response = await authenticatedAxios.post('/auth/access_token')
 
-    console.log('REFRESH_TOKEN')
     console.log(response.data)
   } catch (error) {
     console.log(error)

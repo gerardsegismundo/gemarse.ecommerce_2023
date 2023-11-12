@@ -17,10 +17,6 @@ app.use(express.json())
 
 connectDB()
 
-app.get('/api/v1/', (req, res) => {
-  res.send('BACKEND RESPONDED!')
-})
-
 app.use('/api/v1/products', productsRoute)
 app.use('/api/v1/stripe', stripeRoute)
 app.use('/api/v1/auth', authRoute)

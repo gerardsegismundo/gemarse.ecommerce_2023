@@ -4,7 +4,8 @@ import { getCurrentUser, loginAsync, logoutAsync } from '../thunk/authThunk'
 const initialState = {
   isAuthenticated: false,
   accessToken: '',
-  user: {}
+  user: {},
+  status: ''
 }
 
 if (localStorage.accessToken) {
@@ -24,7 +25,11 @@ const authSlice = createSlice({
 
           state.isAuthenticated = true
           state.accessToken = action.payload
+          state.status = 'success'
         }
+      })
+      .addCase(loginAsync.rejected, (state, action) => {
+        state.status = 'failed'
       })
       .addCase(getCurrentUser.fulfilled, (state, action) => {
         state.user = action.payload

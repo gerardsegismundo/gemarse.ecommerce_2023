@@ -19,7 +19,9 @@ const loginAsync = createAsyncThunk('auth/login', async ({ formData, setError })
 const refreshAccessToken = createAsyncThunk('auth/access_token', async () => {
   try {
     const response = await authenticatedAxios.post('/auth/access_token')
-    console.log(response)
+
+    console.log('REFRESH_TOKEN')
+    console.log(response.data)
   } catch (error) {
     console.log(error)
   }

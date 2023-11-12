@@ -18,7 +18,7 @@ const InputGroup = props => {
   return (
     <div className={`input-group${isValid ? '' : ' is-invalid'}${light ? ' light' : ''}`}>
       <input
-        type={type}
+        stype={type}
         name={name}
         value={value}
         onChange={onChange}

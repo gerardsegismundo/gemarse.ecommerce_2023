@@ -30,6 +30,7 @@ const authSlice = createSlice({
       })
 
       .addCase(loginAsync.pending, (state, action) => {
+        console.log({ state, action })
         state.status = 'loading'
       })
 

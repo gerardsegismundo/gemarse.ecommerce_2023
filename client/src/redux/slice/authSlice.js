@@ -29,8 +29,7 @@ const authSlice = createSlice({
         }
       })
 
-      .addCase(loginAsync.pending, (state, action) => {
-        console.log({ state, action })
+      .addCase(loginAsync.pending, () => {
         state.status = 'loading'
       })
 
@@ -51,7 +50,7 @@ const authSlice = createSlice({
         state.user = action.payload
       })
 
-      .addCase(logoutAsync.fulfilled, (state, action) => {
+      .addCase(logoutAsync.fulfilled, state => {
         localStorage.removeItem('accessToken')
         state.user = {}
         state.isAuthenticated = false

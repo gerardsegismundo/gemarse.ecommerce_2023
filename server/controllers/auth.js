@@ -69,7 +69,6 @@ async function login(req, res) {
 
 //  @route   GET  /api/v1/auth/access_token
 async function getAccessToken(req, res) {
-  console.log('GET ACCESSTOKEN!!')
   const refreshToken = req.cookies.refreshToken
 
   if (!refreshToken) res.status(401).json({ message: 'User unauthorized.' })

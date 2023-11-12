@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { getCurrentUser, loginAsync, logoutAsync } from '../thunk/authThunk'
+import { getCurrentUser, loginAsync, logoutAsync, refreshAccessToken } from '../thunk/authThunk'
 
 const initialState = {
   isAuthenticated: false,
@@ -30,6 +30,16 @@ const authSlice = createSlice({
       })
       .addCase(loginAsync.rejected, (state, action) => {
         state.status = 'failed'
+      })
+
+      .addCase(refreshAccessToken.fulfilled, (state, action) => {
+        if (action.payload) {
+          localStorage.setItem('accessToken', action.payload)
+
+          state.isAuthenticated = true
+          state.accessToken = action.payload
+          state.status = 'success'
+        }
       })
       .addCase(getCurrentUser.fulfilled, (state, action) => {
         state.user = action.payload

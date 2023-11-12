@@ -3,10 +3,12 @@ import axios from 'axios'
 import authenticatedAxios from '../../utils/helpers/authenticatedAxios'
 
 const loginAsync = createAsyncThunk('auth/login', async ({ formData, setError }) => {
+  console.log('LOGGIN IN')
   try {
     const response = await axios.post('/auth/login', formData)
 
-    console.log({ login: response })
+    console.log({ LOGGIN: response })
+
     return response.data.accessToken
   } catch (error) {
     if (error.response && error.response.data) {
@@ -22,7 +24,7 @@ const refreshAccessToken = createAsyncThunk('auth/access_token', async () => {
   try {
     const response = await authenticatedAxios.post('/auth/access_token')
 
-    console.log(response.data)
+    return response.data.accessToken
   } catch (error) {
     console.log(error)
   }
@@ -31,8 +33,6 @@ const refreshAccessToken = createAsyncThunk('auth/access_token', async () => {
 const getCurrentUser = createAsyncThunk('auth/current_user', async () => {
   try {
     const response = await authenticatedAxios.post('/auth/current_user')
-    // @TODO display current user on the dashboard
-    // and add firstname to the register data
 
     return response.data.user
   } catch (error) {

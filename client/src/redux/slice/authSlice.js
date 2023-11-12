@@ -28,6 +28,11 @@ const authSlice = createSlice({
           state.status = 'success'
         }
       })
+
+      .addCase(loginAsync.pending, (state, action) => {
+        state.status = 'loading'
+      })
+
       .addCase(loginAsync.rejected, (state, action) => {
         state.status = 'failed'
       })

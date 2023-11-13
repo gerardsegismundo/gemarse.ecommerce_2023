@@ -13,21 +13,24 @@ if (localStorage.accessToken) {
   initialState.isAuthenticated = true
 }
 
+const tokenUpdate = (state, action) => {
+  if (action.payload) {
+    localStorage.setItem('accessToken', action.payload)
+    Object.assign(state, {
+      isAuthenticated: true,
+      accessToken: action.payload,
+      status: 'success'
+    })
+  }
+}
+
 const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {},
   extraReducers: builder => {
     builder
-      .addCase(loginAsync.fulfilled, (state, action) => {
-        if (action.payload) {
-          localStorage.setItem('accessToken', action.payload)
-
-          state.isAuthenticated = true
-          state.accessToken = action.payload
-          state.status = 'success'
-        }
-      })
+      .addCase(loginAsync.fulfilled, (state, action) => tokenUpdate(state, action))
 
       .addCase(loginAsync.pending, state => {
         state.status = 'loading'
@@ -37,24 +40,18 @@ const authSlice = createSlice({
         state.status = 'failed'
       })
 
-      .addCase(refreshAccessToken.fulfilled, (state, action) => {
-        if (action.payload) {
-          localStorage.setItem('accessToken', action.payload)
-
-          state.isAuthenticated = true
-          state.accessToken = action.payload
-          state.status = 'success'
-        }
-      })
+      .addCase(refreshAccessToken.fulfilled, (state, action) => tokenUpdate(state, action))
       .addCase(getCurrentUser.fulfilled, (state, action) => {
         state.user = action.payload
       })
 
       .addCase(logoutAsync.fulfilled, state => {
         localStorage.removeItem('accessToken')
-        state.user = {}
-        state.isAuthenticated = false
-        state.accessToken = ''
+        Object.assign(state, {
+          user: {},
+          isAuthenticated: false,
+          accessToken: ''
+        })
       })
   }
 })

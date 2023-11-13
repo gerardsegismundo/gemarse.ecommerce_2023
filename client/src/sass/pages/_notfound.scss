@@ -1,0 +1,23 @@
+.not-found-page {
+  padding-top: 6rem;
+  background-color: $dark-gray;
+  color: $white;
+  height: 100svh;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+
+  h4 {
+    text-transform: uppercase;
+    margin-top: 15rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    a {
+      text-decoration: underline;
+    }
+  }
+}

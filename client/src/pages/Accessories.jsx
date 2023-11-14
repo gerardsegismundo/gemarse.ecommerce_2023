@@ -5,7 +5,6 @@ const Accessories = () => {
   return (
     <div style={{ backgroundImage: accessoriesBg }}>
       <img src={accessoriesBg} style={{ width: '100vw' }} alt='bg' />
-      <h2>Accessories</h2>
     </div>
   )
 }

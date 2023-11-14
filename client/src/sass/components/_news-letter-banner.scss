@@ -25,44 +25,4 @@
       opacity: 0.8;
     }
   }
-
-  .subscription-form {
-    width: 100%;
-    max-width: 40rem;
-
-    .md-input-group {
-      border-bottom: 1px solid $dark-gray;
-      margin-bottom: 2rem;
-      width: 100%;
-    }
-
-    p {
-      margin-bottom: 1rem;
-    }
-
-    .flex-wrapper {
-      display: flex;
-      align-items: center;
-
-      input[type='radio'] {
-        margin-right: 0.3rem;
-      }
-
-      label {
-        font-size: 0.9rem;
-
-        &:not(:last-of-type) {
-          margin-right: 1rem;
-        }
-      }
-
-      button {
-        margin-left: auto;
-        text-transform: uppercase;
-        background: transparent;
-        font-weight: 600;
-        font-size: 1.1rem;
-      }
-    }
-  }
 }

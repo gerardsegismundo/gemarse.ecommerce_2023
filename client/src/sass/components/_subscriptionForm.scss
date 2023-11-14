@@ -1,0 +1,40 @@
+.subscription-form {
+  width: 100%;
+  max-width: 40rem;
+
+  p:first-of-type {
+    margin-bottom: 1rem;
+  }
+
+  .flex-wrapper {
+    display: flex;
+    align-items: center;
+
+    input[type='radio'] {
+      margin-right: 0.3rem;
+    }
+
+    label {
+      font-size: 0.9rem;
+
+      &:not(:last-of-type) {
+        margin-right: 1rem;
+      }
+    }
+
+    button {
+      margin-left: auto;
+      text-transform: uppercase;
+      background: transparent;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+  }
+
+  p.error-msg {
+    position: absolute;
+    color: $dark-red;
+    font-size: $font-small;
+    transform: translateY(0.5rem);
+  }
+}

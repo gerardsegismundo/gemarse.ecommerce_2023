@@ -28,4 +28,4 @@ function validateLogin({ email, password }) {
   return Object.keys(errors).length === 0 ? false : errors
 }
 
-export { validateRegister, validateLogin }
+export { validateRegister, validateLogin, validateEmail }

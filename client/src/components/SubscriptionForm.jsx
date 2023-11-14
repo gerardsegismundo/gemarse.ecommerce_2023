@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import InputRadioGroup from './InputRadioGroup'
 import InputGroup from './InputGroup'
+import { validateEmail } from '../utils/helpers/validations'
 
 const SubscriptionForm = ({ onFooter }) => {
   const [formData, setFormData] = useState({
@@ -8,18 +9,33 @@ const SubscriptionForm = ({ onFooter }) => {
     gender: ''
   })
 
-  // const [error, setError] = useState({
-  //   email: '',
-  //   gender: ''
-  // })
+  const [error, setError] = useState({
+    email: '',
+    gender: ''
+  })
 
   const handleOnChange = e => {
     const { name, value } = e.target
     setFormData({ ...formData, [name]: value })
+    setError({ ...error, [name]: '' })
   }
 
   const handleOnSubmit = e => {
     e.preventDefault()
+
+    const { email, gender } = formData
+
+    if (!email || !gender) {
+      return setError({
+        ...error,
+        email: !email && 'Email is required.',
+        gender: !gender && 'Please chose a gender'
+      })
+    }
+
+    if (!validateEmail(email)) return setError({ ...error, email: 'Invalid email.' })
+
+    // *TODO SUBMIT TO BACKEND
   }
 
   return (
@@ -31,7 +47,7 @@ const SubscriptionForm = ({ onFooter }) => {
         value={formData.email}
         onChange={handleOnChange}
         dataIsFilled={formData.email.length > 0}
-        /*    error={error.email} */
+        error={error.email}
         light={onFooter}
       />
 
@@ -45,6 +61,7 @@ const SubscriptionForm = ({ onFooter }) => {
             subscribe
           </button>
         </div>
+        {error.gender && <p className='error-msg'>{error.gender}</p>}
       </div>
     </div>
   )

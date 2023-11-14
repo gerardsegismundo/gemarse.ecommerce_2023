@@ -24,7 +24,6 @@
       width: 65%;
 
       @include media('<1125px') {
-        // align-self: center;
         width: 50%;
         height: 30rem;
       }
@@ -51,6 +50,7 @@
           font-size: $font-small;
           font-weight: 600;
           color: rgba($dark-gray, 0.5);
+
           span {
             font-weight: 600;
             color: rgba($dark-gray, 1);

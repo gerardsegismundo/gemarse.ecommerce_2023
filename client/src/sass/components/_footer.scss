@@ -157,6 +157,7 @@ footer {
 
       .subscription-form {
         display: flex;
+        // min-width: 80rem;
         gap: 5vw;
 
         @include media('<desktop') {

@@ -4,6 +4,10 @@ import jwt from 'jsonwebtoken'
 
 const UserSchema = new mongoose.Schema(
   {
+    name: {
+      type: String,
+      required: [true, 'Please add a name.']
+    },
     email: {
       type: String,
       required: [true, 'Please add an email.'],

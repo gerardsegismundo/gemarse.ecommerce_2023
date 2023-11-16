@@ -1,5 +1,5 @@
 import { Route, Routes, Outlet } from 'react-router'
-import { Home, Mens, Womens, Accessories, Login, Search, Cart, CheckoutSuccess, Product, NotFound } from './pages'
+import { Home, Mens, Womens, Login, Search, Cart, CheckoutSuccess, Product, NotFound } from './pages'
 import { Register, Dashboard } from './pages'
 
 import Layout from './layouts/Layout'
@@ -25,7 +25,6 @@ const App = () => {
         <Route path='/checkout-success' element={<CheckoutSuccess />} />
         <Route exact={true} path='/mens' element={<Mens />} />
         <Route exact={true} path='/womens' element={<Womens />} />
-        <Route exact={true} path='/accessories' element={<Accessories />} />
         <Route exact={true} path='/search' element={<Search />} />
         <Route exact={true} path='/cart' element={<Cart />} />
         <Route exact={true} path='/product/:product_name' element={<Product />} />

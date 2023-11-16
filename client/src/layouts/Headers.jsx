@@ -36,9 +36,6 @@ const Header = () => {
               <li className='womens' onMouseEnter={() => handleOnHover('womens')}>
                 <Link to='/womens'>Womens</Link>
               </li>
-              <li className='accessories'>
-                <Link to='/accessories'>Accessories</Link>
-              </li>
             </ul>
           </nav>
         )}

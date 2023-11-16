@@ -3,7 +3,7 @@ import InputRadioGroup from './InputRadioGroup'
 import InputGroup from './InputGroup'
 import { validateEmail } from '../utils/helpers/validations'
 
-const SubscriptionForm = ({ onFooter }) => {
+const SubscriptionForm = ({ light }) => {
   const [formData, setFormData] = useState({
     email: '',
     gender: ''
@@ -26,14 +26,16 @@ const SubscriptionForm = ({ onFooter }) => {
     const { email, gender } = formData
 
     if (!email || !gender) {
-      return setError({
+      setError({
         ...error,
         email: !email && 'Email is required.',
         gender: !gender && 'Please chose a gender'
       })
     }
 
-    if (!validateEmail(email)) return setError({ ...error, email: 'Invalid email.' })
+    if (!validateEmail(email)) {
+      return setError({ ...error, email: 'Invalid email.' })
+    }
 
     // *TODO SUBMIT TO BACKEND
   }
@@ -48,7 +50,7 @@ const SubscriptionForm = ({ onFooter }) => {
         onChange={handleOnChange}
         dataIsFilled={formData.email.length > 0}
         error={error.email}
-        light={onFooter}
+        light={light}
       />
 
       <div className='radio-group'>

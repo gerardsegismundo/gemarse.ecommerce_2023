@@ -13,13 +13,13 @@ const cookieOptions = {
 
 // @route   POST  /api/v1/auth/register
 async function register(req, res) {
-  const { email, password } = req.body
+  const { name, email, password } = req.body
 
   try {
     const userExists = await User.findOne({ email })
     if (userExists) return res.status(409).json({ name: 'email', message: 'User already exists.' })
 
-    const newUser = new User({ email, password })
+    const newUser = new User({ name, email, password })
 
     await newUser.save()
 

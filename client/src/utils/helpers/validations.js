@@ -3,9 +3,10 @@ function validateEmail(email) {
   return re.test(email)
 }
 
-function validateRegister({ email, password, confirmPassword }) {
+function validateRegister({ name, email, password, confirmPassword }) {
   let errors = {}
 
+  if (!name) errors.name = 'Name is required.'
   if (!email) errors.email = 'Email is required.'
   if (!password) errors.password = 'Password is required.'
   if (!validateEmail(email)) errors.email = 'Invalid email.'

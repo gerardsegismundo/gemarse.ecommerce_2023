@@ -8,6 +8,7 @@ import SubMenu from './SubMenu'
 import RecentlyViewed from './RecentlyViewed'
 
 import useViewportHeightVariable from '../utils/hooks/useViewportHeightVariable'
+import MobileSubMenu from './MobileSubMenu'
 
 const Layout = ({ children }) => {
   const location = useLocation()
@@ -23,6 +24,7 @@ const Layout = ({ children }) => {
     <>
       <Headers />
       <SubMenu />
+      <MobileSubMenu />
       <CartDrawer />
       {children}
       {!isOnSearchPage && <RecentlyViewed />}

@@ -5,7 +5,8 @@ const initialState = {
   subMenu: {
     isOpen: false,
     gender: null
-  }
+  },
+  mobileSubMenuIsOpen: false
 }
 
 export const uiSlice = createSlice({
@@ -17,10 +18,14 @@ export const uiSlice = createSlice({
     },
     setSubMenu: (state, action) => {
       state.subMenu = action.payload
+    },
+    toggleMobileSubMenu: state => {
+      console.log('CLICKED!!')
+      state.mobileSubMenuIsOpen = !state.mobileSubMenuIsOpen
     }
   }
 })
 
-export const { setCartDrawerIsOpen, setSubMenu } = uiSlice.actions
+export const { setCartDrawerIsOpen, setSubMenu, toggleMobileSubMenu } = uiSlice.actions
 
 export default uiSlice.reducer

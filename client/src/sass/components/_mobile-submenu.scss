@@ -1,0 +1,30 @@
+.mobile-submenu {
+  position: fixed;
+  height: 100svh;
+  width: 35rem;
+  max-width: 80vw;
+  background-color: $white;
+  z-index: 1;
+  top: 6rem;
+
+  .navigation-buttons {
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid $dark-gray;
+
+    button {
+      padding: 1rem;
+      flex: 1;
+
+      &:disabled {
+        color: $white;
+        background-color: $dark-gray;
+        cursor: default;
+      }
+
+      &:enabled {
+        background-color: transparent;
+      }
+    }
+  }
+}

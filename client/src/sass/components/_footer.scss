@@ -157,7 +157,6 @@ footer {
 
       .subscription-form {
         display: flex;
-        // min-width: 80rem;
         gap: 5vw;
 
         @include media('<desktop') {
@@ -168,18 +167,12 @@ footer {
 
         .input-group {
           width: 35rem;
-          // border-bottom: 1px solid $white;
-          // background-color: transparent;
 
           @include media('<desktop') {
             max-width: 80vw;
           }
 
           input {
-            // caret-color: $white;
-            // color: $white;
-            // background-color: transparent;
-
             :-webkit-autofill,
             :-webkit-autofill:hover,
             :-webkit-autofill:focus,
@@ -188,12 +181,6 @@ footer {
               transition: all 5000s ease-in-out 0s;
             }
           }
-
-          // label {
-          //   color: $white;
-          //   z-index: 99999;
-          //   pointer-events: none;
-          // }
         }
 
         .radio-group {

@@ -1,7 +1,6 @@
 import Home from './Home'
 import Mens from './Mens'
 import Womens from './Womens'
-import Accessories from './Accessories'
 import Login from './Login'
 import Search from './Search'
 import Cart from './Cart'
@@ -11,4 +10,4 @@ import Register from './Register'
 import NotFound from './NotFound'
 import Dashboard from './Dashboard'
 
-export { Home, Mens, Womens, Accessories, Login, Search, Cart, CheckoutSuccess, Product, Register, NotFound, Dashboard }
+export { Home, Mens, Womens, Login, Search, Cart, CheckoutSuccess, Product, Register, NotFound, Dashboard }

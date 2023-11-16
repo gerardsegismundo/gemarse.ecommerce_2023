@@ -1,12 +1,19 @@
-import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+
+import { toggleMobileSubMenu } from '../redux/slice/uiSlice'
 
 const MobileMenu = () => {
-  const [menuIsOpen, toggleMenu] = useState(false)
-  const handleOnToggle = () => toggleMenu(!menuIsOpen)
+  const { mobileSubMenuIsOpen } = useSelector(state => state.ui)
+  const dispatch = useDispatch()
 
   return (
     <div className='mobile-menu'>
-      <input id='menu-checkbox' type='checkbox' checked={menuIsOpen} onChange={handleOnToggle} />
+      <input
+        id='menu-checkbox'
+        type='checkbox'
+        checked={mobileSubMenuIsOpen}
+        onChange={() => dispatch(toggleMobileSubMenu())}
+      />
       <label htmlFor='menu-checkbox'>
         <span className='menu-icon' />
       </label>

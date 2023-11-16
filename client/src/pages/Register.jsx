@@ -5,12 +5,14 @@ import { validateRegister } from '../utils/helpers/validations'
 
 const Register = () => {
   const [formData, setFormData] = useState({
+    name: 'johnsmith',
     email: 'whoever@yahoo.com',
     password: 'ohmygfoo!123!',
     confirmPassword: 'ohmygfoo!123!'
   })
 
   const [error, setError] = useState({
+    name: '',
     email: '',
     password: '',
     confirmPassword: ''
@@ -27,6 +29,7 @@ const Register = () => {
 
     try {
       const payload = {
+        name: formData.name,
         email: formData.email,
         password: formData.password
       }
@@ -51,6 +54,16 @@ const Register = () => {
           <h2>Create account</h2>
           <form className='sign-up-form'>
             <InputGroup
+              type='name'
+              name='name'
+              label='name'
+              value={formData.name}
+              onChange={handleOnChange}
+              dataIsFilled={formData.name.length > 0}
+              error={error.name}
+            />
+
+            <InputGroup
               type='email'
               name='email'
               label='email'
@@ -73,7 +86,7 @@ const Register = () => {
             <InputGroup
               type='password'
               name='confirmPassword'
-              label='confirmPassword'
+              label='confirm password'
               value={formData.confirmPassword}
               onChange={handleOnChange}
               dataIsFilled={formData.confirmPassword.length > 0}

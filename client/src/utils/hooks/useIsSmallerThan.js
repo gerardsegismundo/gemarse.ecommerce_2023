@@ -9,16 +9,21 @@ function useIsSmallerThan(gadget) {
 
   const breakpoint = breakpoints[gadget]
 
-  const [IsSmallerThanBreakpoint, setIsSmallerThanBreakpoint] = useState(window.innerWidth <= breakpoint)
-
-  const handleResize = () => setIsSmallerThanBreakpoint(window.innerWidth <= breakpoint)
+  const [isSmallerThanBreakpoint, setIsSmallerThanBreakpoint] = useState(window.innerWidth <= breakpoint)
 
   useEffect(() => {
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [breakpoint, handleResize])
+    const handleResize = () => {
+      setIsSmallerThanBreakpoint(window.innerWidth <= breakpoint)
+    }
 
-  return IsSmallerThanBreakpoint
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [breakpoint])
+
+  return isSmallerThanBreakpoint
 }
 
 export default useIsSmallerThan

@@ -1,13 +1,17 @@
 .mobile-submenu {
   display: flex;
   position: fixed;
-  top: 4rem;
+  top: 6rem;
   left: 0;
   height: 100svh;
   width: 100vw;
   background-color: $white;
   background-color: transparent;
   z-index: 9999;
+
+  @include media('<tablet') {
+    top: 4rem;
+  }
 
   &[data-is-open='true'] {
     .drawer {

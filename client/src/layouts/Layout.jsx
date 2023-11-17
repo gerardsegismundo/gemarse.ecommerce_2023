@@ -9,10 +9,12 @@ import RecentlyViewed from './RecentlyViewed'
 
 import useViewportHeightVariable from '../utils/hooks/useViewportHeightVariable'
 import MobileSubMenu from './MobileSubMenu'
+import { useIsSmallerThan } from '../utils/hooks'
 
 const Layout = ({ children }) => {
   const location = useLocation()
   const isOnSearchPage = location.pathname === '/search'
+  const IsSmallerThanDesktop = useIsSmallerThan('desktop')
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -23,9 +25,9 @@ const Layout = ({ children }) => {
   return (
     <>
       <Headers />
-      <SubMenu />
 
-      <MobileSubMenu />
+      <SubMenu />
+      {IsSmallerThanDesktop && <MobileSubMenu />}
       <CartDrawer />
       {children}
       {!isOnSearchPage && <RecentlyViewed />}

@@ -5,10 +5,10 @@ import { validateRegister } from '../utils/helpers/validations'
 
 const Register = () => {
   const [formData, setFormData] = useState({
-    name: 'johnsmith',
-    email: 'whoever@yahoo.com',
-    password: 'ohmygfoo!123!',
-    confirmPassword: 'ohmygfoo!123!'
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
   })
 
   const [error, setError] = useState({

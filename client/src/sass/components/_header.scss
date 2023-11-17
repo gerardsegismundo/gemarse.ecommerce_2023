@@ -8,6 +8,10 @@ header {
   background-color: rgba($dark-gray, 0);
   transition: background-color 0.5s ease;
 
+  @include media('<tablet') {
+    height: 4rem;
+  }
+
   &.active {
     background-color: rgba($dark-gray, 0.9);
   }

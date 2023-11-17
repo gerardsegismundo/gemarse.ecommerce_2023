@@ -21,13 +21,11 @@
         width: 100%;
 
         .input-group {
-          &:first-of-type {
-            margin-bottom: 2rem;
-          }
+          margin-bottom: 2rem;
         }
       }
 
-      a:first-of-type {
+      a.forgot-password {
         margin-bottom: 7rem;
         font-size: $font-small;
         align-self: flex-end;
@@ -38,6 +36,10 @@
         &:hover {
           opacity: 1;
         }
+      }
+
+      p.register-msg {
+        text-align: center;
       }
 
       a,

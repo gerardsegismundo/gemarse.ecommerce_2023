@@ -16,6 +16,39 @@ const MobileSubMenu = () => {
             Womens
           </button>
         </div>
+        <nav>
+          {isMen ? (
+            <ul>
+              <li>Shirts & Polos</li>
+              <li>Tees</li>
+              <li>Hoodies</li>
+              <li>Sweaters</li>
+              <li>Pants & Chinos</li>
+              <li>Joggers</li>
+              <li>Shorts & Swimwear</li>
+              <li>Coats & Jackets</li>
+              <li>Activewear</li>
+              <li>Underwear</li>
+              <li>Accessories</li>
+            </ul>
+          ) : (
+            <ul>
+              <li>Sweaters & Knitwear</li>
+              <li>Hoodies</li>
+              <li>Leggings</li>
+              <li>Joggers</li>
+              <li>Sport Bras</li>
+              <li>Bodysuits & Tops</li>
+              <li>Shorts & Skirts</li>
+              <li>Coats & Jackets</li>
+              <li>Activewear</li>
+              <li>Pants</li>
+              <li>Underwear</li>
+              <li>Swimwear & Beachwear</li>
+              <li>Accessories</li>
+            </ul>
+          )}
+        </nav>
       </div>
       <div className='dark-overlay'></div>
     </div>

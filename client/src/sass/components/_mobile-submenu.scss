@@ -1,7 +1,7 @@
 .mobile-submenu {
   display: flex;
   position: fixed;
-  top: 6rem;
+  top: 4rem;
   left: 0;
   height: 100svh;
   width: 100vw;
@@ -26,6 +26,7 @@
     }
 
     .dark-overlay {
+      display: none;
       opacity: 0;
       transition: opacity 0.5s $cubic-bezier;
     }
@@ -37,7 +38,6 @@
     height: 100dvh;
     width: 35rem;
     max-width: 80vw;
-    border-right: 1px solid $light-gray;
 
     .navigation-buttons {
       display: flex;
@@ -56,6 +56,16 @@
 
         &:enabled {
           background-color: transparent;
+        }
+      }
+    }
+
+    nav {
+      padding: 1rem;
+      ul {
+        li {
+          line-height: 2.5rem;
+          opacity: 0.8;
         }
       }
     }

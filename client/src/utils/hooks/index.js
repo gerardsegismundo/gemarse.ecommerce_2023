@@ -1,5 +1,5 @@
 import useScrollListener from './useScrollListener'
-import useIsSmallerThanDesktop from './useIsSmallerThanDesktop'
+import useIsSmallerThan from './useIsSmallerThan'
 import useIsLightPage from './useIsLightPage'
 
-export { useScrollListener, useIsSmallerThanDesktop, useIsLightPage }
+export { useScrollListener, useIsSmallerThan, useIsLightPage }

@@ -23,8 +23,7 @@ const Footer = () => {
             <li>Mens</li>
             <li>Womens</li>
             <li>Accessories</li>
-            <li>Gift</li>
-            <li>Card</li>
+            <li>Gift Card</li>
           </ul>
           <ul className='company'>
             <li>COMPANY</li>

@@ -15,8 +15,8 @@ const Login = () => {
   const isLoggingIn = status === 'loading'
 
   const [formData, setFormData] = useState({
-    email: 'whoever@yahoo.com',
-    password: 'ohmygfoo!123!'
+    email: '',
+    password: ''
   })
 
   const [error, setError] = useState({
@@ -63,12 +63,14 @@ const Login = () => {
               error={error.password}
             />
           </form>
-          <Link to='/forgot-password'>Forgot password?</Link>
+          {/* <Link to='/forgot-password' className='forgot-password'>
+            Forgot password?
+          </Link> */}
           <button className='sign-up-btn btn-dark bordered' onClick={handleSignIn}>
             Sign In
             {isLoggingIn && <InfinitySpin width='100' color='#4fa94d' />}
           </button>
-          <p>If you have not created an account yet, please register here:</p>
+          <p className='register-msg'>If you have not created an account yet, please register here:</p>
           <Link to='/account/register' className='sign-up-btn btn-dark bordered'>
             Create An Account
           </Link>

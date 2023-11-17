@@ -3,13 +3,13 @@ import { ReactComponent as CartIcon } from '../assets/svg/cart.svg'
 import { ReactComponent as UserIcon } from '../assets/svg/user.svg'
 import { useDispatch, useSelector } from 'react-redux'
 import { setCartDrawerIsOpen, setSubMenu } from '../redux/actions'
-import { useScrollListener, useIsSmallerThanDesktop, useIsLightPage } from '../utils/hooks'
+import { useScrollListener, useIsSmallerThan, useIsLightPage } from '../utils/hooks'
 import MobileMenu from './MobileMenu'
 
 const Header = () => {
   const dispatch = useDispatch()
 
-  const IsSmallerThanDesktop = useIsSmallerThanDesktop()
+  const IsSmallerThanDesktop = useIsSmallerThan('desktop')
   const isOnLightPage = useIsLightPage()
   const scrolled = useScrollListener()
 

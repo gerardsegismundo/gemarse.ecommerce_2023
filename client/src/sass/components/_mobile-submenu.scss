@@ -1,30 +1,74 @@
 .mobile-submenu {
+  display: flex;
   position: fixed;
-  height: 100svh;
-  width: 35rem;
-  max-width: 80vw;
-  background-color: $white;
-  z-index: 1;
   top: 6rem;
+  left: 0;
+  height: 100svh;
+  width: 100vw;
+  background-color: $white;
+  background-color: transparent;
+  z-index: 9999;
 
-  .navigation-buttons {
-    display: flex;
-    width: 100%;
-    border-bottom: 1px solid $dark-gray;
+  &[data-is-open='true'] {
+    .drawer {
+      transform: translateX(0rem);
+      transition: transform 0.8s $cubic-bezier;
+    }
+  }
 
-    button {
-      padding: 1rem;
-      flex: 1;
+  &[data-is-open='false'] {
+    height: 0vh;
+    width: 0vw;
 
-      &:disabled {
-        color: $white;
-        background-color: $dark-gray;
-        cursor: default;
-      }
+    .drawer {
+      transform: translateX(-35rem);
+      transition: transform 0.8s $cubic-bezier;
+    }
 
-      &:enabled {
-        background-color: transparent;
+    .dark-overlay {
+      opacity: 0;
+      transition: opacity 0.5s $cubic-bezier;
+    }
+  }
+
+  .drawer {
+    z-index: 2;
+    background-color: $white;
+    height: 100dvh;
+    width: 35rem;
+    max-width: 80vw;
+    border-right: 1px solid $light-gray;
+
+    .navigation-buttons {
+      display: flex;
+      width: 100%;
+      border-bottom: 1px solid $light-gray;
+
+      button {
+        padding: 1rem;
+        flex: 1;
+
+        &:disabled {
+          color: $white;
+          background-color: $dark-gray;
+          cursor: default;
+        }
+
+        &:enabled {
+          background-color: transparent;
+        }
       }
     }
+  }
+
+  .dark-overlay {
+    // flex: 1;
+    z-index: 1;
+    position: absolute;
+    height: 100dvh;
+    width: 100vw;
+    background-color: rgba($dark-gray, 0.75);
+    opacity: 1;
+    touch-action: none;
   }
 }

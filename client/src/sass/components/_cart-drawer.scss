@@ -1,10 +1,10 @@
 .cart-drawer {
-  z-index: 9999;
   position: fixed;
   top: 0;
   right: 0;
   height: 100dvh;
   width: 100vw;
+  z-index: 9999;
 
   &[data-is-open='true'] {
     .drawer {
@@ -217,7 +217,7 @@
   }
 
   .dark-overlay {
-    height: 100vh;
+    height: 100dvh;
     width: 100vw;
     background-color: rgba($dark-gray, 0.75);
     opacity: 1;

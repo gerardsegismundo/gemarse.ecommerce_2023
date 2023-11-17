@@ -20,7 +20,6 @@ export const uiSlice = createSlice({
       state.subMenu = action.payload
     },
     toggleMobileSubMenu: state => {
-      console.log('CLICKED!!')
       state.mobileSubMenuIsOpen = !state.mobileSubMenuIsOpen
     }
   }

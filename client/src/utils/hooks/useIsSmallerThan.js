@@ -16,7 +16,7 @@ function useIsSmallerThan(gadget) {
   useEffect(() => {
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
-  }, [breakpoint])
+  }, [breakpoint, handleResize])
 
   return IsSmallerThanBreakpoint
 }

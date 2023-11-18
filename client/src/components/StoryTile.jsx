@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { ReactComponent as ChevronRightIcon } from '../assets/svg/chev-right.svg'
 
-const StoryTile = ({ to, imgSrc, message, title, className }) => {
+const StoryTile = ({ to, imgSrc, message, title }) => {
   return (
     <Link to={to}>
       <img src={imgSrc} alt='about us' />

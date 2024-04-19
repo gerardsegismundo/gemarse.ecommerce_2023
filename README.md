@@ -6,9 +6,17 @@ Gemarse is a full-stack ecommerce website built using the MERN (MongoDB, Express
 
 # Screenshots
 
-![image](https://github.com/gerardsegismundo/gemarse.ecommerce_2023/assets/30321279/6310fd25-26fa-45a2-a36a-b49168eafd1b)
-![image](https://github.com/gerardsegismundo/gemarse.ecommerce_2023/assets/30321279/1377d9bd-b323-4e17-9823-d41cd2ab3780)
-![image](https://github.com/gerardsegismundo/gemarse.ecommerce_2023/assets/30321279/f53d65a0-e1e3-4a1f-9ec4-03b9e8a26924)
+### Cart
+
+![Cart](https://github.com/gerardsegismundo/gemarse.ecommerce_2023/assets/30321279/6310fd25-26fa-45a2-a36a-b49168eafd1b)
+
+### Navigation
+
+![Navigation](https://github.com/gerardsegismundo/gemarse.ecommerce_2023/assets/30321279/1377d9bd-b323-4e17-9823-d41cd2ab3780)
+
+### Mobile Landing Page
+
+![Mobile Landing Page](https://github.com/gerardsegismundo/gemarse.ecommerce_2023/assets/30321279/f53d65a0-e1e3-4a1f-9ec4-03b9e8a26924)
 
 ## Table of Contents
 

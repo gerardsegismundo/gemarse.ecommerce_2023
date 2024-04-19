@@ -2,7 +2,7 @@
 
 Gemarse is a full-stack ecommerce website built using the MERN (MongoDB, Express.js, React.js, Node.js) stack. It enables users to browse, search, and purchase products online securely.
 
-[Live Version](https://gemarseecommerce2023-production.up.railway.app/)
+[Live Version](https://gemarse.onrender.com/)
 
 # Screenshots
 
